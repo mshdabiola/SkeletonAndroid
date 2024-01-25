@@ -5,6 +5,7 @@ coreKtx = "1.12.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
+leakcanaryAndroid = "3.0-alpha-1"
 lifecycleRuntimeKtx = "2.7.0"
 androidxSavedState = "1.2.1"
 
@@ -98,6 +99,7 @@ androidx-material3-windowSizeClass = { group = "androidx.compose.material3", nam
 
 androidx-dataStore-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidxDataStore" }
 androidx-dataStore-preferences = { module = "androidx.datastore:datastore-preferences-android", version.ref = "androidxDataStore" }
+leakcanary-android = { module = "com.squareup.leakcanary:leakcanary-android", version.ref = "leakcanaryAndroid" }
 room-compiler = "androidx.room:room-compiler:2.6.1"
 room-ktx = { module = "androidx.room:room-ktx", version.ref = "room" }
 room-runtime = { module = "androidx.room:room-runtime", version.ref = "room" }

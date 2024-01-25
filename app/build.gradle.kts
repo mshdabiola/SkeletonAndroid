@@ -89,6 +89,8 @@ dependencies {
     implementation(libs.androidx.core.splashscreen)
 
     implementation(libs.timber)
+    debugImplementation (libs.leakcanary.android)
+
 }
 //
 //    implementation(libs.androidx.core.ktx)
