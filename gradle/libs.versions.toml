@@ -52,9 +52,14 @@ kotlinxCoroutines = "1.7.3"
 kotlinxDatetime = "0.5.0"
 kotlinxSerializationJson = "1.6.2"
 
+playGame = "19.0.0"
+playReview = "2.0.1"
+playUpdate = "2.1.0"
+playCoroutine = "1.7.3"
 firebaseBom = "32.7.1"
 firebaseAnalytics = "21.2.2"
 firebaseCrashlyticsKts = "18.3.6"
+
 firebaseCrashylyticsPlugins = "2.9.9"
 firebasePerfPlugin = "1.4.2"
 googleServicePlugin = "4.4.0"
@@ -85,11 +90,11 @@ androidx-ui = { group = "androidx.compose.ui", name = "ui" }
 androidx-ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 androidx-ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling" }
 androidx-ui-tooling-preview = { group = "androidx.compose.ui", name = "ui-tooling-preview" }
-androidx-ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
+androidx-ui-testManifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 androidx-ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" }
 androidx-material3 = { group = "androidx.compose.material3", name = "material3" }
-androidx-compose-material-iconsExtended = { group = "androidx.compose.material", name="material-icons-extended"}
-#androidx-compose-material3-windowSizeClass = { module = "androidx.compose.material3:material3-window-size-class", version.ref = "androidxComposeMaterial3" }
+androidx-material-iconsExtended = { group = "androidx.compose.material", name="material-icons-extended"}
+androidx-material3-windowSizeClass = { group = "androidx.compose.material3", name="material3-window-size-class"}
 
 androidx-dataStore-core = { module = "androidx.datastore:datastore-preferences-core", version.ref = "androidxDataStore" }
 androidx-dataStore-preferences = { module = "androidx.datastore:datastore-preferences-android", version.ref = "androidxDataStore" }
@@ -117,6 +122,7 @@ androidx-navigation-compose = { module = "androidx.navigation:navigation-compose
 androidx-navigation-testing = { module = "androidx.navigation:navigation-testing", version.ref = "androidxNavigation" }
 
 androidx-profileinstaller = { module = "androidx.profileinstaller:profileinstaller", version.ref = "androidxProfileinstaller" }
+androidx-benchmark-macro = { module = "androidx.benchmark:benchmark-macro-junit4", version.ref = "androidxMacroBenchmark" }
 
 androidx-work-ktx = { module = "androidx.work:work-runtime-ktx", version.ref = "androidxWork" }
 androidx-work-testing = { module = "androidx.work:work-testing", version.ref = "androidxWork" }
@@ -128,9 +134,20 @@ coil-kt-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
 firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
 firebase-cloud-messaging = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
+firebase-remoteconfig = { group = "com.google.firebase", name = "firebase-config-ktx" }
+firebase-message = { group = "com.google.firebase", name = "firebase-inappmessaging-display-ktx" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
 firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
 firebase-crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashylyticsPlugins" }
 firebase-performance = { group = "com.google.firebase", name = "firebase-perf-ktx" }
+
+play-game = { module = "com.google.android.gms:play-services-games-v2", version.ref = "playGame" }
+play-review = { module = "com.google.android.play:review", version.ref = "playReview" }
+play-review-kts = { module = "com.google.android.play:review-ktx", version.ref = "playReview" }
+play-update = { module = "com.google.android.play:app-update", version.ref = "playUpdate" }
+play-update-kts = { module = "com.google.android.play:app-update-ktx", version.ref = "playUpdate" }
+play-coroutine = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-play-services", version.ref = "playCoroutine" }
+
 
 kotlinx-collection-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinxCollectionImmutable" }
 kotlinx-coroutines-android = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-android", version.ref = "kotlinxCoroutines" }
