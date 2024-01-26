@@ -14,47 +14,46 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.nowinandroid.core.datastore
+package com.mshdabiola.datastore.di
 
+import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
-import com.google.samples.apps.nowinandroid.core.datastore.UserPreferences
-import com.google.samples.apps.nowinandroid.core.datastore.di.DataStoreModule
+import androidx.datastore.dataStoreFile
+import com.mshdabiola.datastore.IntToStringIdsMigration
+import com.mshdabiola.datastore.UserPreferences
+import com.mshdabiola.datastore.UserPreferencesSerializer
+import com.google.samples.apps.nowinandroid.core.network.Dispatcher
+import com.google.samples.apps.nowinandroid.core.network.NiaDispatchers.IO
 import com.google.samples.apps.nowinandroid.core.network.di.ApplicationScope
 import dagger.Module
 import dagger.Provides
+import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
-import dagger.hilt.testing.TestInstallIn
+import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.CoroutineScope
-import org.junit.rules.TemporaryFolder
 import javax.inject.Singleton
 
 @Module
-@TestInstallIn(
-    components = [SingletonComponent::class],
-    replaces = [DataStoreModule::class],
-)
-internal object TestDataStoreModule {
+@InstallIn(SingletonComponent::class)
+object DataStoreModule {
 
     @Provides
     @Singleton
-    fun providesUserPreferencesDataStore(
+    internal fun providesUserPreferencesDataStore(
+        @ApplicationContext context: Context,
+        @Dispatcher(IO) ioDispatcher: CoroutineDispatcher,
         @ApplicationScope scope: CoroutineScope,
         userPreferencesSerializer: UserPreferencesSerializer,
-        tmpFolder: TemporaryFolder,
     ): DataStore<UserPreferences> =
-        tmpFolder.testUserPreferencesDataStore(
-            coroutineScope = scope,
-            userPreferencesSerializer = userPreferencesSerializer,
-        )
-}
-
-fun TemporaryFolder.testUserPreferencesDataStore(
-    coroutineScope: CoroutineScope,
-    userPreferencesSerializer: UserPreferencesSerializer = UserPreferencesSerializer(),
-) = DataStoreFactory.create(
-    serializer = userPreferencesSerializer,
-    scope = coroutineScope,
-) {
-    newFile("user_preferences_test.pb")
+        DataStoreFactory.create(
+            serializer = userPreferencesSerializer,
+            scope = CoroutineScope(scope.coroutineContext + ioDispatcher),
+            migrations = listOf(
+                IntToStringIdsMigration,
+            ),
+        ) {
+            context.dataStoreFile("user_preferences.pb")
+        }
 }

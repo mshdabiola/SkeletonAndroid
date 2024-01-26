@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.google.samples.apps.nowinandroid.core.datastore
+package com.mshdabiola.datastore
 
 import android.util.Log
 import androidx.datastore.core.DataStore
