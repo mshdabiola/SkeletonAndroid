@@ -22,4 +22,9 @@ dependencyResolutionManagement {
 
 rootProject.name = "SkeletonAndroid"
 include(":app")
+include(":modules:datastore")
+include(":modules:model")
+include(":modules:common")
+
+
  

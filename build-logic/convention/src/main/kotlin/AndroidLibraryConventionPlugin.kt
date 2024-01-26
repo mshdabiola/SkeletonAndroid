@@ -60,11 +60,11 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
             dependencies {
                 add("testImplementation", libs.findLibrary("junit").get())
                 add("androidTestImplementation", libs.findLibrary("androidx.junit").get())
-                add("androidTestImplementation", libs.findLibrary("androidx.expresso.core").get())
+               // add("androidTestImplementation", libs.findLibrary("androidx.expresso.core").get())
 
 
-//                add("androidTestImplementation", kotlin("test"))
-//                add("testImplementation", kotlin("test"))
+                add("androidTestImplementation", kotlin("test"))
+                add("testImplementation", kotlin("test"))
 //                add("implementation", libs.findLibrary("timber").get())
             }
 
