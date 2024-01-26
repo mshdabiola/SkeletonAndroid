@@ -27,6 +27,8 @@ include(":modules:model")
 include(":modules:common")
 include(":modules:testing")
 include(":modules:database")
+include(":modules:network")
+
 
 
 
