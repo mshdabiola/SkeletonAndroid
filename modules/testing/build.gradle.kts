@@ -1,5 +1,6 @@
 plugins {
     id("mshdabiola.android.library")
+    id("mshdabiola.android.library.compose")
     id("mshdabiola.android.hilt")
 }
 
@@ -26,14 +27,18 @@ dependencies {
 //
 //    debugApi(libs.androidx.compose.ui.testManifest)
     api(kotlin("test"))
-    api(libs.androidx.ui.test.junit4)
+    api(libs.androidx.compose.ui.test)
     api(libs.roborazzi)
-//    api(projects.core.analytics)
+
+    api(project(":modules:analytics"))
+//    api(project(":modules:data"))
+    api(project(":modules:model"))
+
 //    api(projects.core.data)
 //    api(projects.core.model)
 //    api(projects.core.notifications)
 
-    debugApi(libs.androidx.ui.testManifest)
+    debugApi(libs.androidx.compose.ui.testManifest)
 
     implementation(libs.accompanist.testharness)
     implementation(libs.androidx.activity.compose)
@@ -42,6 +47,6 @@ dependencies {
     implementation(libs.kotlinx.coroutines.test)
     implementation(libs.kotlinx.datetime)
     implementation(libs.robolectric.shadows)
-//    implementation(projects.core.common)
-//    implementation(projects.core.designsystem)
+    implementation(project(":modules:common"))
+    implementation(project(":modules:designsystem"))
 }

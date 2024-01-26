@@ -18,10 +18,9 @@ package com.mshdabiola.app
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Project
-import org.gradle.api.artifacts.VersionCatalogsExtension
 import org.gradle.kotlin.dsl.dependencies
-import org.gradle.kotlin.dsl.getByType
-import java.io.File
+import org.gradle.kotlin.dsl.withType
+import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 /**
  * Configure Compose-specific options
@@ -29,7 +28,6 @@ import java.io.File
 internal fun Project.configureAndroidCompose(
     commonExtension: CommonExtension<*, *, *, *, *>,
 ) {
-    val libs = extensions.getByType<VersionCatalogsExtension>().named("libs")
 
     commonExtension.apply {
         buildFeatures {
@@ -37,33 +35,27 @@ internal fun Project.configureAndroidCompose(
         }
 
         composeOptions {
-            kotlinCompilerExtensionVersion =
-                libs.findVersion("androidxComposeCompiler").get().toString()
+            kotlinCompilerExtensionVersion = libs.findVersion("androidxComposeCompiler").get().toString()
         }
 
-        kotlinOptions {
-            freeCompilerArgs = freeCompilerArgs + buildComposeMetricsParameters()
-        }
 
         dependencies {
-
-            val bom = libs.findLibrary("androidx.compose.bom").get()
+            val bom = libs.findLibrary("androidx-compose-bom").get()
             add("implementation", platform(bom))
-
-            add("implementation", libs.findLibrary("androidx-ui").get())
-            add("implementation", libs.findLibrary("androidx-ui-graphics").get())
-            add("implementation", libs.findLibrary("androidx-ui-tooling-preview").get())
-            add("implementation", libs.findLibrary("androidx-material3").get())
-            add("implementation", libs.findLibrary("androidx-material3-windowSizeClass").get())
-            add("implementation", libs.findLibrary("androidx-material-iconsExtended").get())
-
             add("androidTestImplementation", platform(bom))
-            add("androidTestImplementation", libs.findLibrary("androidx-ui-test-junit4").get())
+        }
 
-            //  add("implementation", libs.findLibrary("androidx-lifecycle-runtimeCompose").get())
+        testOptions {
+            unitTests {
+                // For Robolectric
+                isIncludeAndroidResources = true
+            }
+        }
+    }
 
-            add("debugImplementation", libs.findLibrary("androidx-ui-testManifest").get())
-            add("debugImplementation", libs.findLibrary("androidx-ui-tooling").get())
+    tasks.withType<KotlinCompile>().configureEach {
+        kotlinOptions {
+            freeCompilerArgs = freeCompilerArgs + buildComposeMetricsParameters()
         }
     }
 }
@@ -71,9 +63,11 @@ internal fun Project.configureAndroidCompose(
 private fun Project.buildComposeMetricsParameters(): List<String> {
     val metricParameters = mutableListOf<String>()
     val enableMetricsProvider = project.providers.gradleProperty("enableComposeCompilerMetrics")
+    val relativePath = projectDir.relativeTo(rootDir)
+    val buildDir = layout.buildDirectory.get().asFile
     val enableMetrics = (enableMetricsProvider.orNull == "true")
     if (enableMetrics) {
-        val metricsFolder = File(project.buildDir, "compose-metrics")
+        val metricsFolder = buildDir.resolve("compose-metrics").resolve(relativePath)
         metricParameters.add("-P")
         metricParameters.add(
             "plugin:androidx.compose.compiler.plugins.kotlin:metricsDestination=" + metricsFolder.absolutePath
@@ -83,7 +77,7 @@ private fun Project.buildComposeMetricsParameters(): List<String> {
     val enableReportsProvider = project.providers.gradleProperty("enableComposeCompilerReports")
     val enableReports = (enableReportsProvider.orNull == "true")
     if (enableReports) {
-        val reportsFolder = File(project.buildDir, "compose-reports")
+        val reportsFolder = buildDir.resolve("compose-reports").resolve(relativePath)
         metricParameters.add("-P")
         metricParameters.add(
             "plugin:androidx.compose.compiler.plugins.kotlin:reportsDestination=" + reportsFolder.absolutePath

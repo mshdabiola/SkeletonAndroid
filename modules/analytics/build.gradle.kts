@@ -11,7 +11,7 @@ android {
 }
 
 dependencies {
-   // implementation(libs.androidx.compose.runtime)
+    implementation(libs.androidx.compose.runtime)
 
   //  prodImplementation(platform(libs.firebase.bom))
     implementation(platform(libs.firebase.bom))

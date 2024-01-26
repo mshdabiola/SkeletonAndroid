@@ -15,47 +15,47 @@
  */
 
 package com.mshdabiola.testing.repository
-
-import androidx.paging.PagingData
-import com.mshdabiola.data.repository.ModelRepository
-import com.mshdabiola.model.Model
-import kotlinx.coroutines.channels.BufferOverflow
-import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.MutableSharedFlow
-
-class TestModelRepository : ModelRepository {
-
-    /**
-     * The backing hot flow for the list of topics ids for testing.
-     */
-    private val modelResourcesFlow: MutableSharedFlow<List<Model>> =
-        MutableSharedFlow(replay = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
-
-//    override fun getNewsResources(): Flow<List<NewsResource>> = newsResourcesFlow
-
-//    override fun getNewsResources(filterTopicIds: Set<String>): Flow<List<NewsResource>> =
-//        getNewsResources().map { newsResources ->
-//            newsResources.filter {
-//                it.topics.map(Topic::id).intersect(filterTopicIds).isNotEmpty()
-//            }
-//        }
-
-    /**
-     * A test-only API to allow controlling the list of news resources from tests.
-     */
-//    fun sendNewsResources(newsResources: List<NewsResource>) {
-//        newsResourcesFlow.tryEmit(newsResources)
+//
+//import androidx.paging.PagingData
+//import com.mshdabiola.data.repository.ModelRepository
+//import com.mshdabiola.model.Model
+//import kotlinx.coroutines.channels.BufferOverflow
+//import kotlinx.coroutines.flow.Flow
+//import kotlinx.coroutines.flow.MutableSharedFlow
+//
+//class TestModelRepository : ModelRepository {
+//
+//    /**
+//     * The backing hot flow for the list of topics ids for testing.
+//     */
+//    private val modelResourcesFlow: MutableSharedFlow<List<Model>> =
+//        MutableSharedFlow(replay = 1, onBufferOverflow = BufferOverflow.DROP_OLDEST)
+//
+////    override fun getNewsResources(): Flow<List<NewsResource>> = newsResourcesFlow
+//
+////    override fun getNewsResources(filterTopicIds: Set<String>): Flow<List<NewsResource>> =
+////        getNewsResources().map { newsResources ->
+////            newsResources.filter {
+////                it.topics.map(Topic::id).intersect(filterTopicIds).isNotEmpty()
+////            }
+////        }
+//
+//    /**
+//     * A test-only API to allow controlling the list of news resources from tests.
+//     */
+////    fun sendNewsResources(newsResources: List<NewsResource>) {
+////        newsResourcesFlow.tryEmit(newsResources)
+////    }
+//
+//    override suspend fun insertModel(model: Model) {
+//        modelResourcesFlow.tryEmit(listOf(model))
 //    }
-
-    override suspend fun insertModel(model: Model) {
-        modelResourcesFlow.tryEmit(listOf(model))
-    }
-
-    override fun getModels(): Flow<List<Model>> {
-        return modelResourcesFlow
-    }
-
-    override fun getModelPaging(): Flow<PagingData<Model>> {
-        TODO("Not yet implemented")
-    }
-}
+//
+//    override fun getModels(): Flow<List<Model>> {
+//        return modelResourcesFlow
+//    }
+//
+//    override fun getModelPaging(): Flow<PagingData<Model>> {
+//        TODO("Not yet implemented")
+//    }
+//}
