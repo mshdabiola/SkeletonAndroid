@@ -1,0 +1,3 @@
+ ./gradlew :modules:designsystem:jacocoTestReport
+ ./gradlew dependencyGuard
+ ./gradlew dependencyGuardBaseline
