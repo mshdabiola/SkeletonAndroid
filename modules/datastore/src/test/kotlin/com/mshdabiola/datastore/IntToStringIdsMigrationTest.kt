@@ -16,7 +16,6 @@
 
 package com.mshdabiola.datastore
 
-import com.mshdabiola.datastore.userPreferences
 import kotlinx.coroutines.test.runTest
 import org.junit.Test
 import kotlin.test.assertEquals

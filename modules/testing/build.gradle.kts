@@ -8,9 +8,9 @@ android {
     namespace = "com.mshdabiola.testing"
 }
 dependencies {
-//    implementation(project(":core:common"))
+    implementation(project(":modules:common"))
 //    implementation(project(":core:data"))
-//    implementation(project(":core:model"))
+    implementation(project(":modules:model"))
 //
 //    api(libs.junit4)
 //    api(libs.androidx.test.core)

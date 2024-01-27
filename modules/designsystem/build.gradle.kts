@@ -2,6 +2,7 @@
 plugins {
     id("mshdabiola.android.library")
     id("mshdabiola.android.library.compose")
+    id("mshdabiola.android.library.jacoco")
 
     alias(libs.plugins.roborazzi)
 }
@@ -10,11 +11,11 @@ android {
     defaultConfig {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
-    namespace = "com.google.samples.apps.nowinandroid.core.designsystem"
+    namespace = "com.mshdabiola.designsystem"
 }
 
 dependencies {
-   // lintPublish(projects.lint)
+    // lintPublish(projects.lint)
 
     api(libs.androidx.compose.foundation)
     api(libs.androidx.compose.foundation.layout)
@@ -35,6 +36,6 @@ dependencies {
     testImplementation(libs.roborazzi)
     testImplementation(project(":modules:testing"))
 
-  //  androidTestImplementation(libs.androidx.compose.ui.test)
+    //  androidTestImplementation(libs.androidx.compose.ui.test)
     androidTestImplementation(project(":modules:testing"))
 }

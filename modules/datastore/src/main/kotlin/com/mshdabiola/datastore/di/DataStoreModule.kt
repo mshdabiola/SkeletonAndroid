@@ -20,12 +20,12 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.dataStoreFile
+import com.mshdabiola.common.network.Dispatcher
+import com.mshdabiola.common.network.NiaDispatchers.IO
+import com.mshdabiola.common.network.di.ApplicationScope
 import com.mshdabiola.datastore.IntToStringIdsMigration
 import com.mshdabiola.datastore.UserPreferences
 import com.mshdabiola.datastore.UserPreferencesSerializer
-import com.google.samples.apps.nowinandroid.core.network.Dispatcher
-import com.google.samples.apps.nowinandroid.core.network.NiaDispatchers.IO
-import com.google.samples.apps.nowinandroid.core.network.di.ApplicationScope
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

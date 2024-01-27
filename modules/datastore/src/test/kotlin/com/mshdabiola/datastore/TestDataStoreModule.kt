@@ -18,8 +18,8 @@ package com.mshdabiola.datastore
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
+import com.mshdabiola.common.network.di.ApplicationScope
 import com.mshdabiola.datastore.di.DataStoreModule
-import com.google.samples.apps.nowinandroid.core.network.di.ApplicationScope
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.components.SingletonComponent

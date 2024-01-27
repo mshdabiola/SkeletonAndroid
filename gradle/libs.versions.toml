@@ -1,5 +1,7 @@
 [versions]
 agp = "8.3.0-alpha12"
+androidTools = "31.2.0"
+
 accompanist = "0.32.0"
 
 kotlin = "1.9.22"
@@ -77,6 +79,10 @@ androidxUiAutomator = "2.2.0"
 junit = "4.13.2"
 junitVersion = "1.1.5"
 espressoCore = "3.5.1"
+jacoco = "0.8.7"
+truth = "1.1.5"
+dependencyGuard = "0.4.3"
+
 
 
 
@@ -192,6 +198,8 @@ android-gradlePlugin = { module = "com.android.tools.build:gradle", version.ref 
 firebase-performance-gradle = { group = "com.google.firebase", name = "perf-plugin", version.ref = "firebasePerfPlugin" }
 kotlin-gradlePlugin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 ksp-gradlePlugin = { group = "com.google.devtools.ksp", name = "com.google.devtools.ksp.gradle.plugin", version.ref = "ksp" }
+truth = { group = "com.google.truth", name = "truth", version.ref = "truth" }
+android-tools-common = { group = "com.android.tools", name = "common", version.ref = "androidTools" }
 
 
 
@@ -212,6 +220,7 @@ gms = { id = "com.google.gms.google-services", version.ref = "googleServicePlugi
 androidx-baselineprofile = { id = "androidx.baselineprofile", version.ref = "androidx-baselineprofile" }
 protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
+dependencyGuard = { id = "com.dropbox.dependency-guard", version.ref = "dependencyGuard" }
 
 
 

@@ -1,10 +1,9 @@
 import com.google.protobuf.gradle.GenerateProtoTask
-import org.gradle.configurationcache.extensions.capitalized
-import org.jetbrains.kotlin.gradle.tasks.AbstractKotlinCompileTool
 
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("mshdabiola.android.library")
+    id("mshdabiola.android.library.jacoco")
     id("mshdabiola.android.hilt")
     alias(libs.plugins.protobuf)
 
@@ -67,9 +66,11 @@ androidComponents {
 
 dependencies {
     api(libs.androidx.dataStore.core)
-    api( project(":modules:model")
+    api(
+        project(":modules:model")
     )
-    api( project(":modules:common")
+    api(
+        project(":modules:common")
     )
     api(libs.protobuf.kotlin.lite)
 

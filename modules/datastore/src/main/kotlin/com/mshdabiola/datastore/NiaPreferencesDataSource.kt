@@ -19,8 +19,8 @@ package com.mshdabiola.datastore
 import android.util.Log
 import androidx.datastore.core.DataStore
 import com.google.samples.apps.nowinandroid.core.model.data.DarkThemeConfig
-import com.mshdabiola.model.ThemeBrand
 import com.google.samples.apps.nowinandroid.core.model.data.UserData
+import com.mshdabiola.model.ThemeBrand
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import java.io.IOException
@@ -41,6 +41,7 @@ class NiaPreferencesDataSource @Inject constructor(
                     ThemeBrandProto.UNRECOGNIZED,
                     ThemeBrandProto.THEME_BRAND_DEFAULT,
                     -> ThemeBrand.DEFAULT
+
                     ThemeBrandProto.THEME_BRAND_ANDROID -> ThemeBrand.ANDROID
                 },
                 darkThemeConfig = when (it.darkThemeConfig) {
@@ -50,8 +51,10 @@ class NiaPreferencesDataSource @Inject constructor(
                     DarkThemeConfigProto.DARK_THEME_CONFIG_FOLLOW_SYSTEM,
                     ->
                         DarkThemeConfig.FOLLOW_SYSTEM
+
                     DarkThemeConfigProto.DARK_THEME_CONFIG_LIGHT ->
                         DarkThemeConfig.LIGHT
+
                     DarkThemeConfigProto.DARK_THEME_CONFIG_DARK -> DarkThemeConfig.DARK
                 },
                 useDynamicColor = it.useDynamicColor,
@@ -113,6 +116,7 @@ class NiaPreferencesDataSource @Inject constructor(
                 this.darkThemeConfig = when (darkThemeConfig) {
                     DarkThemeConfig.FOLLOW_SYSTEM ->
                         DarkThemeConfigProto.DARK_THEME_CONFIG_FOLLOW_SYSTEM
+
                     DarkThemeConfig.LIGHT -> DarkThemeConfigProto.DARK_THEME_CONFIG_LIGHT
                     DarkThemeConfig.DARK -> DarkThemeConfigProto.DARK_THEME_CONFIG_DARK
                 }
