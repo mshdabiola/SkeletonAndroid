@@ -87,6 +87,8 @@ dependencies {
 
 
     implementation(project(":features:main"))
+    implementation(project(":features:detail"))
+
 
 
     implementation(libs.timber)

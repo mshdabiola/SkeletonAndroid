@@ -22,3 +22,6 @@ local.properties
 /.idea/misc.xml
 /.idea/inspectionProfiles/Project_Default.xml
 /.idea/vcs.xml
+/features/build/
+/modules/build/
+

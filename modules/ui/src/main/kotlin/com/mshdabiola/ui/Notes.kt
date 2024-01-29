@@ -10,12 +10,14 @@ import androidx.annotation.ColorInt
 import androidx.browser.customtabs.CustomTabColorSchemeParams
 import androidx.browser.customtabs.CustomTabsIntent
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyListScope
 import androidx.compose.foundation.lazy.staggeredgrid.LazyStaggeredGridScope
 import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
 import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
 import androidx.compose.foundation.lazy.staggeredgrid.items
+import androidx.compose.material3.ListItem
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -34,7 +36,7 @@ import com.mshdabiola.designsystem.theme.SkTheme
 @OptIn(ExperimentalFoundationApi::class)
 fun LazyStaggeredGridScope.noteItem(
     feedState: State,
-    onClick: (Int) -> Unit = {},
+    onClick: (Long) -> Unit = {},
 ) {
     when (feedState) {
         State.Loading -> Unit
@@ -54,7 +56,8 @@ fun LazyStaggeredGridScope.noteItem(
                         analyticsHelper.logNoteOpened(
                             newsResourceId = note.id.toString(),
                         )
-                        launchCustomChromeTab(context, Uri.parse(""), backgroundColor)
+                        onClick(note.id)
+                        // launchCustomChromeTab(context, Uri.parse(""), backgroundColor)
                     },
                     modifier = Modifier
                         .padding(horizontal = 8.dp)
@@ -69,9 +72,13 @@ fun LazyStaggeredGridScope.noteItem(
 fun NoteUi(
     modifier: Modifier,
     noteUiState: NoteUiState,
-    onClick: (Int) -> Unit,
+    onClick: (Long) -> Unit,
 ) {
-    Text(text = "Hello")
+    ListItem(
+        modifier = modifier.clickable { onClick(noteUiState.id) },
+        headlineContent = { Text(text = noteUiState.title) },
+        supportingContent = { Text(text = noteUiState.description) },
+    )
 }
 
 fun launchCustomChromeTab(context: Context, uri: Uri, @ColorInt toolbarColor: Int) {

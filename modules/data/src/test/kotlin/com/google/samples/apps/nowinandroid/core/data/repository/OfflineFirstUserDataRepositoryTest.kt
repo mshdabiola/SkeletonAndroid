@@ -44,7 +44,7 @@ class OfflineFirstUserDataRepositoryTest {
         )
 
         subject = OfflineFirstUserDataRepository(
-            niaPreferencesDataSource = niaPreferencesDataSource,
+            skPreferencesDataSource = niaPreferencesDataSource,
             analyticsHelper,
         )
     }

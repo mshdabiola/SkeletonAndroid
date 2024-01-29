@@ -12,6 +12,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material3.ExtendedFloatingActionButton
+import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.SnackbarDuration
@@ -19,6 +23,7 @@ import androidx.compose.material3.SnackbarDuration.Indefinite
 import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult
+import androidx.compose.material3.Text
 import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -35,6 +40,8 @@ import com.mshdabiola.designsystem.component.SkBackground
 import com.mshdabiola.designsystem.component.SkGradientBackground
 import com.mshdabiola.designsystem.theme.GradientColors
 import com.mshdabiola.designsystem.theme.LocalGradientColors
+import com.mshdabiola.detail.navigation.MAIN_ROUTE
+import com.mshdabiola.detail.navigation.navigateToDetail
 import com.mshdabiola.skeletonandroid.navigation.SkNavHost
 
 @OptIn(
@@ -82,6 +89,14 @@ fun SkApp(
                 contentColor = MaterialTheme.colorScheme.onBackground,
                 contentWindowInsets = WindowInsets(0, 0, 0, 0),
                 snackbarHost = { SnackbarHost(snackbarHostState) },
+                floatingActionButton = {
+                    if (appState.currentDestination?.route == MAIN_ROUTE) {
+                        ExtendedFloatingActionButton(onClick = { appState.navController.navigateToDetail(0) }) {
+                            Icon(imageVector = Icons.Rounded.Add, contentDescription = "add note")
+                            Text(text = "Add note")
+                        }
+                    }
+                },
 
             ) { padding ->
                 Row(

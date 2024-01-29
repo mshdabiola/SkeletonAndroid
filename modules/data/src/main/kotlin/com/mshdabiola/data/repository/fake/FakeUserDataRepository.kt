@@ -1,41 +1,38 @@
 /*
- *abiola 2024
+ *abiola 2022
  */
 
-package com.mshdabiola.data.repository
+package com.mshdabiola.data.repository.fake
 
-import androidx.annotation.VisibleForTesting
 import com.google.samples.apps.nowinandroid.core.model.data.DarkThemeConfig
 import com.google.samples.apps.nowinandroid.core.model.data.UserData
-import com.mshdabiola.analytics.AnalyticsHelper
+import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.datastore.SkPreferencesDataSource
 import com.mshdabiola.model.ThemeBrand
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
-internal class OfflineFirstUserDataRepository @Inject constructor(
+/**
+ * Fake implementation of the [UserDataRepository] that returns hardcoded user data.
+ *
+ * This allows us to run the app with fake data, without needing an internet connection or working
+ * backend.
+ */
+class FakeUserDataRepository @Inject constructor(
     private val skPreferencesDataSource: SkPreferencesDataSource,
-    private val analyticsHelper: AnalyticsHelper,
 ) : UserDataRepository {
 
     override val userData: Flow<UserData> =
         skPreferencesDataSource.userData
 
-    @VisibleForTesting
     override suspend fun setFollowedTopicIds(followedTopicIds: Set<String>) =
         skPreferencesDataSource.setFollowedTopicIds(followedTopicIds)
 
-    override suspend fun setTopicIdFollowed(followedTopicId: String, followed: Boolean) {
+    override suspend fun setTopicIdFollowed(followedTopicId: String, followed: Boolean) =
         skPreferencesDataSource.setTopicIdFollowed(followedTopicId, followed)
-        analyticsHelper.logTopicFollowToggled(followedTopicId, followed)
-    }
 
     override suspend fun updateNewsResourceBookmark(newsResourceId: String, bookmarked: Boolean) {
         skPreferencesDataSource.setNewsResourceBookmarked(newsResourceId, bookmarked)
-        analyticsHelper.logNewsResourceBookmarkToggled(
-            newsResourceId = newsResourceId,
-            isBookmarked = bookmarked,
-        )
     }
 
     override suspend fun setNewsResourceViewed(newsResourceId: String, viewed: Boolean) =
@@ -43,21 +40,17 @@ internal class OfflineFirstUserDataRepository @Inject constructor(
 
     override suspend fun setThemeBrand(themeBrand: ThemeBrand) {
         skPreferencesDataSource.setThemeBrand(themeBrand)
-        analyticsHelper.logThemeChanged(themeBrand.name)
     }
 
     override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
         skPreferencesDataSource.setDarkThemeConfig(darkThemeConfig)
-        analyticsHelper.logDarkThemeConfigChanged(darkThemeConfig.name)
     }
 
     override suspend fun setDynamicColorPreference(useDynamicColor: Boolean) {
         skPreferencesDataSource.setDynamicColorPreference(useDynamicColor)
-        analyticsHelper.logDynamicColorPreferenceChanged(useDynamicColor)
     }
 
     override suspend fun setShouldHideOnboarding(shouldHideOnboarding: Boolean) {
         skPreferencesDataSource.setShouldHideOnboarding(shouldHideOnboarding)
-        analyticsHelper.logOnboardingStateChanged(shouldHideOnboarding)
     }
 }

@@ -78,5 +78,7 @@ dependencies {
     api(libs.protobuf.kotlin.lite)
 
     testImplementation(libs.kotlinx.coroutines.test)
+    implementation(libs.hilt.android.testing)
+
 
 }
