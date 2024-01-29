@@ -1,3 +1,7 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.skeletonandroid
 
 import android.os.Bundle
@@ -21,14 +25,15 @@ import timber.log.Timber
 
 class MainActivity : ComponentActivity() {
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         val remoteConfig = Firebase.remoteConfig
-        remoteConfig.setConfigSettingsAsync(remoteConfigSettings {
-            minimumFetchIntervalInSeconds = 3600
-        })
+        remoteConfig.setConfigSettingsAsync(
+            remoteConfigSettings {
+                minimumFetchIntervalInSeconds = 3600
+            },
+        )
         remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
 //        remoteConfig.fetchAndActivate()
 //            .addOnCompleteListener(this) { task ->
@@ -63,29 +68,30 @@ class MainActivity : ComponentActivity() {
 //                Timber.e( "Config update error with code: " + error.code, error)
 //            }
 //        })
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(OnCompleteListener { task ->
-            if (!task.isSuccessful) {
-                Timber.e("Fetching FCM registration token failed", task.exception)
-                return@OnCompleteListener
-            }
+        FirebaseMessaging.getInstance().token.addOnCompleteListener(
+            OnCompleteListener { task ->
+                if (!task.isSuccessful) {
+                    Timber.e("Fetching FCM registration token failed", task.exception)
+                    return@OnCompleteListener
+                }
 
-            // Get new FCM registration token
-            val token = task.result
+                // Get new FCM registration token
+                val token = task.result
 
-            // Log and toast
-            Timber.e(token)
-            // Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
-        })
+                // Log and toast
+                Timber.e(token)
+                // Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
+            },
+        )
 
         installSplashScreen()
-
 
         setContent {
             SkeletonAndroidTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
                     modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
+                    color = MaterialTheme.colorScheme.background,
                 ) {
                     Greeting("Android")
                 }
@@ -98,7 +104,7 @@ class MainActivity : ComponentActivity() {
 fun Greeting(name: String, modifier: Modifier = Modifier) {
     Text(
         text = "Hello $name!",
-        modifier = modifier
+        modifier = modifier,
     )
 }
 

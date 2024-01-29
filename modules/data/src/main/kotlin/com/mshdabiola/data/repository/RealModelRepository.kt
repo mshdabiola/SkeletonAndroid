@@ -1,3 +1,7 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.data.repository
 
 import com.mshdabiola.common.network.Dispatcher
@@ -14,7 +18,7 @@ import javax.inject.Inject
 class RealModelRepository @Inject constructor(
     private val modelDao: ModelDao,
     @Dispatcher(NiaDispatchers.IO) private val ioDispatcher: CoroutineDispatcher,
-    ) : ModelRepository {
+) : ModelRepository {
     override suspend fun insertModel(model: Model) {
         modelDao.upsert(model.asModelEntity())
     }
@@ -22,6 +26,4 @@ class RealModelRepository @Inject constructor(
     override fun getModels(): Flow<List<Model>> {
         return modelDao.getModel().map { modelEntities -> modelEntities.map { it.asModel() } }
     }
-
-
 }

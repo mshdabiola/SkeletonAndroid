@@ -1,3 +1,7 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.network.di
 
 import com.mshdabiola.network.Config
@@ -40,9 +44,11 @@ object NetworkModule {
             level = LogLevel.ALL
         }
         install(ContentNegotiation) {
-            json(Json {
-                this.ignoreUnknownKeys = true
-            })
+            json(
+                Json {
+                    this.ignoreUnknownKeys = true
+                },
+            )
         }
         defaultRequest {
             headers {
@@ -69,7 +75,6 @@ object NetworkModule {
     }
 }
 
-
 @InstallIn(SingletonComponent::class)
 @Module
 interface NetworkBind {
@@ -77,5 +82,4 @@ interface NetworkBind {
     @Binds
     @Singleton
     fun bindNetworkDataSource(iNetworkDataSource: INetworkDataSource): NetworkDataSource
-
 }

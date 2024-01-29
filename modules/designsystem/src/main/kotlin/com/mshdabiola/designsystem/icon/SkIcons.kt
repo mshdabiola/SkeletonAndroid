@@ -1,3 +1,6 @@
+/*
+ *abiola 2024
+ */
 
 package com.mshdabiola.designsystem.icon
 
@@ -10,5 +13,4 @@ object SkIcons {
     val Add = Icons.Rounded.Add
     val MoreVert = Icons.Default.MoreVert
     val Search = Icons.Rounded.Search
-
 }

@@ -1,3 +1,7 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.skeletonandroid.ui.theme
 
 import androidx.compose.ui.graphics.Color

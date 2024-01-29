@@ -1,3 +1,7 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.skeletonandroid.ui.theme
 
 import androidx.compose.material3.Typography
@@ -13,8 +17,8 @@ val Typography = Typography(
         fontWeight = FontWeight.Normal,
         fontSize = 16.sp,
         lineHeight = 24.sp,
-        letterSpacing = 0.5.sp
-    )
+        letterSpacing = 0.5.sp,
+    ),
     /* Other default text styles to override
     titleLarge = TextStyle(
         fontFamily = FontFamily.Default,
@@ -30,5 +34,5 @@ val Typography = Typography(
         lineHeight = 16.sp,
         letterSpacing = 0.5.sp
     )
-    */
+     */
 )

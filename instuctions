@@ -11,4 +11,8 @@
    ./gradlew :app:updateDebugBadging
     ./gradlew :app:checkDebugBadging
 
+    ./gradlew spotlessApply --init-script gradle/init.gradle.kts --no-configuration-cache
+    ./gradlew spotlessCheck --init-script gradle/init.gradle.kts --no-configuration-cache
+
+
 

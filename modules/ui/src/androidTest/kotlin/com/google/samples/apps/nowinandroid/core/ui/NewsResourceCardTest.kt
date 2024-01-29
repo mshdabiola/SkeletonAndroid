@@ -1,3 +1,6 @@
+/*
+ *abiola 2024
+ */
 
 package com.google.samples.apps.nowinandroid.core.ui
 
@@ -13,16 +16,13 @@ class NewsResourceCardTest {
 
     @Test
     fun testMetaDataDisplay_withCodelabResource() {
-
         composeTestRule.setContent {
-
         }
 
         composeTestRule
             .onNodeWithText(
-               ""
+                "",
             )
             .assertExists()
     }
-
 }

@@ -1,3 +1,7 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.network
 
 import io.ktor.client.engine.mock.MockEngine
@@ -20,7 +24,7 @@ class KtorNetworkTest {
 
     @Before
     fun setUp() {
-        val engine = MockEngine() { re ->
+        val engine = MockEngine { re ->
             respond(
                 content = ByteReadChannel("""{"id":98,"name":"abiola"}"""),
                 status = HttpStatusCode.OK,

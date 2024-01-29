@@ -1,7 +1,11 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.skeletonandroid
 
-//import androidx.work.Worker
-//import androidx.work.WorkerParameters
+// import androidx.work.Worker
+// import androidx.work.WorkerParameters
 import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.app.PendingIntent
@@ -40,11 +44,9 @@ class MessageService : FirebaseMessagingService() {
 //            }
 //        }
 
-
         // Check if message contains a notification payload.
         remoteMessage.notification?.let {
             sendNotification(it, this)
-
         }
 
         // Also if you intend on generating your own notifications as a result of a received FCM
@@ -85,7 +87,6 @@ class MessageService : FirebaseMessagingService() {
         // [END dispatch_job]
     }
 
-
     private fun sendNotification(notification: Notification, context: Context) {
         val intent = Intent(this, MainActivity::class.java)
         intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
@@ -116,7 +117,7 @@ class MessageService : FirebaseMessagingService() {
                     NotificationCompat
                         .BigPictureStyle()
                         .bigPicture(bitmap)
-                        .bigLargeIcon(null as Bitmap?)
+                        .bigLargeIcon(null as Bitmap?),
                 )
         }
 
@@ -137,10 +138,8 @@ class MessageService : FirebaseMessagingService() {
         notificationManager.notify(notificationId, notificationBuilder.build())
     }
 
-
     fun getBitmap(uri: String): Bitmap? {
         return try {
-
             val input = URL(uri).openStream()
 
             val bitmap = BitmapFactory.decodeStream(input)
@@ -152,7 +151,6 @@ class MessageService : FirebaseMessagingService() {
             e.printStackTrace()
             null
         }
-
     }
 
     companion object {
