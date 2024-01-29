@@ -32,13 +32,13 @@ dependencies {
 
     implementation(libs.coil.kt.compose)
 
-//    testImplementation(libs.androidx.compose.ui.test)
+    testImplementation(libs.androidx.compose.ui.test)
     testImplementation(libs.accompanist.testharness)
     testImplementation(libs.hilt.android.testing)
     testImplementation(libs.robolectric)
     testImplementation(libs.roborazzi)
     testImplementation(project(":modules:testing"))
 
-    //  androidTestImplementation(libs.androidx.compose.ui.test)
+      androidTestImplementation(libs.androidx.compose.ui.test)
     androidTestImplementation(project(":modules:testing"))
 }

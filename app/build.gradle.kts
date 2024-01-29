@@ -86,6 +86,9 @@ dependencies {
     implementation(project(":modules:ui"))
 
 
+    implementation(project(":features:main"))
+
+
     implementation(libs.timber)
     debugImplementation(libs.leakcanary.android)
 

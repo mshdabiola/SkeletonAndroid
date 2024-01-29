@@ -33,4 +33,6 @@ include(":modules:analytics")
 include(":modules:designsystem")
 include(":modules:domain")
 include(":modules:ui")
+include(":features:main")
+
 
