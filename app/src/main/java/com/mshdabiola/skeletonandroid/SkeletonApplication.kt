@@ -10,6 +10,7 @@ import timber.log.Timber
 
 @HiltAndroidApp
 class SkeletonApplication : Application() {
+
     override fun onCreate() {
         super.onCreate()
 

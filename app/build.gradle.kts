@@ -82,14 +82,18 @@ android {
 
 dependencies {
     implementation(project(":modules:designsystem"))
+    implementation(project(":modules:data"))
+    implementation(project(":modules:ui"))
+
+
     implementation(libs.timber)
     debugImplementation(libs.leakcanary.android)
 
     implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
-//    implementation(libs.androidx.tracing.ktx)
-//    implementation(libs.androidx.lifecycle.runtimeCompose)
+    implementation(libs.androidx.tracing.ktx)
+    implementation(libs.androidx.lifecycle.runtimeCompose)
     implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.profileinstaller)
@@ -102,7 +106,7 @@ dependencies {
     kspTest(libs.hilt.compiler)
 
 //    testImplementation(projects.core.dataTest)
-//    testImplementation(projects.core.testing)
+    testImplementation(project(":modules:testing"))
     testImplementation(libs.accompanist.testharness)
     testImplementation(libs.hilt.android.testing)
 //    testImplementation(libs.work.testing)
@@ -110,9 +114,7 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.roborazzi)
 
-//    androidTestImplementation(projects.core.testing)
-//    androidTestImplementation(projects.core.dataTest)
-//    androidTestImplementation(projects.core.datastoreTest)
+    androidTestImplementation(project(":modules:testing"))
     androidTestImplementation(libs.androidx.navigation.testing)
     androidTestImplementation(libs.accompanist.testharness)
     androidTestImplementation(libs.hilt.android.testing)
