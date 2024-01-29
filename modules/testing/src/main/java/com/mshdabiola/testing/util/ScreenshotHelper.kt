@@ -33,7 +33,7 @@ import com.github.takahirom.roborazzi.RoborazziOptions.CompareOptions
 import com.github.takahirom.roborazzi.RoborazziOptions.RecordOptions
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.google.accompanist.testharness.TestHarness
-import com.mshdabiola.designsystem.theme.NiaTheme
+import com.mshdabiola.designsystem.theme.SkTheme
 import org.robolectric.RuntimeEnvironment
 
 val DefaultRoborazziOptions =
@@ -112,7 +112,7 @@ fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>.c
         CompositionLocalProvider(
             LocalInspectionMode provides true,
         ) {
-            NiaTheme(
+            SkTheme(
                 androidTheme = androidTheme,
                 darkTheme = darkMode,
                 disableDynamicTheming = !dynamicTheming,

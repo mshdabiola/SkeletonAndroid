@@ -21,9 +21,9 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import com.mshdabiola.designsystem.component.NiaButton
+import com.mshdabiola.designsystem.component.SkButton
 import com.mshdabiola.designsystem.component.NiaOutlinedButton
-import com.mshdabiola.designsystem.icon.NiaIcons
+import com.mshdabiola.designsystem.icon.SkIcons
 import com.mshdabiola.testing.util.captureMultiTheme
 import dagger.hilt.android.testing.HiltTestApplication
 import org.junit.Rule
@@ -47,7 +47,7 @@ class ButtonScreenshotTests {
     fun niaButton_multipleThemes() {
         composeTestRule.captureMultiTheme("Button") { description ->
             Surface {
-                NiaButton(onClick = {}, text = { Text("$description Button") })
+                SkButton(onClick = {}, text = { Text("$description Button") })
             }
         }
     }
@@ -69,10 +69,10 @@ class ButtonScreenshotTests {
             shouldCompareAndroidTheme = false,
         ) { description ->
             Surface {
-                NiaButton(
+                SkButton(
                     onClick = {},
                     text = { Text("$description Icon Button") },
-                    leadingIcon = { Icon(imageVector = NiaIcons.Add, contentDescription = null) },
+                    leadingIcon = { Icon(imageVector = SkIcons.Add, contentDescription = null) },
                 )
             }
         }

@@ -22,8 +22,8 @@ import androidx.compose.material3.Text
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.unit.dp
-import com.mshdabiola.designsystem.component.NiaBackground
-import com.mshdabiola.designsystem.component.NiaGradientBackground
+import com.mshdabiola.designsystem.component.SkBackground
+import com.mshdabiola.designsystem.component.SkGradientBackground
 import com.mshdabiola.testing.util.captureMultiTheme
 import dagger.hilt.android.testing.HiltTestApplication
 import org.junit.Rule
@@ -46,7 +46,7 @@ class BackgroundScreenshotTests {
     @Test
     fun niaBackground_multipleThemes() {
         composeTestRule.captureMultiTheme("Background") { description ->
-            NiaBackground(Modifier.size(100.dp)) {
+            SkBackground(Modifier.size(100.dp)) {
                 Text("$description background")
             }
         }
@@ -55,7 +55,7 @@ class BackgroundScreenshotTests {
     @Test
     fun niaGradientBackground_multipleThemes() {
         composeTestRule.captureMultiTheme("Background", "GradientBackground") { description ->
-            NiaGradientBackground(Modifier.size(100.dp)) {
+            SkGradientBackground(Modifier.size(100.dp)) {
                 Text("$description background")
             }
         }
