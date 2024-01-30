@@ -8,6 +8,7 @@ import androidx.activity.ComponentActivity
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onNodeWithTag
 import com.mshdabiola.ui.MainState
+import com.mshdabiola.ui.NoteUiState
 import org.junit.Rule
 import org.junit.Test
 
@@ -25,11 +26,11 @@ class MainScreenTest {
             MainScreen(
                 mainState = MainState.Success(
                     listOf(
-//                    NoteUiState(
-//                        id = 5257L,
-//                        title = "Jacinto",
-//                        description = "Charisma"
-//                    ),
+                    NoteUiState(
+                        id = 5257L,
+                        title = "Jacinto",
+                        description = "Charisma"
+                    ),
 //                    NoteUiState(id = 7450L, title = "Dewayne", description = "Justan"),
 //                    NoteUiState(id = 1352L, title = "Bjorn", description = "Daquan"),
 //                    NoteUiState(id = 4476L, title = "Tonya", description = "Ivelisse"),

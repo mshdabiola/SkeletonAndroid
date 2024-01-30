@@ -123,7 +123,7 @@ dependencies {
     androidTestImplementation(libs.androidx.navigation.testing)
     androidTestImplementation(libs.accompanist.testharness)
     androidTestImplementation(libs.hilt.android.testing)
-
+    debugImplementation (libs.androidx.monitor)
     baselineProfile(project(":benchmarks"))
 }
 
