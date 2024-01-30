@@ -34,6 +34,7 @@ fun NavController.navigateToDetail(topicId: Long) {
 
 fun NavGraphBuilder.detailScreen(
     onShowSnackbar: suspend (String, String?) -> Boolean,
+    onBack: () -> Unit,
 ) {
     composable(
         route = "$DETAIL_ROUTE/{$DETAIL_ID_ARG}",
@@ -43,6 +44,6 @@ fun NavGraphBuilder.detailScreen(
             },
         ),
     ) {
-        DetailRoute(onShowSnackbar)
+        DetailRoute(onShowSnackbar, onBack)
     }
 }

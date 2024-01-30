@@ -30,7 +30,7 @@ android {
         versionName = "0.0.1" // X.Y.Z; X = Major, Y = minor, Z = Patch level
 
         // Custom test runner to set up Hilt dependency graph
-        testInstrumentationRunner = "com.mshdabiola.testing.NiaTestRunner"
+        testInstrumentationRunner = "com.mshdabiola.testing.TestRunner"
         vectorDrawables {
             useSupportLibrary = true
         }
@@ -124,7 +124,7 @@ dependencies {
     androidTestImplementation(libs.accompanist.testharness)
     androidTestImplementation(libs.hilt.android.testing)
 
-//    baselineProfile(projects.benchmarks)
+    baselineProfile(project(":benchmarks"))
 }
 
 baselineProfile {

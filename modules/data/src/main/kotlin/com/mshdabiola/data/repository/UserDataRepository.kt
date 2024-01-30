@@ -4,9 +4,9 @@
 
 package com.mshdabiola.data.repository
 
-import com.google.samples.apps.nowinandroid.core.model.data.DarkThemeConfig
-import com.google.samples.apps.nowinandroid.core.model.data.UserData
+import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
+import com.mshdabiola.model.UserData
 import kotlinx.coroutines.flow.Flow
 
 interface UserDataRepository {

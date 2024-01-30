@@ -11,18 +11,13 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.PaddingValues
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.safeDrawing
-import androidx.compose.foundation.layout.windowInsetsBottomHeight
 import androidx.compose.foundation.layout.wrapContentSize
-import androidx.compose.foundation.lazy.staggeredgrid.LazyVerticalStaggeredGrid
-import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridCells
-import androidx.compose.foundation.lazy.staggeredgrid.StaggeredGridItemSpan
-import androidx.compose.foundation.lazy.staggeredgrid.rememberLazyStaggeredGridState
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -45,9 +40,10 @@ import com.mshdabiola.designsystem.component.SkLoadingWheel
 import com.mshdabiola.designsystem.theme.LocalTintTheme
 import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.main.R
-import com.mshdabiola.ui.State
-import com.mshdabiola.ui.State.Loading
-import com.mshdabiola.ui.State.Success
+import com.mshdabiola.ui.MainState
+import com.mshdabiola.ui.MainState.Loading
+import com.mshdabiola.ui.MainState.Success
+import com.mshdabiola.ui.NoteUiState
 import com.mshdabiola.ui.TrackScreenViewEvent
 import com.mshdabiola.ui.TrackScrollJank
 import com.mshdabiola.ui.noteItem
@@ -59,9 +55,9 @@ internal fun MainRoute(
     modifier: Modifier = Modifier,
     viewModel: MainViewModel = hiltViewModel(),
 ) {
-    val feedState by viewModel.feedUiState.collectAsStateWithLifecycle()
+    val feedState by viewModel.feedUiMainState.collectAsStateWithLifecycle()
     MainScreen(
-        feedState = feedState,
+        mainState = feedState,
         onShowSnackbar = onShowSnackbar,
         modifier = modifier,
         onClick = onClick,
@@ -74,7 +70,7 @@ internal fun MainRoute(
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @Composable
 internal fun MainScreen(
-    feedState: State,
+    mainState: MainState,
     onClick: (Long) -> Unit,
     onShowSnackbar: suspend (String, String?) -> Boolean,
     modifier: Modifier = Modifier,
@@ -96,11 +92,11 @@ internal fun MainScreen(
         }
     }
 
-    when (feedState) {
+    when (mainState) {
         Loading -> LoadingState(modifier)
-        is Success -> if (feedState.feed.isNotEmpty()) {
-            MainGrid(
-                feedState,
+        is Success -> if (mainState.noteUiStates.isNotEmpty()) {
+            MainList(
+                mainState,
                 onClick,
                 modifier,
             )
@@ -118,40 +114,38 @@ private fun LoadingState(modifier: Modifier = Modifier) {
         modifier = modifier
             .fillMaxWidth()
             .wrapContentSize()
-            .testTag("forYou:loading"),
+            .testTag("main:loading"),
         contentDesc = stringResource(id = R.string.feature_bookmarks_loading),
     )
 }
 
 @Composable
-private fun MainGrid(
-    feedState: State,
+private fun MainList(
+    feedMainState: MainState,
     onClick: (Long) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    val scrollableState = rememberLazyStaggeredGridState()
-    TrackScrollJank(scrollableState = scrollableState, stateName = "bookmarks:grid")
+    val scrollableState = rememberLazyListState()
+    TrackScrollJank(scrollableState = scrollableState, stateName = "main:list")
     Box(
         modifier = modifier
             .fillMaxSize(),
     ) {
-        LazyVerticalStaggeredGrid(
-            columns = StaggeredGridCells.Adaptive(300.dp),
+        LazyColumn(
             contentPadding = PaddingValues(16.dp),
-            horizontalArrangement = Arrangement.spacedBy(16.dp),
-            verticalItemSpacing = 24.dp,
+            verticalArrangement = Arrangement.spacedBy(16.dp),
             state = scrollableState,
             modifier = Modifier
                 .fillMaxSize()
-                .testTag("bookmarks:feed"),
+                .testTag("main:list"),
         ) {
             noteItem(
-                feedState = feedState,
+                feedMainState = feedMainState,
                 onClick = onClick,
             )
-            item(span = StaggeredGridItemSpan.FullLine) {
-                Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
-            }
+//            item(span = StaggeredGridItemSpan.FullLine) {
+//                Spacer(Modifier.windowInsetsBottomHeight(WindowInsets.safeDrawing))
+//            }
         }
     }
 }
@@ -162,7 +156,7 @@ private fun EmptyState(modifier: Modifier = Modifier) {
         modifier = modifier
             .padding(16.dp)
             .fillMaxSize()
-            .testTag("bookmarks:empty"),
+            .testTag("main:empty"),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ) {
@@ -205,10 +199,30 @@ private fun LoadingStatePreview() {
 
 @Preview
 @Composable
-private fun BookmarksGridPreview() {
+private fun MainListPreview() {
     SkTheme {
-        MainGrid(
-            feedState = Success(listOf()),
+        MainList(
+            feedMainState = Success(
+                listOf(
+                    NoteUiState(
+                        id = 5257L,
+                        title = "Jacinto",
+                        description = "Charisma",
+                    ),
+                    NoteUiState(id = 7450L, title = "Dewayne", description = "Justan"),
+                    NoteUiState(id = 1352L, title = "Bjorn", description = "Daquan"),
+                    NoteUiState(id = 4476L, title = "Tonya", description = "Ivelisse"),
+                    NoteUiState(id = 6520L, title = "Raegan", description = "Katrena"),
+                    NoteUiState(id = 5136L, title = "Markis", description = "Giles"),
+                    NoteUiState(id = 6868L, title = "Virgilio", description = "Ashford"),
+                    NoteUiState(id = 7100L, title = "Larae", description = "Krystyn"),
+                    NoteUiState(id = 3210L, title = "Nigel", description = "Sergio"),
+                    NoteUiState(id = 7830L, title = "Kristy", description = "Jacobi"),
+                    NoteUiState(id = 1020L, title = "Kathlene", description = "Shlomo"),
+                    NoteUiState(id = 3365L, title = "Corin", description = "Ross"),
+
+                ),
+            ),
 
             onClick = {},
         )

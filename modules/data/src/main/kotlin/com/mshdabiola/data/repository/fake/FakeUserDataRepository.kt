@@ -4,11 +4,11 @@
 
 package com.mshdabiola.data.repository.fake
 
-import com.google.samples.apps.nowinandroid.core.model.data.DarkThemeConfig
-import com.google.samples.apps.nowinandroid.core.model.data.UserData
 import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.datastore.SkPreferencesDataSource
+import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
+import com.mshdabiola.model.UserData
 import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 

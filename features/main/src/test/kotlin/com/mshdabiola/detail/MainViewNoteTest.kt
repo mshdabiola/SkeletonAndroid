@@ -6,7 +6,7 @@ package com.mshdabiola.detail
 
 import com.mshdabiola.testing.repository.TestUserDataRepository
 import com.mshdabiola.testing.util.MainDispatcherRule
-import com.mshdabiola.ui.State.Loading
+import com.mshdabiola.ui.MainState.Loading
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -33,16 +33,16 @@ class MainViewNoteTest {
 
     @Test
     fun stateIsInitiallyLoading() = runTest {
-        assertEquals(Loading, viewModel.feedUiState.value)
+        assertEquals(Loading, viewModel.feedUiMainState.value)
     }
 
     @Test
     fun oneBookmark_showsInFeed() = runTest {
-        val collectJob = launch(UnconfinedTestDispatcher()) { viewModel.feedUiState.collect() }
+        val collectJob = launch(UnconfinedTestDispatcher()) { viewModel.feedUiMainState.collect() }
 //
 //        newsRepository.sendNewsResources(newsResourcesTestData)
 //        userDataRepository.updateNewsResourceBookmark(newsResourcesTestData[0].id, true)
-//        val item = viewModel.feedUiState.value
+//        val item = viewModel.feedUiMainState.value
 //        assertIs<Success>(item)
 //        assertEquals(item.feed.size, 1)
 //

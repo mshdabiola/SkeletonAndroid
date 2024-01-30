@@ -27,6 +27,6 @@ fun SkNavHost(
         modifier = modifier,
     ) {
         mainScreen(onShowSnackbar = onShowSnackbar, onClicked = navController::navigateToDetail)
-        detailScreen(onShowSnackbar)
+        detailScreen(onShowSnackbar, navController::popBackStack)
     }
 }

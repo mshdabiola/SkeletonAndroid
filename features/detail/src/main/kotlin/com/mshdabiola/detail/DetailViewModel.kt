@@ -76,6 +76,12 @@ class DetailViewModel @Inject constructor(
         }
     }
 
+    fun onDelete() {
+        viewModelScope.launch {
+            noteState.value.id?.let { noteRepository.delete(it) }
+        }
+    }
+
     suspend fun getId(): Long {
         return noteRepository.upsert(Note())
     }

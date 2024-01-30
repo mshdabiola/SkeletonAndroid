@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.safeDrawing
 import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.rounded.Add
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExtendedFloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
@@ -32,6 +33,7 @@ import androidx.compose.runtime.remember
 import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.semantics.testTagsAsResourceId
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
@@ -46,6 +48,7 @@ import com.mshdabiola.skeletonandroid.navigation.SkNavHost
 
 @OptIn(
     ExperimentalComposeUiApi::class,
+    ExperimentalMaterial3Api::class,
 )
 @Composable
 fun SkApp(
@@ -91,8 +94,9 @@ fun SkApp(
                 snackbarHost = { SnackbarHost(snackbarHostState) },
                 floatingActionButton = {
                     if (appState.currentDestination?.route == MAIN_ROUTE) {
-                        ExtendedFloatingActionButton(onClick = { appState.navController.navigateToDetail(0) }) {
+                        ExtendedFloatingActionButton(modifier = Modifier.testTag("add"), onClick = { appState.navController.navigateToDetail(0) }) {
                             Icon(imageVector = Icons.Rounded.Add, contentDescription = "add note")
+//                            Spacer(modifier = )
                             Text(text = "Add note")
                         }
                     }

@@ -2,9 +2,7 @@
  *abiola 2024
  */
 
-package com.google.samples.apps.nowinandroid.core.model.data
-
-import com.mshdabiola.model.ThemeBrand
+package com.mshdabiola.model
 
 /**
  * Class summarizing user interest data

@@ -7,6 +7,9 @@
 package com.mshdabiola.designsystem.component
 
 import androidx.annotation.StringRes
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -21,6 +24,7 @@ import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.mshdabiola.designsystem.R
 import com.mshdabiola.designsystem.icon.SkIcons
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -62,6 +66,41 @@ fun SkTopAppBar(
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DetailTopAppBar(
+    modifier: Modifier = Modifier,
+    colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
+    onNavigationClick: () -> Unit = {},
+    onDeleteClick: () -> Unit = {},
+) {
+    CenterAlignedTopAppBar(
+        title = { Text(text = stringResource(id = R.string.modules_designsystem_note)) },
+        navigationIcon = {
+            IconButton(onClick = onNavigationClick) {
+                Icon(
+                    modifier = Modifier.testTag("back"),
+                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                    contentDescription = "back",
+                    tint = MaterialTheme.colorScheme.onSurface,
+                )
+            }
+        },
+        actions = {
+            IconButton(onClick = onDeleteClick) {
+                Icon(
+                    modifier = Modifier.testTag("delete"),
+                    imageVector = Icons.Default.Delete,
+                    contentDescription = "delete",
+                    tint = MaterialTheme.colorScheme.onSurface,
+                )
+            }
+        },
+        colors = colors,
+        modifier = modifier.testTag("detailTopAppBar"),
+    )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
 @Preview("Top App Bar")
 @Composable
 private fun SkTopAppBarPreview() {
@@ -72,4 +111,11 @@ private fun SkTopAppBarPreview() {
         actionIcon = SkIcons.MoreVert,
         actionIconContentDescription = "Action icon",
     )
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Preview("Top App Bar")
+@Composable
+private fun DetailTopAppBarPreview() {
+    DetailTopAppBar()
 }

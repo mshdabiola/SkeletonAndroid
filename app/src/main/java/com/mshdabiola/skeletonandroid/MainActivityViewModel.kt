@@ -6,8 +6,8 @@ package com.mshdabiola.skeletonandroid
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.google.samples.apps.nowinandroid.core.model.data.UserData
 import com.mshdabiola.data.repository.UserDataRepository
+import com.mshdabiola.model.UserData
 import com.mshdabiola.skeletonandroid.MainActivityUiState.Loading
 import com.mshdabiola.skeletonandroid.MainActivityUiState.Success
 import dagger.hilt.android.lifecycle.HiltViewModel
