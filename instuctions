@@ -14,5 +14,7 @@
     ./gradlew spotlessApply --init-script gradle/init.gradle.kts --no-configuration-cache
     ./gradlew spotlessCheck --init-script gradle/init.gradle.kts --no-configuration-cache
 
+    ./gradlew assembleDebug -PenableComposeCompilerMetrics=true -PenableComposeCompilerReports=true
 
+    ./gradlew :app:generateReleaseBaselineProfile
 

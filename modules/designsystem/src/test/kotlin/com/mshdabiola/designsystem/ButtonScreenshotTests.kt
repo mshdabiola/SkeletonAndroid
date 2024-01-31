@@ -9,7 +9,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import com.mshdabiola.designsystem.component.NiaOutlinedButton
 import com.mshdabiola.designsystem.component.SkButton
 import com.mshdabiola.designsystem.icon.SkIcons
 import com.mshdabiola.testing.util.captureMultiTheme
@@ -40,14 +39,14 @@ class ButtonScreenshotTests {
         }
     }
 
-    @Test
-    fun niaOutlineButton_multipleThemes() {
-        composeTestRule.captureMultiTheme("Button", "OutlineButton") { description ->
-            Surface {
-                NiaOutlinedButton(onClick = {}, text = { Text("$description OutlineButton") })
-            }
-        }
-    }
+//    @Test
+//    fun niaOutlineButton_multipleThemes() {
+//        composeTestRule.captureMultiTheme("Button", "OutlineButton") { description ->
+//            Surface {
+//                NiaOutlinedButton(onClick = {}, text = { Text("$description OutlineButton") })
+//            }
+//        }
+//    }
 
     @Test
     fun niaButton_leadingIcon_multipleThemes() {

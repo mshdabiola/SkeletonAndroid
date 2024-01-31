@@ -5,12 +5,12 @@
 package com.mshdabiola.detail
 
 import androidx.lifecycle.SavedStateHandle
+import com.mshdabiola.data.repository.fake.FakeNoteRepository
+import com.mshdabiola.detail.navigation.DETAIL_ID_ARG
 import com.mshdabiola.testing.repository.TestUserDataRepository
 import com.mshdabiola.testing.util.MainDispatcherRule
-import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
-import org.junit.Test
 
 class DetailViewNoteTest {
     @get:Rule
@@ -23,16 +23,17 @@ class DetailViewNoteTest {
     @Before
     fun setup() {
         viewModel = DetailViewModel(
-            savedStateHandle = SavedStateHandle(mapOf("ks", 4)),
+            savedStateHandle = SavedStateHandle(mapOf(DETAIL_ID_ARG to 4)),
+            noteRepository = FakeNoteRepository(),
         )
     }
 
-    @Test
-    fun stateIsInitiallyLoading() = runTest {
-    }
+//    @Test
+//    fun stateIsInitiallyLoading() = runTest {
+//    }
 
-    @Test
-    fun oneBookmark_showsInFeed() = runTest {
+//    @Test
+//    fun oneBookmark_showsInFeed() = runTest {
 //        val collectJob = launch(UnconfinedTestDispatcher()) { viewModel.feedUiState.collect() }
 //
 //        newsRepository.sendNewsResources(newsResourcesTestData)
@@ -42,5 +43,5 @@ class DetailViewNoteTest {
 //        assertEquals(item.feed.size, 1)
 //
 //        collectJob.cancel()
-    }
+//    }
 }

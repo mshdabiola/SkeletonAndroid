@@ -26,11 +26,11 @@ class MainScreenTest {
             MainScreen(
                 mainState = MainState.Success(
                     listOf(
-                    NoteUiState(
-                        id = 5257L,
-                        title = "Jacinto",
-                        description = "Charisma"
-                    ),
+                        NoteUiState(
+                            id = 5257L,
+                            title = "Jacinto",
+                            description = "Charisma",
+                        ),
 //                    NoteUiState(id = 7450L, title = "Dewayne", description = "Justan"),
 //                    NoteUiState(id = 1352L, title = "Bjorn", description = "Daquan"),
 //                    NoteUiState(id = 4476L, title = "Tonya", description = "Ivelisse"),

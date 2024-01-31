@@ -52,20 +52,20 @@ android {
 //        )
 //    }
 
-    testOptions.managedDevices.devices {
-        create<ManagedVirtualDevice>("pixel6Api34") {
-            device = "Pixel 6"
-            apiLevel = 34
-            systemImageSource = "google"
-        }
-    }
 //    testOptions.managedDevices.devices {
-//        create<com.android.build.api.dsl.ManagedVirtualDevice>("pixel6Api33") {
+//        create<ManagedVirtualDevice>("pixel6Api34") {
 //            device = "Pixel 6"
-//            apiLevel = 33
-//            systemImageSource = "aosp"
+//            apiLevel = 34
+//            systemImageSource = "google"
 //        }
 //    }
+    testOptions.managedDevices.devices {
+        create<com.android.build.api.dsl.ManagedVirtualDevice>("pixel6Api33") {
+            device = "Pixel 6"
+            apiLevel = 33
+            systemImageSource = "aosp"
+        }
+    }
 
     targetProjectPath = ":app"
     experimentalProperties["android.experimental.self-instrumenting"] = true
@@ -73,7 +73,7 @@ android {
 
 baselineProfile {
     // This specifies the managed devices to use that you run the tests on.
-    managedDevices += "pixel6Api34"
+    managedDevices += "pixel6Api33"
 
     // Don't use a connected device but rely on a GMD for consistency between local and CI builds.
     useConnectedDevices = false
