@@ -22,5 +22,6 @@ dependencies {
     implementation(libs.kotlinx.datetime)
 
     androidTestImplementation(project(":modules:testing"))
+    implementation ("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
 
 }
