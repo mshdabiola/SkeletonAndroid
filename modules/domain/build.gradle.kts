@@ -1,3 +1,6 @@
+/*
+ *abiola 2024
+ */
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("mshdabiola.android.library")

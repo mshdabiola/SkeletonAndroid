@@ -1,17 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *abiola 2024
  */
 
 package com.mshdabiola.designsystem
@@ -40,14 +28,14 @@ import com.mshdabiola.designsystem.theme.LightDefaultColorScheme
 import com.mshdabiola.designsystem.theme.LocalBackgroundTheme
 import com.mshdabiola.designsystem.theme.LocalGradientColors
 import com.mshdabiola.designsystem.theme.LocalTintTheme
-import com.mshdabiola.designsystem.theme.NiaTheme
+import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.designsystem.theme.TintTheme
 import org.junit.Rule
 import org.junit.Test
 import kotlin.test.assertEquals
 
 /**
- * Tests [NiaTheme] using different combinations of the theme mode parameters:
+ * Tests [SkTheme] using different combinations of the theme mode parameters:
  * darkTheme, disableDynamicTheming, and androidTheme.
  *
  * It verifies that the various composition locals — [MaterialTheme], [LocalGradientColors] and
@@ -62,7 +50,7 @@ class ThemeTest {
     @Test
     fun darkThemeFalse_dynamicColorFalse_androidThemeFalse() {
         composeTestRule.setContent {
-            NiaTheme(
+            SkTheme(
                 darkTheme = false,
                 disableDynamicTheming = true,
                 androidTheme = false,
@@ -82,7 +70,7 @@ class ThemeTest {
     @Test
     fun darkThemeTrue_dynamicColorFalse_androidThemeFalse() {
         composeTestRule.setContent {
-            NiaTheme(
+            SkTheme(
                 darkTheme = true,
                 disableDynamicTheming = true,
                 androidTheme = false,
@@ -102,7 +90,7 @@ class ThemeTest {
     @Test
     fun darkThemeFalse_dynamicColorTrue_androidThemeFalse() {
         composeTestRule.setContent {
-            NiaTheme(
+            SkTheme(
                 darkTheme = false,
                 disableDynamicTheming = false,
                 androidTheme = false,
@@ -122,7 +110,7 @@ class ThemeTest {
     @Test
     fun darkThemeTrue_dynamicColorTrue_androidThemeFalse() {
         composeTestRule.setContent {
-            NiaTheme(
+            SkTheme(
                 darkTheme = true,
                 disableDynamicTheming = false,
                 androidTheme = false,
@@ -142,7 +130,7 @@ class ThemeTest {
     @Test
     fun darkThemeFalse_dynamicColorFalse_androidThemeTrue() {
         composeTestRule.setContent {
-            NiaTheme(
+            SkTheme(
                 darkTheme = false,
                 disableDynamicTheming = true,
                 androidTheme = true,
@@ -162,7 +150,7 @@ class ThemeTest {
     @Test
     fun darkThemeTrue_dynamicColorFalse_androidThemeTrue() {
         composeTestRule.setContent {
-            NiaTheme(
+            SkTheme(
                 darkTheme = true,
                 disableDynamicTheming = true,
                 androidTheme = true,
@@ -182,7 +170,7 @@ class ThemeTest {
     @Test
     fun darkThemeFalse_dynamicColorTrue_androidThemeTrue() {
         composeTestRule.setContent {
-            NiaTheme(
+            SkTheme(
                 darkTheme = false,
                 disableDynamicTheming = false,
                 androidTheme = true,
@@ -202,7 +190,7 @@ class ThemeTest {
     @Test
     fun darkThemeTrue_dynamicColorTrue_androidThemeTrue() {
         composeTestRule.setContent {
-            NiaTheme(
+            SkTheme(
                 darkTheme = true,
                 disableDynamicTheming = false,
                 androidTheme = true,

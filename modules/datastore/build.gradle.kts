@@ -1,3 +1,6 @@
+/*
+ *abiola 2024
+ */
 import com.google.protobuf.gradle.GenerateProtoTask
 
 @Suppress("DSL_SCOPE_VIOLATION")
@@ -75,5 +78,7 @@ dependencies {
     api(libs.protobuf.kotlin.lite)
 
     testImplementation(libs.kotlinx.coroutines.test)
+    implementation(libs.hilt.android.testing)
+
 
 }

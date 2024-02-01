@@ -1,3 +1,7 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.skeletonandroid
 
 import org.junit.Assert.assertEquals

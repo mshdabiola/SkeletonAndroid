@@ -1,3 +1,6 @@
+/*
+ *abiola 2024
+ */
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("mshdabiola.android.library")
@@ -28,4 +31,6 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
     testImplementation(libs.kotlinx.serialization.json)
     testImplementation(project(":modules:testing"))
+//    testImplementation(project(":modules:datastore"))
+
 }

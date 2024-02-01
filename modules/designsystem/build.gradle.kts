@@ -1,3 +1,6 @@
+/*
+ *abiola 2024
+ */
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("mshdabiola.android.library")
@@ -29,13 +32,15 @@ dependencies {
 
     implementation(libs.coil.kt.compose)
 
-//    testImplementation(libs.androidx.compose.ui.test)
+    testImplementation(libs.androidx.compose.ui.test)
     testImplementation(libs.accompanist.testharness)
     testImplementation(libs.hilt.android.testing)
     testImplementation(libs.robolectric)
     testImplementation(libs.roborazzi)
     testImplementation(project(":modules:testing"))
 
-    //  androidTestImplementation(libs.androidx.compose.ui.test)
+      androidTestImplementation(libs.androidx.compose.ui.test)
     androidTestImplementation(project(":modules:testing"))
+    implementation ("com.google.guava:listenablefuture:9999.0-empty-to-avoid-conflict-with-guava")
+
 }

@@ -1,17 +1,5 @@
 /*
- * Copyright 2023 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *abiola 2024
  */
 
 package com.mshdabiola.designsystem
@@ -25,9 +13,9 @@ import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onRoot
 import com.github.takahirom.roborazzi.captureRoboImage
 import com.google.accompanist.testharness.TestHarness
-import com.mshdabiola.designsystem.component.NiaTopAppBar
-import com.mshdabiola.designsystem.icon.NiaIcons
-import com.mshdabiola.designsystem.theme.NiaTheme
+import com.mshdabiola.designsystem.component.SkTopAppBar
+import com.mshdabiola.designsystem.icon.SkIcons
+import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.testing.util.DefaultRoborazziOptions
 import com.mshdabiola.testing.util.captureMultiTheme
 import dagger.hilt.android.testing.HiltTestApplication
@@ -63,7 +51,7 @@ class TopAppBarScreenshotTests() {
                 LocalInspectionMode provides true,
             ) {
                 TestHarness(fontScale = 2f) {
-                    NiaTheme {
+                    SkTheme {
                         NiaTopAppBarExample()
                     }
                 }
@@ -78,11 +66,11 @@ class TopAppBarScreenshotTests() {
 
     @Composable
     private fun NiaTopAppBarExample() {
-        NiaTopAppBar(
+        SkTopAppBar(
             titleRes = android.R.string.untitled,
-            navigationIcon = NiaIcons.Search,
+            navigationIcon = SkIcons.Search,
             navigationIconContentDescription = "Navigation icon",
-            actionIcon = NiaIcons.MoreVert,
+            actionIcon = SkIcons.MoreVert,
             actionIconContentDescription = "Action icon",
         )
     }

@@ -1,8 +1,13 @@
+/*
+ *abiola 2024
+ */
 @Suppress("DSL_SCOPE_VIOLATION")
 plugins {
     id("mshdabiola.android.library")
     id("mshdabiola.android.hilt")
     alias(libs.plugins.kotlin.serialization)
+//    id("com.google.android.libraries.mapsplatform.secrets-gradle-plugin")
+
 }
 
 android {
@@ -10,8 +15,19 @@ android {
     defaultConfig {
         consumerProguardFiles("consumer-proguard-rules.pro")
     }
+    buildFeatures {
+        buildConfig = true
+    }
+    testOptions {
+        unitTests {
+            isIncludeAndroidResources = true
+        }
+    }
 }
 dependencies {
+    api(project(":modules:common"))
+    api(project(":modules:model"))
+
     androidTestImplementation(project(":modules:testing"))
 
     implementation(libs.ktor.client.core)
@@ -26,3 +42,7 @@ dependencies {
     testImplementation(libs.kotlinx.coroutines.test)
 
 }
+//
+//secrets {
+//    defaultPropertiesFileName = "secrets.defaults.properties"
+//}

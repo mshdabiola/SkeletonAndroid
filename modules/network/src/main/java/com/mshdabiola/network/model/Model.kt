@@ -1,3 +1,7 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.network.model
 
 import kotlinx.serialization.Serializable

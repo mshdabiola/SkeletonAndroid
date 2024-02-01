@@ -13,6 +13,7 @@ androidxBrowser = "1.6.0"
 androidxLifecycle = "2.7.0"
 
 
+monitor = "1.6.1"
 turbine = "1.0.0"
 timber = "5.0.1"
 
@@ -106,6 +107,8 @@ androidx-core-splashscreen = { module = "androidx.core:core-splashscreen", versi
 androidx-metrics = { group = "androidx.metrics", name = "metrics-performance", version.ref = "androidxMetrics" }
 androidx-browser = { group = "androidx.browser", name = "browser", version.ref = "androidxBrowser" }
 androidx-activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activityCompose" }
+androidx-monitor = { module = "androidx.test:monitor", version.ref = "monitor" }
+androidx-tracing-ktx = { group = "androidx.tracing", name = "tracing-ktx", version.ref = "androidxTracing" }
 
 androidx-compose-bom = { group = "androidx.compose", name = "compose-bom", version.ref = "androidxComposeBom" }
 androidx-compose-foundation = { group = "androidx.compose.foundation", name = "foundation" }

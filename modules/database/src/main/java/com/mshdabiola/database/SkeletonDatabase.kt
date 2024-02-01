@@ -1,13 +1,17 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.database
 
 import androidx.room.Database
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.mshdabiola.database.dao.ModelDao
-import com.mshdabiola.database.model.ModelEntity
+import com.mshdabiola.database.dao.NoteDao
+import com.mshdabiola.database.model.NoteEntity
 
 @Database(
-    entities = [ModelEntity::class],
+    entities = [NoteEntity::class],
     version = 1,
 //    autoMigrations = [
 //        //AutoMigration(from = 2, to = 3, spec = DatabaseMigrations.Schema2to3::class),
@@ -19,7 +23,7 @@ import com.mshdabiola.database.model.ModelEntity
 @TypeConverters()
 abstract class SkeletonDatabase : RoomDatabase() {
 
-    abstract fun getModelDao(): ModelDao
+    abstract fun getNoteDao(): NoteDao
 //
 //    abstract fun getPlayerDao(): PlayerDao
 //

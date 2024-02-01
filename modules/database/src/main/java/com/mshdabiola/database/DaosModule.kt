@@ -1,6 +1,10 @@
+/*
+ *abiola 2024
+ */
+
 package com.mshdabiola.database
 
-import com.mshdabiola.database.dao.ModelDao
+import com.mshdabiola.database.dao.NoteDao
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -11,7 +15,7 @@ import dagger.hilt.components.SingletonComponent
 object DaosModule {
 
     @Provides
-    fun modelDaoProvider(ludoDatabase: SkeletonDatabase): ModelDao {
-        return ludoDatabase.getModelDao()
+    fun noteDaoProvider(db: SkeletonDatabase): NoteDao {
+        return db.getNoteDao()
     }
 }

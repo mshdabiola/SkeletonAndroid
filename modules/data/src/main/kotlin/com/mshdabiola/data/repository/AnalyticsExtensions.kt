@@ -1,4 +1,6 @@
-
+/*
+ *abiola 2024
+ */
 
 package com.mshdabiola.data.repository
 
@@ -58,7 +60,7 @@ internal fun AnalyticsHelper.logDynamicColorPreferenceChanged(useDynamicColor: B
             extras = listOf(
                 AnalyticsEvent.Param(
                     key = "dynamic_color_preference",
-                    value = useDynamicColor.toString()
+                    value = useDynamicColor.toString(),
                 ),
             ),
         ),
