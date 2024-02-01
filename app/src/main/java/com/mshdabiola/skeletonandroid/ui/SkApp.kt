@@ -5,13 +5,10 @@
 package com.mshdabiola.skeletonandroid.ui
 
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.consumeWindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.navigationBars
-import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.only
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.safeDrawing
@@ -63,7 +60,7 @@ fun SkApp(
         windowSizeClass = windowSizeClass,
     ),
 ) {
-    val shouldShowGradientBackground = true
+    val shouldShowGradientBackground = false
 
     SkBackground {
         SkGradientBackground(
@@ -98,10 +95,12 @@ fun SkApp(
                 snackbarHost = { SnackbarHost(snackbarHostState) },
                 floatingActionButton = {
                     if (appState.currentDestination?.route == MAIN_ROUTE) {
-                        ExtendedFloatingActionButton(modifier = Modifier
-
-                            .windowInsetsPadding(WindowInsets.safeDrawing)
-                            .testTag("add"), onClick = { appState.navController.navigateToDetail(0) }) {
+                        ExtendedFloatingActionButton(
+                            modifier = Modifier
+                                .windowInsetsPadding(WindowInsets.safeDrawing)
+                                .testTag("add"),
+                            onClick = { appState.navController.navigateToDetail(0) },
+                        ) {
                             Icon(imageVector = Icons.Rounded.Add, contentDescription = "add note")
 //                            Spacer(modifier = )
                             Text(text = "Add note")
@@ -111,22 +110,23 @@ fun SkApp(
 
             ) { padding ->
 
-                    Column( Modifier
+                Column(
+                    Modifier
                         .fillMaxSize()
                         .padding(padding)
                         .consumeWindowInsets(padding)
                         .windowInsetsPadding(
                             WindowInsets.safeDrawing.only(WindowInsetsSides.Horizontal),
-                        )) {
-                        SkNavHost(appState = appState, onShowSnackbar = { message, action ->
-                            snackbarHostState.showSnackbar(
-                                message = message,
-                                actionLabel = action,
-                                duration = SnackbarDuration.Short,
-                            ) == SnackbarResult.ActionPerformed
-                        })
-                    }
-
+                        ),
+                ) {
+                    SkNavHost(appState = appState, onShowSnackbar = { message, action ->
+                        snackbarHostState.showSnackbar(
+                            message = message,
+                            actionLabel = action,
+                            duration = SnackbarDuration.Short,
+                        ) == SnackbarResult.ActionPerformed
+                    })
+                }
             }
         }
     }

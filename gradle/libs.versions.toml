@@ -164,14 +164,14 @@ coil-kt-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 coil-kt-svg = { module = "io.coil-kt:coil-svg", version.ref = "coil" }
 
 firebase-bom = { group = "com.google.firebase", name = "firebase-bom", version.ref = "firebaseBom" }
-firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics-ktx" }
-firebase-cloud-messaging = { group = "com.google.firebase", name = "firebase-messaging-ktx" }
-firebase-remoteconfig = { group = "com.google.firebase", name = "firebase-config-ktx" }
-firebase-message = { group = "com.google.firebase", name = "firebase-inappmessaging-display-ktx" }
-firebase-auth = { group = "com.google.firebase", name = "firebase-auth-ktx" }
-firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics-ktx" }
+firebase-analytics = { group = "com.google.firebase", name = "firebase-analytics" }
+firebase-cloud-messaging = { group = "com.google.firebase", name = "firebase-messaging" }
+firebase-remoteconfig = { group = "com.google.firebase", name = "firebase-config" }
+firebase-message = { group = "com.google.firebase", name = "firebase-inappmessaging-display" }
+firebase-auth = { group = "com.google.firebase", name = "firebase-auth" }
+firebase-crashlytics = { group = "com.google.firebase", name = "firebase-crashlytics" }
 firebase-crashlytics-gradle = { group = "com.google.firebase", name = "firebase-crashlytics-gradle", version.ref = "firebaseCrashylyticsPlugins" }
-firebase-performance = { group = "com.google.firebase", name = "firebase-perf-ktx" }
+firebase-performance = { group = "com.google.firebase", name = "firebase-perf" }
 
 play-game = { module = "com.google.android.gms:play-services-games-v2", version.ref = "playGame" }
 play-review = { module = "com.google.android.play:review", version.ref = "playReview" }

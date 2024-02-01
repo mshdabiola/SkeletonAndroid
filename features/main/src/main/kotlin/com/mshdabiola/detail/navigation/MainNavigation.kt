@@ -20,6 +20,5 @@ fun NavGraphBuilder.mainScreen(
 ) {
     composable(route = MAIN_ROUTE) {
         MainRoute(onClick = onClicked, onShowSnackbar)
-        
     }
 }

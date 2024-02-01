@@ -26,10 +26,10 @@ import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.metrics.performance.JankStats
 import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.Firebase
 import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.remoteconfig.ktx.remoteConfig
-import com.google.firebase.remoteconfig.ktx.remoteConfigSettings
+import com.google.firebase.remoteconfig.remoteConfig
+import com.google.firebase.remoteconfig.remoteConfigSettings
 import com.mshdabiola.analytics.AnalyticsHelper
 import com.mshdabiola.analytics.LocalAnalyticsHelper
 import com.mshdabiola.data.util.NetworkMonitor
@@ -43,6 +43,7 @@ import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import timber.log.Timber
 import javax.inject.Inject
+
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     @Inject
@@ -59,8 +60,8 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val splashScreen = installSplashScreen()
-
+//        val splashScreen = installSplashScreen()
+        installSplashScreen()
         var uiState: MainActivityUiState by mutableStateOf(MainActivityUiState.Loading)
 
         lifecycleScope.launch {
@@ -71,12 +72,12 @@ class MainActivity : ComponentActivity() {
             }
         }
         enableEdgeToEdge()
-        splashScreen.setKeepOnScreenCondition {
-            when (uiState) {
-                MainActivityUiState.Loading -> true
-                is MainActivityUiState.Success -> false
-            }
-        }
+//        splashScreen.setKeepOnScreenCondition {
+//            when (uiState) {
+//                MainActivityUiState.Loading -> true
+//                is MainActivityUiState.Success -> false
+//            }
+//        }
 
         val remoteConfig = Firebase.remoteConfig
         remoteConfig.setConfigSettingsAsync(
