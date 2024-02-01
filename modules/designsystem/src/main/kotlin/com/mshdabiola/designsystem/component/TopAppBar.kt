@@ -69,7 +69,7 @@ fun SkTopAppBar(
 @Composable
 fun DetailTopAppBar(
     modifier: Modifier = Modifier,
-    colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(),
+    colors: TopAppBarColors = TopAppBarDefaults.centerAlignedTopAppBarColors(containerColor = MaterialTheme.colorScheme.background),
     onNavigationClick: () -> Unit = {},
     onDeleteClick: () -> Unit = {},
 ) {

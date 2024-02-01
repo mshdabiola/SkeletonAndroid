@@ -5,6 +5,8 @@
 package com.mshdabiola.detail.navigation
 
 import androidx.annotation.VisibleForTesting
+import androidx.compose.animation.AnimatedContentScope
+import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -43,6 +45,12 @@ fun NavGraphBuilder.detailScreen(
                 type = NavType.LongType
             },
         ),
+        enterTransition = {
+            slideIntoContainer(towards = AnimatedContentTransitionScope.SlideDirection.Left)
+        },
+        exitTransition = {
+            slideOutOfContainer(towards = AnimatedContentTransitionScope.SlideDirection.Right)
+        }
     ) {
         DetailRoute(onShowSnackbar, onBack)
     }
