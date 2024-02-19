@@ -9,7 +9,7 @@ import androidx.datastore.core.DataStore
 import androidx.datastore.core.DataStoreFactory
 import androidx.datastore.dataStoreFile
 import com.mshdabiola.common.network.Dispatcher
-import com.mshdabiola.common.network.NiaDispatchers.IO
+import com.mshdabiola.common.network.SkDispatchers.IO
 import com.mshdabiola.common.network.di.ApplicationScope
 import com.mshdabiola.datastore.IntToStringIdsMigration
 import com.mshdabiola.datastore.UserPreferences
