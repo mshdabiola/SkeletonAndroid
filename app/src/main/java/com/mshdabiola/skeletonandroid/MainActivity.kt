@@ -34,6 +34,7 @@ import com.mshdabiola.analytics.AnalyticsHelper
 import com.mshdabiola.analytics.LocalAnalyticsHelper
 import com.mshdabiola.data.util.NetworkMonitor
 import com.mshdabiola.designsystem.theme.SkTheme
+import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.skeletonandroid.ui.SkApp
@@ -159,7 +160,8 @@ class MainActivity : ComponentActivity() {
             CompositionLocalProvider(LocalAnalyticsHelper provides analyticsHelper) {
                 SkTheme(
                     darkTheme = darkTheme,
-                    androidTheme = shouldUseAndroidTheme(uiState),
+                    themeBrand = chooseTheme(uiState),
+                    themeContrast = chooseContrast(uiState),
                     disableDynamicTheming = shouldDisableDynamicTheming(uiState),
                 ) {
                     SkApp(
@@ -173,14 +175,19 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-private fun shouldUseAndroidTheme(
+private fun chooseTheme(
     uiState: MainActivityUiState,
-): Boolean = when (uiState) {
-    MainActivityUiState.Loading -> false
-    is MainActivityUiState.Success -> when (uiState.userData.themeBrand) {
-        ThemeBrand.DEFAULT -> false
-        ThemeBrand.ANDROID -> true
-    }
+): ThemeBrand = when (uiState) {
+    MainActivityUiState.Loading -> ThemeBrand.DEFAULT
+    is MainActivityUiState.Success -> uiState.userData.themeBrand
+}
+
+@Composable
+private fun chooseContrast(
+    uiState: MainActivityUiState,
+): Contrast = when (uiState) {
+    MainActivityUiState.Loading -> Contrast.Normal
+    is MainActivityUiState.Success -> uiState.userData.contrast
 }
 
 @Composable

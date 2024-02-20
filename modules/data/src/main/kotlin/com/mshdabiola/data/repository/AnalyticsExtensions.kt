@@ -43,6 +43,16 @@ internal fun AnalyticsHelper.logThemeChanged(themeName: String) =
         ),
     )
 
+internal fun AnalyticsHelper.logContrastChanged(contrastName : String) =
+    logEvent(
+        AnalyticsEvent(
+            type = "Contrast_changed",
+            extras = listOf(
+                AnalyticsEvent.Param(key = "theme_name", value = contrastName),
+            ),
+        ),
+    )
+
 internal fun AnalyticsHelper.logDarkThemeConfigChanged(darkThemeConfigName: String) =
     logEvent(
         AnalyticsEvent(

@@ -5,6 +5,7 @@
 package com.mshdabiola.testing.repository
 
 import com.mshdabiola.data.repository.UserDataRepository
+import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.model.UserData
@@ -21,6 +22,7 @@ val emptyUserData = UserData(
     darkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
     useDynamicColor = false,
     shouldHideOnboarding = false,
+    contrast = Contrast.Normal
 )
 
 class TestUserDataRepository : UserDataRepository {
@@ -79,6 +81,12 @@ class TestUserDataRepository : UserDataRepository {
     override suspend fun setThemeBrand(themeBrand: ThemeBrand) {
         currentUserData.let { current ->
             _userData.tryEmit(current.copy(themeBrand = themeBrand))
+        }
+    }
+
+    override suspend fun setThemeContrast(contrast: Contrast) {
+        currentUserData.let { current ->
+            _userData.tryEmit(current.copy(contrast = contrast))
         }
     }
 

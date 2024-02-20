@@ -6,6 +6,7 @@ package com.mshdabiola.data.repository.fake
 
 import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.datastore.SkPreferencesDataSource
+import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.model.UserData
@@ -25,21 +26,12 @@ class FakeUserDataRepository @Inject constructor(
     override val userData: Flow<UserData> =
         skPreferencesDataSource.userData
 
-    override suspend fun setFollowedTopicIds(followedTopicIds: Set<String>) =
-        skPreferencesDataSource.setFollowedTopicIds(followedTopicIds)
-
-    override suspend fun setTopicIdFollowed(followedTopicId: String, followed: Boolean) =
-        skPreferencesDataSource.setTopicIdFollowed(followedTopicId, followed)
-
-    override suspend fun updateNewsResourceBookmark(newsResourceId: String, bookmarked: Boolean) {
-        skPreferencesDataSource.setNewsResourceBookmarked(newsResourceId, bookmarked)
-    }
-
-    override suspend fun setNewsResourceViewed(newsResourceId: String, viewed: Boolean) =
-        skPreferencesDataSource.setNewsResourceViewed(newsResourceId, viewed)
-
     override suspend fun setThemeBrand(themeBrand: ThemeBrand) {
         skPreferencesDataSource.setThemeBrand(themeBrand)
+    }
+
+    override suspend fun setThemeContrast(contrast: Contrast) {
+        skPreferencesDataSource.setThemeContrast(contrast)
     }
 
     override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {
