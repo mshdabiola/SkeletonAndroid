@@ -8,6 +8,7 @@ import android.os.Build
 import androidx.annotation.ChecksSdkIntAtLeast
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.isSystemInDarkTheme
+import androidx.compose.material3.ColorScheme
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.dynamicDarkColorScheme
 import androidx.compose.material3.dynamicLightColorScheme
@@ -38,39 +39,57 @@ val unspecified_scheme = ColorFamily(
 )
 
 @Composable
-fun  SkTheme(
+fun SkTheme(
     darkTheme: Boolean = isSystemInDarkTheme(),
     themeBrand: ThemeBrand = ThemeBrand.DEFAULT,
     themeContrast: Contrast = Contrast.Normal,
     disableDynamicTheming: Boolean = true,
+    useAndroidTheme: Boolean = true,
     content: @Composable () -> Unit,
 ) {
-    val theme = when (themeBrand) {
-        ThemeBrand.GREEN -> Theme.GreenTheme(darkTheme, themeContrast)
-        else -> Theme.DefaultTheme(darkTheme, themeContrast)
+    val themeColor = when (themeBrand) {
+        ThemeBrand.GREEN -> ThemeColor.GreenThemeColor(darkTheme, themeContrast)
+        else -> ThemeColor.DefaultThemeColor(darkTheme, themeContrast)
     }
 
-    val useDynamicTheme = when {
-        themeBrand != ThemeBrand.DEFAULT -> false
-        !disableDynamicTheming -> true
-        else -> false
-    }
-    val colorScheme = if (useDynamicTheme && supportsDynamicTheming()) {
-        val context = LocalContext.current
-        if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
-    } else {
-        theme.getColorScheme()
-    }
+    // Color scheme
+    val colorScheme = when {
+        useAndroidTheme -> themeColor.getColorScheme()
+        !disableDynamicTheming && supportsDynamicTheming() -> getDynamicColor(darkTheme)
 
+        else -> themeColor.getColorScheme()
+    }
+    // Gradient colors
+    val emptyGradientColors = GradientColors(container = colorScheme.surfaceColorAtElevation(2.dp))
+    val defaultGradientColors = GradientColors(
+        top = colorScheme.inverseOnSurface,
+        bottom = colorScheme.primaryContainer,
+        container = colorScheme.surface,
+    )
+    val gradientColors = when {
+        useAndroidTheme -> themeColor.getGradientColors()
+        !disableDynamicTheming && supportsDynamicTheming() -> emptyGradientColors
+        else -> defaultGradientColors
+    }
+    // Background theme
+    val defaultBackgroundTheme = BackgroundTheme(
+        color = colorScheme.surface,
+        tonalElevation = 2.dp,
+    )
+    val backgroundTheme = when {
+        useAndroidTheme -> themeColor.getBackgroundTheme()
+        else -> defaultBackgroundTheme
+    }
+    val tintTheme = when {
+        useAndroidTheme -> themeColor.getTintTheme()
+        !disableDynamicTheming && supportsDynamicTheming() -> TintTheme(colorScheme.primary)
+        else -> TintTheme()
+    }
     // Composition locals
     CompositionLocalProvider(
-        LocalGradientColors provides if (useDynamicTheme) GradientColors(
-            container = colorScheme.surfaceColorAtElevation(
-                2.dp,
-            ),
-        ) else theme.getGradientColors(),
-        LocalBackgroundTheme provides theme.getBackgroundTheme(),
-        LocalTintTheme provides theme.getTintTheme(),
+        LocalGradientColors provides gradientColors,
+        LocalBackgroundTheme provides backgroundTheme,
+        LocalTintTheme provides tintTheme,
     ) {
         MaterialTheme(
             colorScheme = colorScheme,
@@ -82,4 +101,8 @@ fun  SkTheme(
 
 @ChecksSdkIntAtLeast(api = Build.VERSION_CODES.S)
 fun supportsDynamicTheming() = Build.VERSION.SDK_INT >= Build.VERSION_CODES.S
-
+@Composable
+ fun getDynamicColor(darkTheme: Boolean): ColorScheme {
+    val context = LocalContext.current
+    return if (darkTheme) dynamicDarkColorScheme(context) else dynamicLightColorScheme(context)
+}

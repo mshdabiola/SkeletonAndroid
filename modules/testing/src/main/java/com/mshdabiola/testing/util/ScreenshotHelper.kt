@@ -101,7 +101,6 @@ fun <A : ComponentActivity> AndroidComposeTestRule<ActivityScenarioRule<A>, A>.c
             LocalInspectionMode provides true,
         ) {
             SkTheme(
-                androidTheme = androidTheme,
                 darkTheme = darkMode,
                 disableDynamicTheming = !dynamicTheming,
             ) {
