@@ -1,11 +1,11 @@
 [versions]
-agp = "8.3.2"
+agp = "8.4.0"
 androidTools = "31.3.2"
 
 accompanist = "0.34.0"
 
-kotlin = "1.9.23"
-coreKtx = "1.13.0"
+kotlin = "2.0.0-RC2"
+coreKtx = "1.13.1"
 leakcanaryAndroid = "3.0-alpha-1"
 lifecycleRuntimeKtx = "2.7.0"
 androidxSavedState = "1.2.1"
@@ -19,7 +19,7 @@ timber = "5.0.1"
 
 androidxComposeCompiler = "1.5.12"
 activityCompose = "1.9.0"
-androidxComposeBom = "2024.04.01"
+androidxComposeBom = "2024.05.00"
 androidxComposeRuntimeTracing = "1.0.0-beta01"
 
 
@@ -29,7 +29,7 @@ androidxMetrics = "1.0.0-beta01"
 
 
 protobuf = "3.24.4"
-androidxDataStore = "1.1.0"
+androidxDataStore = "1.1.1"
 room = "2.6.1"
 secrets = "2.0.1"
 ktor = "2.3.8"
@@ -56,20 +56,20 @@ hiltExt = "1.2.0"
 kotlinxCollectionImmutable = "0.3.7"
 kotlinxCoroutines = "1.8.0"
 kotlinxDatetime = "0.5.0"
-kotlinxSerializationJson = "1.6.2"
+kotlinxSerializationJson = "1.6.3"
 
 playGame = "20.0.0"
 playReview = "2.0.1"
 playUpdate = "2.1.0"
 playCoroutine = "1.8.0"
-firebaseBom = "32.8.1"
+firebaseBom = "33.0.0"
 firebaseAnalytics = "21.2.2"
 firebaseCrashlyticsKts = "18.3.6"
 
 firebaseCrashylyticsPlugins = "2.9.9"
 firebasePerfPlugin = "1.4.2"
 googleServicePlugin = "4.4.1"
-ksp = "1.9.23-1.0.20"
+ksp = "2.0.0-RC2-1.0.20"
 protobufPlugin = "0.9.4"
 
 robolectric = "4.11.1"
@@ -222,7 +222,6 @@ android-library = { id = "com.android.library", version.ref = "agp" }
 android-test = { id = "com.android.test", version.ref = "agp" }
 firebase-crashlytics = { id = "com.google.firebase.crashlytics", version.ref = "firebaseCrashylyticsPlugins" }
 firebase-perf = { id = "com.google.firebase.firebase-perf", version.ref = "firebasePerfPlugin" }
-google-services = { id = "com.google.gms.google-services", version.ref = "googleServicePlugin" }
 hilt = { id = "com.google.dagger.hilt.android", version.ref = "hilt" }
 kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 kotlin-serialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
@@ -232,6 +231,7 @@ androidx-baselineprofile = { id = "androidx.baselineprofile", version.ref = "and
 protobuf = { id = "com.google.protobuf", version.ref = "protobufPlugin" }
 roborazzi = { id = "io.github.takahirom.roborazzi", version.ref = "roborazzi" }
 dependencyGuard = { id = "com.dropbox.dependency-guard", version.ref = "dependencyGuard" }
+compose-compiler = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
 
 
 

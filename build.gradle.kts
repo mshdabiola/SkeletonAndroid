@@ -14,6 +14,8 @@ plugins {
     alias(libs.plugins.ksp) apply false
     alias(libs.plugins.androidx.baselineprofile) apply false
     alias(libs.plugins.roborazzi) apply false
+    alias(libs.plugins.compose.compiler) apply false
+
 
 }
 true // Needed to make the Suppress annotation work for the plugins block
