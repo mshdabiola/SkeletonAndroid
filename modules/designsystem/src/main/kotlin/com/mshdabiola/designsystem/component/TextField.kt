@@ -48,7 +48,7 @@ fun SkTextField(
 
         keyboardOptions = KeyboardOptions.Default.copy(
             capitalization = KeyboardCapitalization.Sentences,
-            autoCorrect = true,
+            autoCorrectEnabled = true,
             imeAction = imeAction,
         ),
         keyboardActions = KeyboardActions { keyboardAction() },
