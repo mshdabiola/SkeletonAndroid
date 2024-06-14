@@ -25,11 +25,6 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.metrics.performance.JankStats
-import com.google.android.gms.tasks.OnCompleteListener
-import com.google.firebase.Firebase
-import com.google.firebase.messaging.FirebaseMessaging
-import com.google.firebase.remoteconfig.remoteConfig
-import com.google.firebase.remoteconfig.remoteConfigSettings
 import com.mshdabiola.analytics.AnalyticsHelper
 import com.mshdabiola.analytics.LocalAnalyticsHelper
 import com.mshdabiola.data.util.NetworkMonitor
@@ -61,7 +56,7 @@ class MainActivity : ComponentActivity() {
     @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-//        val splashScreen = installSplashScreen()
+        val splashScreen = installSplashScreen()
         installSplashScreen()
         var uiState: MainActivityUiState by mutableStateOf(MainActivityUiState.Loading)
 
@@ -73,68 +68,12 @@ class MainActivity : ComponentActivity() {
             }
         }
         enableEdgeToEdge()
-//        splashScreen.setKeepOnScreenCondition {
-//            when (uiState) {
-//                MainActivityUiState.Loading -> true
-//                is MainActivityUiState.Success -> false
-//            }
-//        }
-
-        val remoteConfig = Firebase.remoteConfig
-        remoteConfig.setConfigSettingsAsync(
-            remoteConfigSettings {
-                minimumFetchIntervalInSeconds = 3600
-            },
-        )
-        remoteConfig.setDefaultsAsync(R.xml.remote_config_defaults)
-//        remoteConfig.fetchAndActivate()
-//            .addOnCompleteListener(this) { task ->
-//                if (task.isSuccessful) {
-//                    val updated = task.result
-//
-//                  val tr=  remoteConfig.getBoolean("theme")
-//                  val name  =remoteConfig.getString("name")
-//
-//                    Timber.e("Config params updated: %s", updated)
-//                    Timber.e("theme $tr name $name")
-//                    Toast.makeText(this, "Fetch and activate succeeded",
-//                        Toast.LENGTH_SHORT).show()
-//                } else {
-//                    Toast.makeText(this, "Fetch failed",
-//                        Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//
-//        remoteConfig.addOnConfigUpdateListener(object : ConfigUpdateListener {
-//            override fun onUpdate(configUpdate : ConfigUpdate) {
-//                Timber.e("Updated keys: " + configUpdate.updatedKeys);
-//
-//                if (configUpdate.updatedKeys.contains("name")) {
-//                    remoteConfig.activate().addOnCompleteListener {
-//                        Timber.e("new name ${remoteConfig.getString("name")}")
-//                    }
-//                }
-//            }
-//
-//            override fun onError(error : FirebaseRemoteConfigException) {
-//                Timber.e( "Config update error with code: " + error.code, error)
-//            }
-//        })
-        FirebaseMessaging.getInstance().token.addOnCompleteListener(
-            OnCompleteListener { task ->
-                if (!task.isSuccessful) {
-                    Timber.e("Fetching FCM registration token failed", task.exception)
-                    return@OnCompleteListener
-                }
-
-                // Get new FCM registration token
-                val token = task.result
-
-                // Log and toast
-                Timber.e(token)
-                // Toast.makeText(baseContext, token, Toast.LENGTH_SHORT).show()
-            },
-        )
+        splashScreen.setKeepOnScreenCondition {
+            when (uiState) {
+                MainActivityUiState.Loading -> true
+                is MainActivityUiState.Success -> false
+            }
+        }
 
         setContent {
             val darkTheme = shouldUseDarkTheme(uiState)

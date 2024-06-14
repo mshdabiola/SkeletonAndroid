@@ -35,6 +35,8 @@ fun LazyListScope.noteItem(
             ) { note ->
                 val analyticsHelper = LocalAnalyticsHelper.current
 
+                Modifier
+                    .padding(horizontal = 8.dp)
                 NoteUi(
                     noteUiState = note,
                     onClick = {
