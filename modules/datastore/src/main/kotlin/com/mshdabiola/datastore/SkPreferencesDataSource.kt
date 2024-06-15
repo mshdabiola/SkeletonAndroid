@@ -45,19 +45,7 @@ class SkPreferencesDataSource @Inject constructor(
                 },
                 useDynamicColor = it.useDynamicColor,
                 shouldHideOnboarding = it.shouldHideOnboarding,
-                contrast = when (it.contrast) {
-                    null,
-                    ThemeContrastProto.THEME_CONTRAST_UNSPECIFIED,
-                    ThemeContrastProto.UNRECOGNIZED,
-                    ThemeContrastProto.THEME_CONTRAST_NORMAL,
-                    ->
-                        Contrast.Normal
 
-                    ThemeContrastProto.THEME_CONTRAST_HIGH ->
-                        Contrast.High
-
-                    ThemeContrastProto.THEME_CONTRAST_MEDIUM -> Contrast.Medium
-                },
             )
         }
 
