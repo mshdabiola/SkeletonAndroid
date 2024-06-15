@@ -15,8 +15,7 @@ plugins {
     id("mshdabiola.android.hilt")
     id("jacoco")
 //    id("mshdabiola.android.application.firebase")
-    alias(libs.plugins.androidx.baselineprofile)
-    alias(libs.plugins.androidApplication)
+    alias(libs.plugins.baselineprofile)
     alias(libs.plugins.roborazzi)
 
 }
@@ -85,52 +84,57 @@ android {
 }
 
 dependencies {
-    implementation(project(":modules:designsystem"))
-    implementation(project(":modules:data"))
-    implementation(project(":modules:ui"))
+    implementation(projects.modules.designsystem)
+    implementation(projects.modules.data)
+    implementation(projects.modules.ui)
 
 
-    implementation(project(":features:main"))
-    implementation(project(":features:detail"))
+    implementation(projects.features.main)
+    implementation(projects.features.detail)
 
 
 
-    implementation(libs.timber)
-    debugImplementation(libs.leakcanary.android)
+
 
     implementation(libs.androidx.activity.compose)
+    implementation(libs.androidx.compose.material3.adaptive)
+    implementation(libs.androidx.compose.material3.adaptive.layout)
+    implementation(libs.androidx.compose.material3.adaptive.navigation)
+    implementation(libs.androidx.compose.material3.windowSizeClass)
+    implementation(libs.androidx.compose.runtime.tracing)
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.core.splashscreen)
-    implementation(libs.androidx.tracing.ktx)
+    implementation(libs.androidx.hilt.navigation.compose)
     implementation(libs.androidx.lifecycle.runtimeCompose)
-    implementation(libs.androidx.compose.material3.windowSizeClass)
     implementation(libs.androidx.navigation.compose)
     implementation(libs.androidx.profileinstaller)
-    implementation (libs.guava)
-
-//    implementation(libs.kotlinx.coroutines.guava)
+    implementation(libs.androidx.tracing.ktx)
+    implementation(libs.androidx.window.core)
+    implementation(libs.kotlinx.coroutines.guava)
     implementation(libs.coil.kt)
+    implementation(libs.timber)
+
+    ksp(libs.hilt.compiler)
 
     debugImplementation(libs.androidx.compose.ui.testManifest)
-//    debugImplementation(projects.uiTestHiltManifest)
 
     kspTest(libs.hilt.compiler)
 
-//    testImplementation(projects.core.dataTest)
-    testImplementation(project(":modules:testing"))
-    testImplementation(libs.accompanist.testharness)
+    testImplementation(projects.modules.testing)
+    testImplementation(libs.androidx.compose.ui.test)
+    testImplementation(libs.androidx.work.testing)
     testImplementation(libs.hilt.android.testing)
-//    testImplementation(libs.work.testing)
 
-    testImplementation(libs.robolectric)
-    testImplementation(libs.roborazzi)
+    testFossReliantImplementation(libs.robolectric)
+    testFossReliantImplementation(libs.roborazzi)
 
-    androidTestImplementation(project(":modules:testing"))
+    androidTestImplementation(projects.modules.testing)
+    androidTestImplementation(libs.androidx.test.espresso.core)
     androidTestImplementation(libs.androidx.navigation.testing)
-    androidTestImplementation(libs.accompanist.testharness)
+    androidTestImplementation(libs.androidx.compose.ui.test)
     androidTestImplementation(libs.hilt.android.testing)
-    debugImplementation (libs.androidx.monitor)
-    baselineProfile(project(":benchmarks"))
+
+    baselineProfile(projects.benchmarks)
 
 
     googlePlayImplementation(platform(libs.firebase.bom))
@@ -153,7 +157,7 @@ dependencies {
 baselineProfile {
     // Don't build on every iteration of a full assemble.
     // Instead enable generation directly for the release build variant.
-    automaticGenerationDuringBuild = true
+    automaticGenerationDuringBuild = false
 }
 
 dependencyGuard {

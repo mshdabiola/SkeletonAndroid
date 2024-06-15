@@ -4,6 +4,13 @@
 
 package com.mshdabiola.network.di
 
+import android.content.Context
+import android.telecom.Call
+import androidx.tracing.trace
+import coil.ImageLoader
+import coil.decode.SvgDecoder
+import coil.util.DebugLogger
+import com.mshdabiola.network.BuildConfig
 import com.mshdabiola.network.Config
 import com.mshdabiola.network.INetworkDataSource
 import com.mshdabiola.network.NetworkDataSource
@@ -11,6 +18,7 @@ import dagger.Binds
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import io.ktor.client.HttpClient
 import io.ktor.client.engine.android.Android
@@ -29,6 +37,8 @@ import io.ktor.http.HttpHeaders
 import io.ktor.http.URLProtocol
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
+import okhttp3.OkHttpClient
+import okhttp3.internal.platform.android.AndroidLogHandler.setLevel
 import java.io.File
 import javax.inject.Singleton
 
@@ -72,6 +82,42 @@ object NetworkModule {
             val file = File.createTempFile("abiola", "tem")
             publicStorage(FileStorage(file))
         }
+    }
+
+    @Provides
+    @Singleton
+    fun okHttpCallFactory(): okhttp3.Call.Factory = trace("NiaOkHttpClient") {
+        OkHttpClient.Builder()
+//            .addInterceptor(
+//                HttpLoggingInterceptor()
+//                    .apply {
+//                        if (BuildConfig.DEBUG) {
+//                            setLevel(HttpLoggingInterceptor.Level.BODY)
+//                        }
+//                    },
+//            )
+            .build()
+    }
+
+    @Provides
+    @Singleton
+    fun imageLoader(
+        // We specifically request dagger.Lazy here, so that it's not instantiated from Dagger.
+        okHttpCallFactory: dagger.Lazy<okhttp3.Call.Factory>,
+        @ApplicationContext application: Context,
+    ): ImageLoader = trace("NiaImageLoader") {
+        ImageLoader.Builder(application)
+            .callFactory { okHttpCallFactory.get() }
+            .components { add(SvgDecoder.Factory()) }
+            // Assume most content images are versioned urls
+            // but some problematic images are fetching each time
+            .respectCacheHeaders(false)
+            .apply {
+                if (BuildConfig.DEBUG) {
+                    logger(DebugLogger())
+                }
+            }
+            .build()
     }
 }
 

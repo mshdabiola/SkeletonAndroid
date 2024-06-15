@@ -14,20 +14,22 @@
  * limitations under the License.
  */
 
-package com.mshdabiola.testing.di
+package com.mshdabiola.testing.util
 
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.test.TestDispatcher
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import javax.inject.Singleton
+import com.mshdabiola.data.util.NetworkMonitor
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.MutableStateFlow
 
-@Module
-@InstallIn(SingletonComponent::class)
-internal object TestDispatcherModule {
-    @Provides
-    @Singleton
-    fun providesTestDispatcher(): TestDispatcher = UnconfinedTestDispatcher()
+class TestNetworkMonitor : NetworkMonitor {
+
+    private val connectivityFlow = MutableStateFlow(true)
+
+    override val isOnline: Flow<Boolean> = connectivityFlow
+
+    /**
+     * A test-only API to set the connectivity state from tests.
+     */
+    fun setConnected(isConnected: Boolean) {
+        connectivityFlow.value = isConnected
+    }
 }

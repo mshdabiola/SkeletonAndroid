@@ -43,13 +43,13 @@ fun NavGraphBuilder.detailScreen(
             navArgument(DETAIL_ID_ARG) {
                 type = NavType.LongType
             },
-        ),
-        enterTransition = {
-            slideIntoContainer(towards = AnimatedContentTransitionScope.SlideDirection.Left)
-        },
-        exitTransition = {
-            slideOutOfContainer(towards = AnimatedContentTransitionScope.SlideDirection.Right)
-        },
+        )
+//        enterTransition = {
+//            slideIntoContainer(towards = AnimatedContentTransitionScope.SlideDirection.Left)
+//        },
+//        exitTransition = {
+//            slideOutOfContainer(towards = AnimatedContentTransitionScope.SlideDirection.Right)
+//        },
     ) {
         DetailRoute(onShowSnackbar, onBack)
     }

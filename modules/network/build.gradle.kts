@@ -38,6 +38,9 @@ dependencies {
     implementation(libs.ktor.client.serialization)
     implementation(libs.ktor.client.resources)
 
+    implementation(libs.coil.kt)
+    implementation(libs.coil.kt.svg)
+
     testImplementation(libs.ktor.client.mock)
     testImplementation(libs.kotlinx.coroutines.test)
 

@@ -1,17 +1,12 @@
 pluginManagement {
+    includeBuild("build-logic")
     repositories {
-        includeBuild("build-logic")
-        google {
-            content {
-                includeGroupByRegex("com\\.android.*")
-                includeGroupByRegex("com\\.google.*")
-                includeGroupByRegex("androidx.*")
-            }
-        }
+        google()
         mavenCentral()
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -21,6 +16,8 @@ dependencyResolutionManagement {
 }
 
 rootProject.name = "SkeletonAndroid"
+
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 include(":app")
 include(":benchmarks")
 include(":modules:data")

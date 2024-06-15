@@ -14,20 +14,13 @@
  * limitations under the License.
  */
 
-package com.mshdabiola.testing.di
+package com.mshdabiola.testing.fake
 
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.test.TestDispatcher
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import javax.inject.Singleton
+import com.mshdabiola.data.util.NetworkMonitor
+import kotlinx.coroutines.flow.Flow
+import kotlinx.coroutines.flow.flowOf
+import javax.inject.Inject
 
-@Module
-@InstallIn(SingletonComponent::class)
-internal object TestDispatcherModule {
-    @Provides
-    @Singleton
-    fun providesTestDispatcher(): TestDispatcher = UnconfinedTestDispatcher()
+class AlwaysOnlineNetworkMonitor @Inject constructor() : NetworkMonitor {
+    override val isOnline: Flow<Boolean> = flowOf(true)
 }

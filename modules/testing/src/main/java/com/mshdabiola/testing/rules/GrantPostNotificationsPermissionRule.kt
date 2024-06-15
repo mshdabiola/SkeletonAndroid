@@ -1,5 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
+ * Copyright 2023 The Android Open Source Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,20 +14,16 @@
  * limitations under the License.
  */
 
-package com.mshdabiola.testing.di
+package com.mshdabiola.testing.rules
 
-import dagger.Module
-import dagger.Provides
-import dagger.hilt.InstallIn
-import dagger.hilt.components.SingletonComponent
-import kotlinx.coroutines.test.TestDispatcher
-import kotlinx.coroutines.test.UnconfinedTestDispatcher
-import javax.inject.Singleton
+import android.Manifest.permission.POST_NOTIFICATIONS
+import android.os.Build.VERSION.SDK_INT
+import android.os.Build.VERSION_CODES.TIRAMISU
+import androidx.test.rule.GrantPermissionRule.grant
+import org.junit.rules.TestRule
 
-@Module
-@InstallIn(SingletonComponent::class)
-internal object TestDispatcherModule {
-    @Provides
-    @Singleton
-    fun providesTestDispatcher(): TestDispatcher = UnconfinedTestDispatcher()
-}
+/**
+ * [TestRule] granting [POST_NOTIFICATIONS] permission if running on [SDK_INT] greater than [TIRAMISU].
+ */
+class GrantPostNotificationsPermissionRule :
+    TestRule by if (SDK_INT >= TIRAMISU) grant(POST_NOTIFICATIONS) else grant()
