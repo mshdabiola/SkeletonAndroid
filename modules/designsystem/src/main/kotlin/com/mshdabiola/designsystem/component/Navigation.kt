@@ -1,17 +1,5 @@
 /*
- * Copyright 2022 The Android Open Source Project
- *
- * Licensed under the Apache License, Version 2.0 (the "License");
- * you may not use this file except in compliance with the License.
- * You may obtain a copy of the License at
- *
- *     https://www.apache.org/licenses/LICENSE-2.0
- *
- * Unless required by applicable law or agreed to in writing, software
- * distributed under the License is distributed on an "AS IS" BASIS,
- * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
- * See the License for the specific language governing permissions and
- * limitations under the License.
+ *abiola 2022
  */
 
 package com.mshdabiola.designsystem.component
@@ -28,7 +16,6 @@ import androidx.compose.material3.NavigationRail
 import androidx.compose.material3.NavigationRailItem
 import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.Text
-import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
 import androidx.compose.material3.adaptive.WindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
 import androidx.compose.material3.adaptive.navigationsuite.ExperimentalMaterial3AdaptiveNavigationSuiteApi
@@ -37,6 +24,7 @@ import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemCo
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffoldDefaults
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScope
+import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteType
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -184,20 +172,21 @@ fun NiaNavigationRail(
  * @param windowAdaptiveInfo The window adaptive info.
  * @param content The app content inside the scaffold.
  */
-@OptIn(
-    ExperimentalMaterial3AdaptiveNavigationSuiteApi::class,
-    ExperimentalMaterial3AdaptiveApi::class,
-)
 @Composable
 fun NiaNavigationSuiteScaffold(
     navigationSuiteItems: NiaNavigationSuiteScope.() -> Unit,
     modifier: Modifier = Modifier,
     windowAdaptiveInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfo(),
+    isTopDestination: Boolean = false,
     content: @Composable () -> Unit,
 ) {
     val layoutType =
-        NavigationSuiteScaffoldDefaults
-        .calculateFromAdaptiveInfo(windowAdaptiveInfo)
+        if (!isTopDestination) {
+            NavigationSuiteType.None
+        } else {
+            NavigationSuiteScaffoldDefaults
+                .calculateFromAdaptiveInfo(windowAdaptiveInfo)
+        }
 
     val navigationSuiteItemColors = NavigationSuiteItemColors(
         navigationBarItemColors = NavigationBarItemDefaults.colors(

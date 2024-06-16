@@ -5,7 +5,6 @@
 package com.mshdabiola.detail.navigation
 
 import androidx.annotation.VisibleForTesting
-import androidx.compose.animation.AnimatedContentTransitionScope
 import androidx.lifecycle.SavedStateHandle
 import androidx.navigation.NavController
 import androidx.navigation.NavGraphBuilder
@@ -43,7 +42,7 @@ fun NavGraphBuilder.detailScreen(
             navArgument(DETAIL_ID_ARG) {
                 type = NavType.LongType
             },
-        )
+        ),
 //        enterTransition = {
 //            slideIntoContainer(towards = AnimatedContentTransitionScope.SlideDirection.Left)
 //        },

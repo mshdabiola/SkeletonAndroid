@@ -4,8 +4,6 @@
 
 package com.mshdabiola.skeletonandroid.ui
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.WindowInsetsSides
 import androidx.compose.foundation.layout.consumeWindowInsets
@@ -24,7 +22,6 @@ import androidx.compose.material3.SnackbarHost
 import androidx.compose.material3.SnackbarHostState
 import androidx.compose.material3.SnackbarResult.ActionPerformed
 import androidx.compose.material3.Text
-import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.material3.adaptive.ExperimentalMaterial3AdaptiveApi
 import androidx.compose.material3.adaptive.WindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
@@ -52,8 +49,6 @@ import androidx.navigation.NavDestination.Companion.hierarchy
 import com.mshdabiola.designsystem.component.NiaNavigationSuiteScaffold
 import com.mshdabiola.designsystem.component.SkBackground
 import com.mshdabiola.designsystem.component.SkGradientBackground
-import com.mshdabiola.designsystem.component.SkTopAppBar
-import com.mshdabiola.designsystem.icon.SkIcons
 import com.mshdabiola.designsystem.theme.GradientColors
 import com.mshdabiola.designsystem.theme.LocalGradientColors
 import com.mshdabiola.skeletonandroid.navigation.SkNavHost
@@ -83,7 +78,7 @@ fun SkApp(
             val isOffline by appState.isOffline.collectAsStateWithLifecycle()
 
             // If user is not connected to the internet show a snack bar to inform them.
-            val notConnectedMessage = "not connected"//stringResource(R.string.not_connected)
+            val notConnectedMessage = "not connected" // stringResource(R.string.not_connected)
             LaunchedEffect(isOffline) {
                 if (isOffline) {
                     snackbarHostState.showSnackbar(
@@ -120,7 +115,6 @@ internal fun NiaApp(
     modifier: Modifier = Modifier,
     windowAdaptiveInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfo(),
 ) {
-
     val currentDestination = appState.currentDestination
 
     if (showSettingsDialog) {
@@ -132,7 +126,7 @@ internal fun NiaApp(
     NiaNavigationSuiteScaffold(
         navigationSuiteItems = {
             appState.topLevelDestinations.forEach { destination ->
-                val hasUnread =false// unreadDestinations.contains(destination)
+                val hasUnread = false // unreadDestinations.contains(destination)
                 val selected = currentDestination
                     .isTopLevelDestinationInHierarchy(destination)
                 item(
@@ -159,6 +153,7 @@ internal fun NiaApp(
             }
         },
         windowAdaptiveInfo = windowAdaptiveInfo,
+        isTopDestination = false,
     ) {
         Scaffold(
             modifier = modifier.semantics {
@@ -168,9 +163,10 @@ internal fun NiaApp(
             contentColor = MaterialTheme.colorScheme.onBackground,
             contentWindowInsets = WindowInsets(0, 0, 0, 0),
             snackbarHost = { SnackbarHost(snackbarHostState) },
+
         ) { padding ->
-            Column(
-                Modifier
+            SkNavHost(
+                modifier = Modifier
                     .fillMaxSize()
                     .padding(padding)
                     .consumeWindowInsets(padding)
@@ -179,54 +175,15 @@ internal fun NiaApp(
                             WindowInsetsSides.Horizontal,
                         ),
                     ),
-            ) {
-                // Show the top app bar on top level destinations.
-                val destination = appState.currentTopLevelDestination
-                val shouldShowTopAppBar = destination != null
-                if (destination != null) {
-                    SkTopAppBar(
-                        titleRes = destination.titleTextId,
-                        navigationIcon = SkIcons.Search,
-                        navigationIconContentDescription = stringResource(
-                            id = com.mshdabiola.skeletonandroid.R.string.app_name,
-                        ),
-                        actionIcon = SkIcons.Settings,
-                        actionIconContentDescription = stringResource(
-                            id = com.mshdabiola.skeletonandroid.R.string.app_name,
-                        ),
-                        colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                            containerColor = Color.Transparent,
-                        ),
-                        onActionClick = { onTopAppBarActionClick() },
-                        onNavigationClick = { },
-                    )
-                }
-
-                Box(
-                    // Workaround for https://issuetracker.google.com/338478720
-                    modifier = Modifier.consumeWindowInsets(
-                        if (shouldShowTopAppBar) {
-                            WindowInsets.safeDrawing.only(WindowInsetsSides.Top)
-                        } else {
-                            WindowInsets(0, 0, 0, 0)
-                        },
-                    ),
-                ) {
-                    SkNavHost(
-                        appState = appState,
-                        onShowSnackbar = { message, action ->
-                            snackbarHostState.showSnackbar(
-                                message = message,
-                                actionLabel = action,
-                                duration = Short,
-                            ) == ActionPerformed
-                        },
-                    )
-                }
-
-                // TODO: We may want to add padding or spacer when the snackbar is shown so that
-                //  content doesn't display behind it.
-            }
+                appState = appState,
+                onShowSnackbar = { message, action ->
+                    snackbarHostState.showSnackbar(
+                        message = message,
+                        actionLabel = action,
+                        duration = Short,
+                    ) == ActionPerformed
+                },
+            )
         }
     }
 }

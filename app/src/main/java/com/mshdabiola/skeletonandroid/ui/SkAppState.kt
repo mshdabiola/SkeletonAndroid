@@ -4,7 +4,6 @@
 
 package com.mshdabiola.skeletonandroid.ui
 
-import androidx.compose.material3.windowsizeclass.WindowSizeClass
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.Stable
 import androidx.compose.runtime.remember
@@ -18,16 +17,14 @@ import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navOptions
 import androidx.tracing.trace
 import com.mshdabiola.data.util.NetworkMonitor
-import com.mshdabiola.detail.navigation.MAIN_ROUTE
-import com.mshdabiola.detail.navigation.navigateToMain
+import com.mshdabiola.main.navigation.MAIN_ROUTE
+import com.mshdabiola.main.navigation.navigateToMain
 import com.mshdabiola.skeletonandroid.navigation.TopLevelDestination
 import com.mshdabiola.ui.TrackDisposableJank
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.SharingStarted
-import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.stateIn
-import kotlinx.datetime.TimeZone
 
 @Composable
 fun rememberSkAppState(
@@ -39,12 +36,12 @@ fun rememberSkAppState(
     return remember(
         navController,
         coroutineScope,
-        networkMonitor
+        networkMonitor,
     ) {
         SkAppState(
             navController = navController,
             coroutineScope = coroutineScope,
-            networkMonitor = networkMonitor
+            networkMonitor = networkMonitor,
         )
     }
 }
@@ -53,7 +50,7 @@ fun rememberSkAppState(
 class SkAppState(
     val navController: NavHostController,
     coroutineScope: CoroutineScope,
-    networkMonitor: NetworkMonitor
+    networkMonitor: NetworkMonitor,
 ) {
     val currentDestination: NavDestination?
         @Composable get() = navController
@@ -80,9 +77,6 @@ class SkAppState(
      * route.
      */
     val topLevelDestinations: List<TopLevelDestination> = TopLevelDestination.entries
-
-
-
 
     /**
      * UI logic for navigating to a top level destination in the app. Top level destinations have
@@ -114,7 +108,6 @@ class SkAppState(
             }
         }
     }
-
 }
 
 @Composable

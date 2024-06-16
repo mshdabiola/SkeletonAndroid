@@ -117,6 +117,7 @@ dependencies {
     ksp(libs.hilt.compiler)
 
     debugImplementation(libs.androidx.compose.ui.testManifest)
+    debugImplementation(projects.uiTestHiltManifest)
 
     kspTest(libs.hilt.compiler)
 
@@ -161,5 +162,6 @@ baselineProfile {
 }
 
 dependencyGuard {
-    configuration("releaseRuntimeClasspath")
+    configuration("fossReliantReleaseRuntimeClasspath")
+    configuration("googlePlayDebugRuntimeClasspath")
 }

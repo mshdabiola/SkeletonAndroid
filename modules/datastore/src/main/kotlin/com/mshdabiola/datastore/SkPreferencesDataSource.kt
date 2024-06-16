@@ -4,15 +4,12 @@
 
 package com.mshdabiola.datastore
 
-import android.util.Log
 import androidx.datastore.core.DataStore
 import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.model.UserData
-import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
-import java.io.IOException
 import javax.inject.Inject
 
 class SkPreferencesDataSource @Inject constructor(
@@ -49,8 +46,6 @@ class SkPreferencesDataSource @Inject constructor(
             )
         }
 
-
-
     suspend fun setThemeBrand(themeBrand: ThemeBrand) {
         userPreferences.updateData {
             it.copy {
@@ -66,7 +61,7 @@ class SkPreferencesDataSource @Inject constructor(
         userPreferences.updateData {
             it.copy {
                 this.contrast = when (contrast) {
-                   Contrast.Normal-> ThemeContrastProto.THEME_CONTRAST_NORMAL
+                    Contrast.Normal -> ThemeContrastProto.THEME_CONTRAST_NORMAL
                     Contrast.High -> ThemeContrastProto.THEME_CONTRAST_HIGH
                     Contrast.Medium -> ThemeContrastProto.THEME_CONTRAST_MEDIUM
                 }
@@ -93,7 +88,6 @@ class SkPreferencesDataSource @Inject constructor(
             }
         }
     }
-
 
     suspend fun setShouldHideOnboarding(shouldHideOnboarding: Boolean) {
         userPreferences.updateData {

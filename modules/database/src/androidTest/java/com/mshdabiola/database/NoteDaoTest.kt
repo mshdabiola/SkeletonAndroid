@@ -10,6 +10,7 @@ import androidx.test.core.app.ApplicationProvider
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.mshdabiola.database.dao.NoteDao
 import kotlinx.coroutines.test.runTest
+import org.junit.After
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -25,6 +26,9 @@ class NoteDaoTest {
         db = Room.inMemoryDatabaseBuilder(content, SkeletonDatabase::class.java).build()
         noteDao = db.getNoteDao()
     }
+
+    @After
+    fun closeDb() = db.close()
 
     @Test
     fun upsertTest() = runTest {

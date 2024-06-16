@@ -19,7 +19,6 @@ val emptyUserData = UserData(
     darkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
     useDynamicColor = false,
     shouldHideOnboarding = false,
-    contrast = Contrast.Normal
 )
 
 class TestUserDataRepository : UserDataRepository {
@@ -32,7 +31,6 @@ class TestUserDataRepository : UserDataRepository {
 
     override val userData: Flow<UserData> = _userData.filterNotNull()
 
-
     override suspend fun setThemeBrand(themeBrand: ThemeBrand) {
         currentUserData.let { current ->
             _userData.tryEmit(current.copy(themeBrand = themeBrand))
@@ -40,9 +38,6 @@ class TestUserDataRepository : UserDataRepository {
     }
 
     override suspend fun setThemeContrast(contrast: Contrast) {
-        currentUserData.let { current ->
-            _userData.tryEmit(current.copy(contrast = contrast))
-        }
     }
 
     override suspend fun setDarkThemeConfig(darkThemeConfig: DarkThemeConfig) {

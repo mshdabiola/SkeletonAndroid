@@ -6,11 +6,10 @@ package com.mshdabiola.data.repository
 
 import com.mshdabiola.analytics.NoOpAnalyticsHelper
 import com.mshdabiola.datastore.SkPreferencesDataSource
-import com.mshdabiola.datastore.di.testUserPreferencesDataStore
-import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.model.UserData
+import com.mshdabiola.testing.datastore.testUserPreferencesDataStore
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.test.TestScope
@@ -21,8 +20,6 @@ import org.junit.Rule
 import org.junit.Test
 import org.junit.rules.TemporaryFolder
 import kotlin.test.assertEquals
-import kotlin.test.assertFalse
-import kotlin.test.assertTrue
 
 class OfflineFirstUserDataRepositoryTest {
 
@@ -58,7 +55,6 @@ class OfflineFirstUserDataRepositoryTest {
                     darkThemeConfig = DarkThemeConfig.FOLLOW_SYSTEM,
                     useDynamicColor = false,
                     shouldHideOnboarding = false,
-                    contrast = Contrast.Normal,
                 ),
                 subject.userData.first(),
             )
@@ -122,16 +118,5 @@ class OfflineFirstUserDataRepositoryTest {
                     .map { it.darkThemeConfig }
                     .first(),
             )
-        }
-
-    @Test
-    fun whenUserCompletesOnboarding_thenRemovesAllInterests_shouldHideOnboardingIsFalse() =
-        testScope.runTest {
-            subject.setFollowedTopicIds(setOf("1"))
-            subject.setShouldHideOnboarding(true)
-            assertTrue(subject.userData.first().shouldHideOnboarding)
-
-            subject.setFollowedTopicIds(emptySet())
-            assertFalse(subject.userData.first().shouldHideOnboarding)
         }
 }

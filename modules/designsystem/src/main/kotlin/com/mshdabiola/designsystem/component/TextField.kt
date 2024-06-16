@@ -39,6 +39,7 @@ fun SkTextField(
             }
         },
         colors = TextFieldDefaults.colors(
+
             focusedContainerColor = Color.Transparent,
             unfocusedContainerColor = Color.Transparent,
             disabledContainerColor = Color.Transparent,

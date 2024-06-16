@@ -1,11 +1,14 @@
-
+/*
+ *abiola 2024
+ */
 
 package com.mshdabiola.testing.fake
 
-
 import com.mshdabiola.data.di.DataModule
+import com.mshdabiola.data.repository.NoteRepository
 import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.data.util.NetworkMonitor
+import com.mshdabiola.testing.fake.repository.FakeNoteRepository
 import com.mshdabiola.testing.fake.repository.FakeUserDataRepository
 import dagger.Binds
 import dagger.Module
@@ -25,8 +28,10 @@ internal interface TestDataModule {
     ): UserDataRepository
 
     @Binds
+    fun bindsNoteRepository(noteRepository: FakeNoteRepository): NoteRepository
+
+    @Binds
     fun bindsNetworkMonitor(
         networkMonitor: AlwaysOnlineNetworkMonitor,
     ): NetworkMonitor
-
 }

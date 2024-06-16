@@ -34,5 +34,7 @@ include(":modules:ui")
 include(":features:main")
 include(":features:detail")
 
+include(":ui-test-hilt-manifest")
+
 
 

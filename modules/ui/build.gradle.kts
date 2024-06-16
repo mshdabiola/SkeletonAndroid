@@ -17,13 +17,14 @@ android {
 
 dependencies {
     api(libs.androidx.metrics)
-    api(project(":modules:analytics"))
-    api(project(":modules:designsystem"))
-    api(project(":modules:model"))
+    api(libs.androidx.metrics)
+    api(projects.modules.analytics)
+    api(projects.modules.designsystem)
+    api(projects.modules.model)
 
     implementation(libs.androidx.browser)
     implementation(libs.coil.kt)
     implementation(libs.coil.kt.compose)
 
-    androidTestImplementation(project(":modules:testing"))
+    androidTestImplementation(projects.modules.testing)
 }

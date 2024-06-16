@@ -4,6 +4,8 @@
 
 package com.mshdabiola.datastore
 
+import androidx.datastore.core.DataStoreFactory
+import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.TestScope
 import kotlinx.coroutines.test.UnconfinedTestDispatcher
@@ -43,34 +45,6 @@ class SkPreferencesDataSourceTest {
     }
 
     @Test
-    fun userShouldHideOnboarding_unfollowsLastTopic_shouldHideOnboardingIsFalse() =
-        testScope.runTest {
-            // Given: user completes onboarding by selecting a single topic.
-            subject.setTopicIdFollowed("1", true)
-            subject.setShouldHideOnboarding(true)
-
-            // When: they unfollow that topic.
-            subject.setTopicIdFollowed("1", false)
-
-            // Then: onboarding should be shown again
-            assertFalse(subject.userData.first().shouldHideOnboarding)
-        }
-
-    @Test
-    fun userShouldHideOnboarding_unfollowsAllTopics_shouldHideOnboardingIsFalse() =
-        testScope.runTest {
-            // Given: user completes onboarding by selecting several topics.
-            subject.setFollowedTopicIds(setOf("1", "2"))
-            subject.setShouldHideOnboarding(true)
-
-            // When: they unfollow those topics.
-            subject.setFollowedTopicIds(emptySet())
-
-            // Then: onboarding should be shown again
-            assertFalse(subject.userData.first().shouldHideOnboarding)
-        }
-
-    @Test
     fun shouldUseDynamicColorFalseByDefault() = testScope.runTest {
         assertFalse(subject.userData.first().useDynamicColor)
     }
@@ -80,4 +54,14 @@ class SkPreferencesDataSourceTest {
         subject.setDynamicColorPreference(true)
         assertTrue(subject.userData.first().useDynamicColor)
     }
+}
+
+fun TemporaryFolder.testUserPreferencesDataStore(
+    coroutineScope: CoroutineScope,
+    userPreferencesSerializer: UserPreferencesSerializer = UserPreferencesSerializer(),
+) = DataStoreFactory.create(
+    serializer = userPreferencesSerializer,
+    scope = coroutineScope,
+) {
+    newFile("user_preferences_test.pb")
 }

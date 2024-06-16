@@ -38,7 +38,6 @@ import io.ktor.http.URLProtocol
 import io.ktor.serialization.kotlinx.json.json
 import kotlinx.serialization.json.Json
 import okhttp3.OkHttpClient
-import okhttp3.internal.platform.android.AndroidLogHandler.setLevel
 import java.io.File
 import javax.inject.Singleton
 
