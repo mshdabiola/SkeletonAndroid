@@ -35,7 +35,7 @@ import com.mshdabiola.designsystem.theme.SkTheme
  * @param expandedText The text label content to show in compact mode.
  */
 @Composable
-fun NiaViewToggleButton(
+fun SkViewToggleButton(
     expanded: Boolean,
     onExpandedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
@@ -50,9 +50,9 @@ fun NiaViewToggleButton(
         colors = ButtonDefaults.textButtonColors(
             contentColor = MaterialTheme.colorScheme.onBackground,
         ),
-        contentPadding = NiaViewToggleDefaults.ViewToggleButtonContentPadding,
+        contentPadding = SkViewToggleDefaults.ViewToggleButtonContentPadding,
     ) {
-        NiaViewToggleButtonContent(
+        SkViewToggleButtonContent(
             text = if (expanded) expandedText else compactText,
             trailingIcon = {
                 Icon(
@@ -72,7 +72,7 @@ fun NiaViewToggleButton(
  * @param trailingIcon The button trailing icon content. Default is `null` for no trailing icon.
  */
 @Composable
-private fun NiaViewToggleButtonContent(
+private fun SkViewToggleButtonContent(
     text: @Composable () -> Unit,
     trailingIcon: @Composable (() -> Unit)? = null,
 ) {
@@ -102,7 +102,7 @@ private fun NiaViewToggleButtonContent(
 fun ViewTogglePreviewExpanded() {
     SkTheme {
         Surface {
-            NiaViewToggleButton(
+            SkViewToggleButton(
                 expanded = true,
                 onExpandedChange = { },
                 compactText = { Text(text = "Compact view") },
@@ -117,7 +117,7 @@ fun ViewTogglePreviewExpanded() {
 fun ViewTogglePreviewCompact() {
     SkTheme {
         Surface {
-            NiaViewToggleButton(
+            SkViewToggleButton(
                 expanded = false,
                 onExpandedChange = { },
                 compactText = { Text(text = "Compact view") },
@@ -130,7 +130,7 @@ fun ViewTogglePreviewCompact() {
 /**
  * Now in Android view toggle default values.
  */
-object NiaViewToggleDefaults {
+object SkViewToggleDefaults {
     // TODO: File bug
     // Various default button padding values aren't exposed via ButtonDefaults
     val ViewToggleButtonContentPadding =

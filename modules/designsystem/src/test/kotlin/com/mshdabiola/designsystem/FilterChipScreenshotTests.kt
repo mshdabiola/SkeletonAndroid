@@ -18,7 +18,7 @@ import androidx.compose.ui.test.then
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.github.takahirom.roborazzi.captureRoboImage
-import com.mshdabiola.designsystem.component.NiaFilterChip
+import com.mshdabiola.designsystem.component.SkFilterChip
 import com.mshdabiola.designsystem.component.SkBackground
 import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.testing.util.DefaultRoborazziOptions
@@ -45,7 +45,7 @@ class FilterChipScreenshotTests {
     fun filterChip_multipleThemes() {
         composeTestRule.captureMultiTheme("FilterChip") {
             Surface {
-                NiaFilterChip(selected = false, onSelectedChange = {}) {
+                SkFilterChip(selected = false, onSelectedChange = {}) {
                     Text("Unselected chip")
                 }
             }
@@ -56,7 +56,7 @@ class FilterChipScreenshotTests {
     fun filterChip_multipleThemes_selected() {
         composeTestRule.captureMultiTheme("FilterChip", "FilterChipSelected") {
             Surface {
-                NiaFilterChip(selected = true, onSelectedChange = {}) {
+                SkFilterChip(selected = true, onSelectedChange = {}) {
                     Text("Selected Chip")
                 }
             }
@@ -75,7 +75,7 @@ class FilterChipScreenshotTests {
                 ) {
                     SkTheme {
                         SkBackground {
-                            NiaFilterChip(selected = true, onSelectedChange = {}) {
+                            SkFilterChip(selected = true, onSelectedChange = {}) {
                                 Text("Chip")
                             }
                         }

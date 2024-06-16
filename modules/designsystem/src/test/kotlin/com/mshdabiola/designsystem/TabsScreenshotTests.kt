@@ -15,8 +15,8 @@ import androidx.compose.ui.test.FontScale
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onRoot
 import com.github.takahirom.roborazzi.captureRoboImage
-import com.mshdabiola.designsystem.component.NiaTab
-import com.mshdabiola.designsystem.component.NiaTabRow
+import com.mshdabiola.designsystem.component.SkTab
+import com.mshdabiola.designsystem.component.SkTabRow
 import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.testing.util.DefaultRoborazziOptions
 import com.mshdabiola.testing.util.captureMultiTheme
@@ -71,9 +71,9 @@ class TabsScreenshotTests {
     private fun NiaTabsExample(label: String = "Topics") {
         Surface {
             val titles = listOf(label, "People")
-            NiaTabRow(selectedTabIndex = 0) {
+            SkTabRow(selectedTabIndex = 0) {
                 titles.forEachIndexed { index, title ->
-                    NiaTab(
+                    SkTab(
                         selected = index == 0,
                         onClick = { },
                         text = { Text(text = title) },

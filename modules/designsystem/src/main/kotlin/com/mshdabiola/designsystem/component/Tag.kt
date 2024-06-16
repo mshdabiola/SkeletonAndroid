@@ -16,7 +16,7 @@ import androidx.compose.ui.Modifier
 import com.mshdabiola.designsystem.theme.SkTheme
 
 @Composable
-fun NiaTopicTag(
+fun SkTopicTag(
     modifier: Modifier = Modifier,
     followed: Boolean,
     onClick: () -> Unit,
@@ -28,7 +28,7 @@ fun NiaTopicTag(
             MaterialTheme.colorScheme.primaryContainer
         } else {
             MaterialTheme.colorScheme.surfaceVariant.copy(
-                alpha = NiaTagDefaults.UNFOLLOWED_TOPIC_TAG_CONTAINER_ALPHA,
+                alpha = SkTagDefaults.UNFOLLOWED_TOPIC_TAG_CONTAINER_ALPHA,
             )
         }
         TextButton(
@@ -38,7 +38,7 @@ fun NiaTopicTag(
                 containerColor = containerColor,
                 contentColor = contentColorFor(backgroundColor = containerColor),
                 disabledContainerColor = MaterialTheme.colorScheme.onSurface.copy(
-                    alpha = NiaTagDefaults.DISABLED_TOPIC_TAG_CONTAINER_ALPHA,
+                    alpha = SkTagDefaults.DISABLED_TOPIC_TAG_CONTAINER_ALPHA,
                 ),
             ),
         ) {
@@ -53,7 +53,7 @@ fun NiaTopicTag(
 @Composable
 fun TagPreview() {
     SkTheme {
-        NiaTopicTag(followed = true, onClick = {}) {
+        SkTopicTag(followed = true, onClick = {}) {
             Text("Topic".uppercase())
         }
     }
@@ -62,7 +62,7 @@ fun TagPreview() {
 /**
  * Now in Android tag default values.
  */
-object NiaTagDefaults {
+object SkTagDefaults {
     const val UNFOLLOWED_TOPIC_TAG_CONTAINER_ALPHA = 0.5f
 
     // TODO: File bug

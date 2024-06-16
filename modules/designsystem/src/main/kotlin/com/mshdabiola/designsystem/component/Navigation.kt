@@ -18,7 +18,6 @@ import androidx.compose.material3.NavigationRailItemDefaults
 import androidx.compose.material3.Text
 import androidx.compose.material3.adaptive.WindowAdaptiveInfo
 import androidx.compose.material3.adaptive.currentWindowAdaptiveInfo
-import androidx.compose.material3.adaptive.navigationsuite.ExperimentalMaterial3AdaptiveNavigationSuiteApi
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteDefaults
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteItemColors
 import androidx.compose.material3.adaptive.navigationsuite.NavigationSuiteScaffold
@@ -48,7 +47,7 @@ import com.mshdabiola.designsystem.theme.SkTheme
  * only be shown when this item is selected.
  */
 @Composable
-fun RowScope.NiaNavigationBarItem(
+fun RowScope.SkNavigationBarItem(
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -67,11 +66,11 @@ fun RowScope.NiaNavigationBarItem(
         label = label,
         alwaysShowLabel = alwaysShowLabel,
         colors = NavigationBarItemDefaults.colors(
-            selectedIconColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = NiaNavigationDefaults.navigationContentColor(),
-            selectedTextColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = NiaNavigationDefaults.navigationContentColor(),
-            indicatorColor = NiaNavigationDefaults.navigationIndicatorColor(),
+            selectedIconColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedIconColor = SkNavigationDefaults.navigationContentColor(),
+            selectedTextColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedTextColor = SkNavigationDefaults.navigationContentColor(),
+            indicatorColor = SkNavigationDefaults.navigationIndicatorColor(),
         ),
     )
 }
@@ -84,13 +83,13 @@ fun RowScope.NiaNavigationBarItem(
  * [NavigationBarItem]s.
  */
 @Composable
-fun NiaNavigationBar(
+fun SkNavigationBar(
     modifier: Modifier = Modifier,
     content: @Composable RowScope.() -> Unit,
 ) {
     NavigationBar(
         modifier = modifier,
-        contentColor = NiaNavigationDefaults.navigationContentColor(),
+        contentColor = SkNavigationDefaults.navigationContentColor(),
         tonalElevation = 0.dp,
         content = content,
     )
@@ -112,7 +111,7 @@ fun NiaNavigationBar(
  * only be shown when this item is selected.
  */
 @Composable
-fun NiaNavigationRailItem(
+fun SkNavigationRailItem(
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -131,11 +130,11 @@ fun NiaNavigationRailItem(
         label = label,
         alwaysShowLabel = alwaysShowLabel,
         colors = NavigationRailItemDefaults.colors(
-            selectedIconColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = NiaNavigationDefaults.navigationContentColor(),
-            selectedTextColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = NiaNavigationDefaults.navigationContentColor(),
-            indicatorColor = NiaNavigationDefaults.navigationIndicatorColor(),
+            selectedIconColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedIconColor = SkNavigationDefaults.navigationContentColor(),
+            selectedTextColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedTextColor = SkNavigationDefaults.navigationContentColor(),
+            indicatorColor = SkNavigationDefaults.navigationIndicatorColor(),
         ),
     )
 }
@@ -149,7 +148,7 @@ fun NiaNavigationRailItem(
  * [NavigationRailItem]s.
  */
 @Composable
-fun NiaNavigationRail(
+fun SkNavigationRail(
     modifier: Modifier = Modifier,
     header: @Composable (ColumnScope.() -> Unit)? = null,
     content: @Composable ColumnScope.() -> Unit,
@@ -157,7 +156,7 @@ fun NiaNavigationRail(
     NavigationRail(
         modifier = modifier,
         containerColor = Color.Transparent,
-        contentColor = NiaNavigationDefaults.navigationContentColor(),
+        contentColor = SkNavigationDefaults.navigationContentColor(),
         header = header,
         content = content,
     )
@@ -168,13 +167,13 @@ fun NiaNavigationRail(
  * Wraps Material 3 [NavigationSuiteScaffold].
  *
  * @param modifier Modifier to be applied to the navigation suite scaffold.
- * @param navigationSuiteItems A slot to display multiple items via [NiaNavigationSuiteScope].
+ * @param navigationSuiteItems A slot to display multiple items via [SkNavigationSuiteScope].
  * @param windowAdaptiveInfo The window adaptive info.
  * @param content The app content inside the scaffold.
  */
 @Composable
-fun NiaNavigationSuiteScaffold(
-    navigationSuiteItems: NiaNavigationSuiteScope.() -> Unit,
+fun SkNavigationSuiteScaffold(
+    navigationSuiteItems: SkNavigationSuiteScope.() -> Unit,
     modifier: Modifier = Modifier,
     windowAdaptiveInfo: WindowAdaptiveInfo = currentWindowAdaptiveInfo(),
     isTopDestination: Boolean = false,
@@ -190,30 +189,30 @@ fun NiaNavigationSuiteScaffold(
 
     val navigationSuiteItemColors = NavigationSuiteItemColors(
         navigationBarItemColors = NavigationBarItemDefaults.colors(
-            selectedIconColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = NiaNavigationDefaults.navigationContentColor(),
-            selectedTextColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = NiaNavigationDefaults.navigationContentColor(),
-            indicatorColor = NiaNavigationDefaults.navigationIndicatorColor(),
+            selectedIconColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedIconColor = SkNavigationDefaults.navigationContentColor(),
+            selectedTextColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedTextColor = SkNavigationDefaults.navigationContentColor(),
+            indicatorColor = SkNavigationDefaults.navigationIndicatorColor(),
         ),
         navigationRailItemColors = NavigationRailItemDefaults.colors(
-            selectedIconColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = NiaNavigationDefaults.navigationContentColor(),
-            selectedTextColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = NiaNavigationDefaults.navigationContentColor(),
-            indicatorColor = NiaNavigationDefaults.navigationIndicatorColor(),
+            selectedIconColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedIconColor = SkNavigationDefaults.navigationContentColor(),
+            selectedTextColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedTextColor = SkNavigationDefaults.navigationContentColor(),
+            indicatorColor = SkNavigationDefaults.navigationIndicatorColor(),
         ),
         navigationDrawerItemColors = NavigationDrawerItemDefaults.colors(
-            selectedIconColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedIconColor = NiaNavigationDefaults.navigationContentColor(),
-            selectedTextColor = NiaNavigationDefaults.navigationSelectedItemColor(),
-            unselectedTextColor = NiaNavigationDefaults.navigationContentColor(),
+            selectedIconColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedIconColor = SkNavigationDefaults.navigationContentColor(),
+            selectedTextColor = SkNavigationDefaults.navigationSelectedItemColor(),
+            unselectedTextColor = SkNavigationDefaults.navigationContentColor(),
         ),
     )
 
     NavigationSuiteScaffold(
         navigationSuiteItems = {
-            NiaNavigationSuiteScope(
+            SkNavigationSuiteScope(
                 navigationSuiteScope = this,
                 navigationSuiteItemColors = navigationSuiteItemColors,
             ).run(navigationSuiteItems)
@@ -221,7 +220,7 @@ fun NiaNavigationSuiteScaffold(
         layoutType = layoutType,
         containerColor = Color.Transparent,
         navigationSuiteColors = NavigationSuiteDefaults.colors(
-            navigationBarContentColor = NiaNavigationDefaults.navigationContentColor(),
+            navigationBarContentColor = SkNavigationDefaults.navigationContentColor(),
             navigationRailContainerColor = Color.Transparent,
         ),
         modifier = modifier,
@@ -233,8 +232,7 @@ fun NiaNavigationSuiteScaffold(
 /**
  * A wrapper around [NavigationSuiteScope] to declare navigation items.
  */
-@OptIn(ExperimentalMaterial3AdaptiveNavigationSuiteApi::class)
-class NiaNavigationSuiteScope internal constructor(
+class SkNavigationSuiteScope internal constructor(
     private val navigationSuiteScope: NavigationSuiteScope,
     private val navigationSuiteItemColors: NavigationSuiteItemColors,
 ) {
@@ -263,7 +261,7 @@ class NiaNavigationSuiteScope internal constructor(
 
 @ThemePreviews
 @Composable
-fun NiaNavigationBarPreview() {
+fun SkNavigationBarPreview() {
     val items = listOf("For you", "Saved", "Interests")
     val icons = listOf(
         SkIcons.UpcomingBorder,
@@ -277,9 +275,9 @@ fun NiaNavigationBarPreview() {
     )
 
     SkTheme {
-        NiaNavigationBar {
+        SkNavigationBar {
             items.forEachIndexed { index, item ->
-                NiaNavigationBarItem(
+                SkNavigationBarItem(
                     icon = {
                         Icon(
                             imageVector = icons[index],
@@ -303,7 +301,7 @@ fun NiaNavigationBarPreview() {
 
 @ThemePreviews
 @Composable
-fun NiaNavigationRailPreview() {
+fun SkNavigationRailPreview() {
     val items = listOf("For you", "Saved", "Interests")
     val icons = listOf(
         SkIcons.UpcomingBorder,
@@ -317,9 +315,9 @@ fun NiaNavigationRailPreview() {
     )
 
     SkTheme {
-        NiaNavigationRail {
+        SkNavigationRail {
             items.forEachIndexed { index, item ->
-                NiaNavigationRailItem(
+                SkNavigationRailItem(
                     icon = {
                         Icon(
                             imageVector = icons[index],
@@ -344,7 +342,7 @@ fun NiaNavigationRailPreview() {
 /**
  * Now in Android navigation default values.
  */
-object NiaNavigationDefaults {
+object SkNavigationDefaults {
     @Composable
     fun navigationContentColor() = MaterialTheme.colorScheme.onSurfaceVariant
 

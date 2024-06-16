@@ -16,8 +16,8 @@ import androidx.compose.ui.test.FontScale
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
 import androidx.compose.ui.test.onRoot
 import com.github.takahirom.roborazzi.captureRoboImage
-import com.mshdabiola.designsystem.component.NiaNavigationBar
-import com.mshdabiola.designsystem.component.NiaNavigationBarItem
+import com.mshdabiola.designsystem.component.SkNavigationBar
+import com.mshdabiola.designsystem.component.SkNavigationBarItem
 import com.mshdabiola.designsystem.icon.SkIcons
 import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.testing.util.DefaultRoborazziOptions
@@ -74,9 +74,9 @@ class NavigationScreenshotTests {
 
     @Composable
     private fun NiaNavigationBarExample(label: String = "Item") {
-        NiaNavigationBar {
+        SkNavigationBar {
             (0..2).forEach { index ->
-                NiaNavigationBarItem(
+                SkNavigationBarItem(
                     icon = {
                         Icon(
                             imageVector = SkIcons.UpcomingBorder,

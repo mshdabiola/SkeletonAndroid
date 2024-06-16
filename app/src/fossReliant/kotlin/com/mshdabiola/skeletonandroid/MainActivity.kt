@@ -51,7 +51,6 @@ class MainActivity : ComponentActivity() {
 
     val viewModel: MainActivityViewModel by viewModels()
 
-    @OptIn(ExperimentalMaterial3WindowSizeClassApi::class)
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         val splashScreen = installSplashScreen()

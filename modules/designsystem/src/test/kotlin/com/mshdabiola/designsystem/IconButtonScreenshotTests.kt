@@ -9,7 +9,7 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.test.junit4.createAndroidComposeRule
-import com.mshdabiola.designsystem.component.NiaIconToggleButton
+import com.mshdabiola.designsystem.component.SkIconToggleButton
 import com.mshdabiola.designsystem.icon.SkIcons
 import com.mshdabiola.testing.util.captureMultiTheme
 import dagger.hilt.android.testing.HiltTestApplication
@@ -48,7 +48,7 @@ class IconButtonScreenshotTests {
 
     @Composable
     private fun NiaIconToggleExample(checked: Boolean) {
-        NiaIconToggleButton(
+        SkIconToggleButton(
             checked = checked,
             onCheckedChange = { },
             icon = {

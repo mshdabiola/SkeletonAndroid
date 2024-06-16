@@ -52,7 +52,7 @@ import javax.inject.Inject
 @Config(application = HiltTestApplication::class, qualifiers = "w1000dp-h1000dp-480dpi")
 @LooperMode(LooperMode.Mode.PAUSED)
 @HiltAndroidTest
-class NiaAppScreenSizesScreenshotTests {
+class AppScreenSizesScreenshotTests {
 
     /**
      * Manages the components' state and is used to perform injection on your test

@@ -31,7 +31,7 @@ import com.mshdabiola.designsystem.theme.SkTheme
  * @param text The text label content.
  */
 @Composable
-fun NiaTab(
+fun SkTab(
     selected: Boolean,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
@@ -48,7 +48,7 @@ fun NiaTab(
             ProvideTextStyle(
                 value = style,
                 content = {
-                    Box(modifier = Modifier.padding(top = NiaTabDefaults.TabTopPadding)) {
+                    Box(modifier = Modifier.padding(top = SkTabDefaults.TabTopPadding)) {
                         text()
                     }
                 },
@@ -62,11 +62,11 @@ fun NiaTab(
  *
  * @param selectedTabIndex The index of the currently selected tab.
  * @param modifier Modifier to be applied to the tab row.
- * @param tabs The tabs inside this tab row. Typically this will be multiple [NiaTab]s. Each element
+ * @param tabs The tabs inside this tab row. Typically this will be multiple [SkTab]s. Each element
  * inside this lambda will be measured and placed evenly across the row, each taking up equal space.
  */
 @Composable
-fun NiaTabRow(
+fun SkTabRow(
     selectedTabIndex: Int,
     modifier: Modifier = Modifier,
     tabs: @Composable () -> Unit,
@@ -92,9 +92,9 @@ fun NiaTabRow(
 fun TabsPreview() {
     SkTheme {
         val titles = listOf("Topics", "People")
-        NiaTabRow(selectedTabIndex = 0) {
+        SkTabRow(selectedTabIndex = 0) {
             titles.forEachIndexed { index, title ->
-                NiaTab(
+                SkTab(
                     selected = index == 0,
                     onClick = { },
                     text = { Text(text = title) },
@@ -104,6 +104,6 @@ fun TabsPreview() {
     }
 }
 
-object NiaTabDefaults {
+object SkTabDefaults {
     val TabTopPadding = 7.dp
 }

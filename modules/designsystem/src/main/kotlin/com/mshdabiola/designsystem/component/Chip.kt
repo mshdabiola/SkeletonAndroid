@@ -30,7 +30,7 @@ import com.mshdabiola.designsystem.theme.SkTheme
  * @param label The text label content.
  */
 @Composable
-fun NiaFilterChip(
+fun SkFilterChip(
     selected: Boolean,
     onSelectedChange: (Boolean) -> Unit,
     modifier: Modifier = Modifier,
@@ -64,28 +64,28 @@ fun NiaFilterChip(
             borderColor = MaterialTheme.colorScheme.onBackground,
             selectedBorderColor = MaterialTheme.colorScheme.onBackground,
             disabledBorderColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = NiaChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
+                alpha = SkChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
             ),
             disabledSelectedBorderColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = NiaChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
+                alpha = SkChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
             ),
-            selectedBorderWidth = NiaChipDefaults.ChipBorderWidth,
+            selectedBorderWidth = SkChipDefaults.ChipBorderWidth,
         ),
         colors = FilterChipDefaults.filterChipColors(
             labelColor = MaterialTheme.colorScheme.onBackground,
             iconColor = MaterialTheme.colorScheme.onBackground,
             disabledContainerColor = if (selected) {
                 MaterialTheme.colorScheme.onBackground.copy(
-                    alpha = NiaChipDefaults.DISABLED_CHIP_CONTAINER_ALPHA,
+                    alpha = SkChipDefaults.DISABLED_CHIP_CONTAINER_ALPHA,
                 )
             } else {
                 Color.Transparent
             },
             disabledLabelColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = NiaChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
+                alpha = SkChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
             ),
             disabledLeadingIconColor = MaterialTheme.colorScheme.onBackground.copy(
-                alpha = NiaChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
+                alpha = SkChipDefaults.DISABLED_CHIP_CONTENT_ALPHA,
             ),
             selectedContainerColor = MaterialTheme.colorScheme.primaryContainer,
             selectedLabelColor = MaterialTheme.colorScheme.onBackground,
@@ -99,7 +99,7 @@ fun NiaFilterChip(
 fun ChipPreview() {
     SkTheme {
         SkBackground(modifier = Modifier.size(80.dp, 20.dp)) {
-            NiaFilterChip(selected = true, onSelectedChange = {}) {
+            SkFilterChip(selected = true, onSelectedChange = {}) {
                 Text("Chip")
             }
         }
@@ -109,7 +109,7 @@ fun ChipPreview() {
 /**
  * Now in Android chip default values.
  */
-object NiaChipDefaults {
+object SkChipDefaults {
     // TODO: File bug
     // FilterChip default values aren't exposed via FilterChipDefaults
     const val DISABLED_CHIP_CONTAINER_ALPHA = 0.12f

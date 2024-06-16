@@ -46,7 +46,7 @@ import androidx.compose.ui.unit.dp
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.navigation.NavDestination
 import androidx.navigation.NavDestination.Companion.hierarchy
-import com.mshdabiola.designsystem.component.NiaNavigationSuiteScaffold
+import com.mshdabiola.designsystem.component.SkNavigationSuiteScaffold
 import com.mshdabiola.designsystem.component.SkBackground
 import com.mshdabiola.designsystem.component.SkGradientBackground
 import com.mshdabiola.designsystem.theme.GradientColors
@@ -123,7 +123,7 @@ internal fun NiaApp(
 //        )
     }
 
-    NiaNavigationSuiteScaffold(
+    SkNavigationSuiteScaffold(
         navigationSuiteItems = {
             appState.topLevelDestinations.forEach { destination ->
                 val hasUnread = false // unreadDestinations.contains(destination)
