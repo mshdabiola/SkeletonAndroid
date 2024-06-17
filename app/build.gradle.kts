@@ -128,6 +128,8 @@ dependencies {
 
     testFossReliantImplementation(libs.robolectric)
     testFossReliantImplementation(libs.roborazzi)
+    testFossReliantImplementation(projects.modules.screenshotTesting)
+
 
     androidTestImplementation(projects.modules.testing)
     androidTestImplementation(libs.androidx.test.espresso.core)

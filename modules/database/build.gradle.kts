@@ -11,6 +11,10 @@ plugins {
 }
 
 android {
+    defaultConfig {
+        testInstrumentationRunner = "com.mshdabiola.testing.TestRunner"
+
+    }
     namespace = "com.mshdabiola.database"
 
 

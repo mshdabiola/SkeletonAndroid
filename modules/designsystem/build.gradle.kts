@@ -38,6 +38,8 @@ dependencies {
     testImplementation(libs.robolectric)
     testImplementation(libs.roborazzi)
     testImplementation(projects.modules.testing)
+    testImplementation(projects.modules.screenshotTesting)
+
 
     androidTestImplementation(libs.androidx.compose.ui.test)
     androidTestImplementation(projects.modules.testing)

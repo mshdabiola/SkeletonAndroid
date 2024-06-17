@@ -2,7 +2,7 @@
  *abiola 2022
  */
 
-package com.google.samples.apps.nowinandroid.uitesthiltmanifest
+package com.mshdabiola.hiltmanifest
 
 import androidx.activity.ComponentActivity
 import dagger.hilt.android.AndroidEntryPoint

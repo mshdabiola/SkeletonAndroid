@@ -32,7 +32,7 @@ import kotlin.test.assertTrue
  * Note: This could become an unit test if Robolectric is added to the project and the Context
  * is faked.
  */
-class NiaAppStateTest {
+class AppStateTest {
 
     @get:Rule
     val composeTestRule = createComposeRule()

@@ -18,8 +18,8 @@ import androidx.compose.ui.test.then
 import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import com.github.takahirom.roborazzi.captureRoboImage
-import com.mshdabiola.designsystem.component.SkFilterChip
 import com.mshdabiola.designsystem.component.SkBackground
+import com.mshdabiola.designsystem.component.SkFilterChip
 import com.mshdabiola.designsystem.theme.SkTheme
 import com.mshdabiola.testing.util.DefaultRoborazziOptions
 import com.mshdabiola.testing.util.captureMultiTheme

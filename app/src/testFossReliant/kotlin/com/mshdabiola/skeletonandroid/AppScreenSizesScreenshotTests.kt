@@ -18,10 +18,10 @@ import androidx.compose.ui.unit.DpSize
 import androidx.compose.ui.unit.dp
 import androidx.window.core.layout.WindowSizeClass
 import com.github.takahirom.roborazzi.captureRoboImage
-import com.google.samples.apps.nowinandroid.uitesthiltmanifest.HiltComponentActivity
 import com.mshdabiola.data.repository.UserDataRepository
 import com.mshdabiola.data.util.NetworkMonitor
 import com.mshdabiola.designsystem.theme.SkTheme
+import com.mshdabiola.hiltmanifest.HiltComponentActivity
 import com.mshdabiola.skeletonandroid.ui.SkApp
 import com.mshdabiola.skeletonandroid.ui.rememberSkAppState
 import com.mshdabiola.testing.util.DefaultRoborazziOptions

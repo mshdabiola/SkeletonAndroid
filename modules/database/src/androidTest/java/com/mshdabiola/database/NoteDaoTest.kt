@@ -7,15 +7,15 @@ package com.mshdabiola.database
 import android.content.Context
 import androidx.room.Room
 import androidx.test.core.app.ApplicationProvider
-import androidx.test.ext.junit.runners.AndroidJUnit4
 import com.mshdabiola.database.dao.NoteDao
+import com.mshdabiola.database.model.NoteEntity
+import kotlinx.coroutines.flow.first
 import kotlinx.coroutines.test.runTest
 import org.junit.After
 import org.junit.Before
 import org.junit.Test
-import org.junit.runner.RunWith
+import kotlin.test.assertEquals
 
-@RunWith(AndroidJUnit4::class)
 class NoteDaoTest {
     private lateinit var noteDao: NoteDao
     private lateinit var db: SkeletonDatabase
@@ -31,14 +31,11 @@ class NoteDaoTest {
     fun closeDb() = db.close()
 
     @Test
-    fun upsertTest() = runTest {
-    }
+    fun insertNote_getIt() = runTest {
+        noteDao.upsert(NoteEntity(id = null, title = "abiola", content = "contetn"))
+        noteDao.upsert(NoteEntity(id = null, title = "abiola", content = "contetn"))
+        noteDao.upsert(NoteEntity(id = null, title = "abiola", content = "contetn"))
 
-    @Test
-    fun deleteTest() = runTest {
-    }
-
-    @Test
-    fun deleteByIdTest() = runTest {
+        assertEquals(3, noteDao.getAll().first().size)
     }
 }

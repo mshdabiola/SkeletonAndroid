@@ -20,6 +20,8 @@ dependencies {
     testImplementation(libs.hilt.android.testing)
     testImplementation(libs.robolectric)
     testImplementation(project(":modules:testing"))
+    testImplementation(projects.modules.screenshotTesting)
+
 
     androidTestImplementation(project(":modules:testing"))
 }
