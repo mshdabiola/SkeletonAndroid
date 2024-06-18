@@ -69,16 +69,12 @@ androidComponents {
 
 dependencies {
     api(libs.androidx.dataStore.core)
-    api(
-        project(":modules:model")
-    )
-    api(
-        project(":modules:common")
-    )
-    api(libs.protobuf.kotlin.lite)
+    api(projects.modules.model)
+
+    implementation(projects.modules.common)
 
     testImplementation(libs.kotlinx.coroutines.test)
-    implementation(libs.hilt.android.testing)
+    api(libs.protobuf.kotlin.lite)
 
 
 }

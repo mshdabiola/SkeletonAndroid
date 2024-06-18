@@ -27,12 +27,12 @@ fun AnalyticsHelper.logScreenView(screenName: String) {
     )
 }
 
-fun AnalyticsHelper.logNoteOpened(newsResourceId: String) {
+fun AnalyticsHelper.logNoteOpened(id: Long) {
     logEvent(
         event = AnalyticsEvent(
             type = "open_opened",
             extras = listOf(
-                Param("open_opened", newsResourceId),
+                Param("open_opened", id.toString()),
             ),
         ),
     )

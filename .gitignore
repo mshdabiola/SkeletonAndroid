@@ -25,3 +25,4 @@ local.properties
 /features/build/
 /modules/build/
 
+/.idea/androidTestResultsUserPreferences.xml
