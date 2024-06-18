@@ -49,9 +49,8 @@ class ScrollNotePowerMetricsBenchmark {
                 // Start the app
                 pressHome()
                 startActivityAndWait()
-
             },
         ) {
-           mainScrollNoteDownUp()
+            mainScrollNoteDownUp()
         }
 }
