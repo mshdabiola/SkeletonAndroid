@@ -7,6 +7,10 @@ package com.mshdabiola.benchmarks.baselineprofile
 import androidx.benchmark.macro.junit4.BaselineProfileRule
 import androidx.test.uiautomator.By
 import com.mshdabiola.benchmarks.PACKAGE_NAME
+import com.mshdabiola.benchmarks.detail.addNote
+import com.mshdabiola.benchmarks.detail.goBack
+import com.mshdabiola.benchmarks.main.goToDetailScreen
+import com.mshdabiola.benchmarks.main.mainScrollNoteDownUp
 import com.mshdabiola.benchmarks.startActivity
 import com.mshdabiola.benchmarks.waitAndFindObject
 import org.junit.Rule
@@ -20,7 +24,12 @@ class GenerateBaselineProfile {
         baselineProfileRule.collect(PACKAGE_NAME) {
             startActivity()
 
-            device.waitAndFindObject(By.res("add"), 1000)
-                .click()
+            repeat(10){
+                goToDetailScreen()
+                addNote()
+                goBack()
+            }
+
+            mainScrollNoteDownUp()
         }
 }

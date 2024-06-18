@@ -101,13 +101,9 @@ internal fun MainScreen(
             SkTopAppBar(
                 titleRes = com.mshdabiola.designsystem.R.string.modules_designsystem_note,
                 navigationIcon = SkIcons.Search,
-                navigationIconContentDescription = stringResource(
-                    id = R.string.features_main_title,
-                ),
+                navigationIconContentDescription = "search",
                 actionIcon = SkIcons.Settings,
-                actionIconContentDescription = stringResource(
-                    id = R.string.features_main_title,
-                ),
+                actionIconContentDescription = "setting",
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
                     containerColor = Color.Transparent,
                 ),
@@ -119,7 +115,7 @@ internal fun MainScreen(
             ExtendedFloatingActionButton(
                 modifier = Modifier
                     .windowInsetsPadding(WindowInsets.safeDrawing)
-                    .testTag("add"),
+                    .testTag("main:add"),
                 onClick = {
                     onClick(-1)
                 },

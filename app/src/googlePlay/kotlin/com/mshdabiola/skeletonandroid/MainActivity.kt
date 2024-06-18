@@ -38,6 +38,7 @@ import com.mshdabiola.model.Contrast
 import com.mshdabiola.model.DarkThemeConfig
 import com.mshdabiola.model.ThemeBrand
 import com.mshdabiola.skeletonandroid.ui.SkApp
+import com.mshdabiola.skeletonandroid.ui.rememberSkAppState
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.onEach
@@ -157,18 +158,16 @@ class MainActivity : ComponentActivity() {
                 onDispose {}
             }
 
+            val appState = rememberSkAppState(
+                networkMonitor = networkMonitor,
+            )
+
             CompositionLocalProvider(LocalAnalyticsHelper provides analyticsHelper) {
                 SkTheme(
                     darkTheme = darkTheme,
-                    themeBrand = chooseTheme(uiState),
-                    themeContrast = chooseContrast(uiState),
                     disableDynamicTheming = shouldDisableDynamicTheming(uiState),
-                    useAndroidTheme = shouldUseAndroidTheme(uiState),
                 ) {
-                    SkApp(
-                        networkMonitor = networkMonitor,
-                        windowSizeClass = calculateWindowSizeClass(this),
-                    )
+                    SkApp(appState)
                 }
             }
         }
@@ -204,13 +203,6 @@ private fun shouldUseAndroidTheme(
     }
 }
 
-@Composable
-private fun chooseContrast(
-    uiState: MainActivityUiState,
-): Contrast = when (uiState) {
-    MainActivityUiState.Loading -> Contrast.Normal
-    is MainActivityUiState.Success -> uiState.userData.contrast
-}
 
 @Composable
 private fun shouldDisableDynamicTheming(
