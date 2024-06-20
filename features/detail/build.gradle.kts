@@ -14,14 +14,14 @@ android {
 }
 
 dependencies {
-    implementation(project(":modules:data"))
-    implementation(project(":modules:domain"))
+    implementation(projects.modules.data)
+    implementation(projects.modules.domain)
 
     testImplementation(libs.hilt.android.testing)
     testImplementation(libs.robolectric)
-    testImplementation(project(":modules:testing"))
+    testImplementation(projects.modules.testing)
     testImplementation(projects.modules.screenshotTesting)
 
 
-    androidTestImplementation(project(":modules:testing"))
+    androidTestImplementation(projects.modules.testing)
 }
