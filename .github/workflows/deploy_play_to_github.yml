@@ -51,12 +51,15 @@ jobs:
         run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Build release variant including baseline profile generation
-        run: ./gradlew :app:assembleGooglePlayRelease
+        run: |
+          ./gradlew cleanManagedDevices --unused-only
+          ./gradlew generateGooglePlayReleaseBaselineProfile 
           -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
           -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
           -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
           -Pandroid.experimental.androidTest.numManagedDeviceShards=1
           -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1
+          ./gradlew :app:assembleGooglePlayRelease
 
       - name: Sign APK
         uses: r0adkll/sign-android-release@v1
