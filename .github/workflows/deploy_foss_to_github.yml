@@ -3,13 +3,13 @@ name: Deploy Foss to github
 on:
   push:
     tags:
-      - '[0-9]+.[0-9]+.[0-9]+'
+      - 'g[0-9]+.[0-9]+.[0-9]+'
 
-## 2
 jobs:
-  ## 3
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
+
     steps:
       - name: Enable KVM group perms
         run: |
@@ -40,36 +40,22 @@ jobs:
       - name: Install GMD image for baseline profile generation
         run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager "system-images;android-33;aosp_atd;x86_64"
 
-      - name: Setup build tool version variable
-        shell: bash
-        run: |
-          BUILD_TOOL_VERSION=$(ls /usr/local/lib/android/sdk/build-tools/ | tail -n 1)
-          echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
-          echo Last build tool version is: $BUILD_TOOL_VERSION
-
       - name: Accept Android licenses
         run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
-      - name: Remove Firebase References
-        run: |
-          sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/firebase/d' build.gradle.kts
-          sed -i -e '/with(target) {/,/^        }/d' -e '/CrashlyticsExtension/d' build-logic/convention/src/main/kotlin/AndroidApplicationFirebaseConventionPlugin.kt
-          sed -i -e '/androidx.dev/d' settings.gradle.kts
-          sed -i -e '/mlkit/,+14d' -e '/google-services/d' -e '/libs.firebase/d' build-logic/convention/build.gradle.kts
-
       - name: Build release variant including baseline profile generation
-        run: |
-          ./gradlew cleanManagedDevices --unused-only
-          ./gradlew generateFossReliantReleaseBaselineProfile 
+        run: ./gradlew generateFossReliantReleaseBaselineProfile
           -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
           -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
           -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
           -Pandroid.experimental.androidTest.numManagedDeviceShards=1
           -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1
-          ./gradlew :app:assembleFossReliantRelease
+
+      - name: Build release variant apk
+        run: ./gradlew :app:assembleFossReliantRelease
 
       - name: Sign APK
-        uses: r0adkll/sign-android-release@v1
+        uses: r0adkll/sign-android-release@v1.0.4
         with:
           releaseDirectory: app/build/outputs/apk/fossReliant/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
@@ -77,9 +63,8 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
         env:
-          BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
+          BUILD_TOOLS_VERSION: "34.0.0"
 
-      # 4
       - name: Draft Release
         uses: ncipollo/release-action@v1.14.0
         with:
@@ -89,3 +74,4 @@ jobs:
           generateReleaseNotes: true
           bodyFile: distribution/whatsnew/whatsnew-en-US
           prerelease: false
+
