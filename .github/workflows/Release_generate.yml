@@ -1,14 +1,9 @@
 name: GitHub Release with APKs
 
-#on:
-#  push:
-#    tags:
-#      - 'p[0-9]+.[0-9]+.[0-9]+'
 on:
   push:
-    branches:
-      - develop
-  pull_request:
+    tags:
+      - 'g[0-9]+.[0-9]+.[0-9]+'
 
 jobs:
   build:
@@ -45,29 +40,32 @@ jobs:
         run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Build release variant including baseline profile generation
-        run: ./gradlew generateGooglePlayReleaseBaselineProfile
-             -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
-             -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
-             -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
-             -Pandroid.experimental.androidTest.numManagedDeviceShards=1
-             -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: ${{ github.ref }}
-          draft: true
-          prerelease: false
+        run: |
+          ./gradlew generateGooglePlayReleaseBaselineProfile 
+          -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
+          -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
+          -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
+          -Pandroid.experimental.androidTest.numManagedDeviceShards=1
+          -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1
+          ./gradlew :app:assembleGooglePlayRelease
+              
 
-      - name: Upload app
-        uses: actions/upload-release-asset@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Sign APK
+        uses: r0adkll/sign-android-release@v1.0.4
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: app/build/outputs/apk/fossReliant/release/app-fossReliant-release.apk
-          asset_name: app-fossreliant-release.apk
-          asset_content_type: application/vnd.android.package-archive          
+          releaseDirectory: app/build/outputs/apk/googlePlay/release
+          signingKeyBase64: ${{ secrets.SIGNING_KEY }}
+          alias: ${{ secrets.ALIAS }}
+          keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
+          keyPassword: ${{ secrets.KEY_PASSWORD }}
+
+
+      - name: Draft Release
+        uses: ncipollo/release-action@v1.14.0
+        with:
+          allowUpdates: true
+          artifacts: "app/build/outputs/apk/**/**/**/*.apk,app/build/outputs/mapping/**/**/*.txt"
+          token: ${{ secrets.TOKEN }}
+          generateReleaseNotes: true
+          bodyFile: distribution/whatsnew/whatsnew-en-US
+          prerelease: false
