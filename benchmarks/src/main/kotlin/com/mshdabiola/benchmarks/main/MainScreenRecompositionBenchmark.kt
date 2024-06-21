@@ -36,7 +36,7 @@ class MainScreenRecompositionBenchmark {
                 pressHome()
                 startActivityAndAllowNotifications()
 
-             //   device.findObject(By.res("main:add")).click()
+                //   device.findObject(By.res("main:add")).click()
             },
         ) {
             mainScrollNoteDownUp()

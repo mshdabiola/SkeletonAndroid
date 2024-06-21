@@ -10,3 +10,4 @@
 
     ./gradlew :app:generateReleaseBaselineProfile
 
+./gradlew pixel6api33FossReliantBenchmarkBenchmarkAndroidTest

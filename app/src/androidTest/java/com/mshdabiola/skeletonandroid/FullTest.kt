@@ -65,21 +65,19 @@ class FullTest {
     fun full() {
         composeTestRule.apply {
             // VERIFY for you is selected
-           repeat(10){
-               onNodeWithText("Add Note").performClick()
+            repeat(10) {
+                onNodeWithText("Add Note").performClick()
 
-               this.waitForIdle()
+                this.waitForIdle()
 
-               onNodeWithTag("detail:title").performTextInput("title")
+                onNodeWithTag("detail:title").performTextInput("title")
 
-               onNodeWithTag("detail:content").performTextInput("content")
+                onNodeWithTag("detail:content").performTextInput("content")
 
-               onNodeWithContentDescription("back").performClick()
-
-           }
+                onNodeWithContentDescription("back").performClick()
+            }
 
             onNodeWithTag("main:list").performScrollTo()
         }
     }
-
 }

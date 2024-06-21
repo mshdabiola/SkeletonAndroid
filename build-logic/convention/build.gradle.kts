@@ -43,6 +43,7 @@ dependencies {
     compileOnly(libs.ksp.gradlePlugin)
     compileOnly(libs.room.gradlePlugin)
     implementation(libs.truth)
+    compileOnly(libs.kotlin.powerAssert)
 
 }
 
