@@ -34,23 +34,23 @@ class SkPreferencesDataSourceTest {
     }
 
     @Test
-    fun shouldHideOnboardingIsFalseByDefault() = testScope.runTest {
+    fun shouldHideOnboardingIsFalseByDefault() = runTest {
         assertFalse(subject.userData.first().shouldHideOnboarding)
     }
 
     @Test
-    fun userShouldHideOnboardingIsTrueWhenSet() = testScope.runTest {
+    fun userShouldHideOnboardingIsTrueWhenSet() = runTest {
         subject.setShouldHideOnboarding(true)
         assertTrue(subject.userData.first().shouldHideOnboarding)
     }
 
     @Test
-    fun shouldUseDynamicColorFalseByDefault() = testScope.runTest {
+    fun shouldUseDynamicColorFalseByDefault() = runTest {
         assertFalse(subject.userData.first().useDynamicColor)
     }
 
     @Test
-    fun userShouldUseDynamicColorIsTrueWhenSet() = testScope.runTest {
+    fun userShouldUseDynamicColorIsTrueWhenSet() = runTest {
         subject.setDynamicColorPreference(true)
         assertTrue(subject.userData.first().useDynamicColor)
     }

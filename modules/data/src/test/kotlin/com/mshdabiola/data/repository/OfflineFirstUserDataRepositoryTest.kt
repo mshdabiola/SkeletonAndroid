@@ -47,8 +47,7 @@ class OfflineFirstUserDataRepositoryTest {
     }
 
     @Test
-    fun offlineFirstUserDataRepository_default_user_data_is_correct() =
-        testScope.runTest {
+    fun offlineFirstUserDataRepository_default_user_data_is_correct() =runTest {
             assertEquals(
                 UserData(
                     themeBrand = ThemeBrand.DEFAULT,
@@ -61,8 +60,7 @@ class OfflineFirstUserDataRepositoryTest {
         }
 
     @Test
-    fun offlineFirstUserDataRepository_set_theme_brand_delegates_to_nia_preferences() =
-        testScope.runTest {
+    fun offlineFirstUserDataRepository_set_theme_brand_delegates_to_nia_preferences() =runTest {
             subject.setThemeBrand(ThemeBrand.GREEN)
 
             assertEquals(
@@ -81,8 +79,7 @@ class OfflineFirstUserDataRepositoryTest {
         }
 
     @Test
-    fun offlineFirstUserDataRepository_set_dynamic_color_delegates_to_nia_preferences() =
-        testScope.runTest {
+    fun offlineFirstUserDataRepository_set_dynamic_color_delegates_to_nia_preferences() =runTest {
             subject.setDynamicColorPreference(true)
 
             assertEquals(
@@ -101,8 +98,7 @@ class OfflineFirstUserDataRepositoryTest {
         }
 
     @Test
-    fun offlineFirstUserDataRepository_set_dark_theme_config_delegates_to_nia_preferences() =
-        testScope.runTest {
+    fun offlineFirstUserDataRepository_set_dark_theme_config_delegates_to_nia_preferences() =runTest {
             subject.setDarkThemeConfig(DarkThemeConfig.DARK)
 
             assertEquals(

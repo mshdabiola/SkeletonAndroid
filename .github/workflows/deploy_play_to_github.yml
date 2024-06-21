@@ -5,11 +5,11 @@ on:
     tags:
       - '[0-9]+.[0-9]+.[0-9]+'
 
-## 2
 jobs:
-  ## 3
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 120
+
     steps:
       - name: Enable KVM group perms
         run: |
@@ -21,12 +21,8 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
-        with:
-          build-scan-publish: true
-          build-scan-terms-of-use-url: "https://gradle.com/terms-of-service"
-          build-scan-terms-of-use-agree: "yes"
+      - name: Validate Gradle Wrapper
+        uses: gradle/wrapper-validation-action@v3
 
       - name: Copy CI gradle.properties
         run: mkdir -p ~/.gradle ; cp .github/ci-gradle.properties ~/.gradle/gradle.properties
@@ -40,29 +36,22 @@ jobs:
       - name: Install GMD image for baseline profile generation
         run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager "system-images;android-33;aosp_atd;x86_64"
 
-      - name: Setup build tool version variable
-        shell: bash
-        run: |
-          BUILD_TOOL_VERSION=$(ls /usr/local/lib/android/sdk/build-tools/ | tail -n 1)
-          echo "BUILD_TOOL_VERSION=$BUILD_TOOL_VERSION" >> $GITHUB_ENV
-          echo Last build tool version is: $BUILD_TOOL_VERSION
-
       - name: Accept Android licenses
         run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
       - name: Build release variant including baseline profile generation
-        run: |
-          ./gradlew cleanManagedDevices --unused-only
-          ./gradlew generateGooglePlayReleaseBaselineProfile 
+        run: ./gradlew generateGooglePlayReleaseBaselineProfile
           -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
           -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
           -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
           -Pandroid.experimental.androidTest.numManagedDeviceShards=1
           -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1
-          ./gradlew :app:assembleGooglePlayRelease
+
+      - name: Build release variant apk
+        run: ./gradlew :app:assembleGooglePlayRelease
 
       - name: Sign APK
-        uses: r0adkll/sign-android-release@v1
+        uses: r0adkll/sign-android-release@v1.0.4
         with:
           releaseDirectory: app/build/outputs/apk/googlePlay/release
           signingKeyBase64: ${{ secrets.SIGNING_KEY }}
@@ -70,9 +59,8 @@ jobs:
           keyStorePassword: ${{ secrets.KEY_STORE_PASSWORD }}
           keyPassword: ${{ secrets.KEY_PASSWORD }}
         env:
-          BUILD_TOOLS_VERSION: ${{ env.BUILD_TOOL_VERSION }}
+          BUILD_TOOLS_VERSION: "34.0.0"
 
-      # 4
       - name: Draft Release
         uses: ncipollo/release-action@v1.14.0
         with:
@@ -82,3 +70,4 @@ jobs:
           generateReleaseNotes: true
           bodyFile: distribution/whatsnew/whatsnew-en-US
           prerelease: false
+
