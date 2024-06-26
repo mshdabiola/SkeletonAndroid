@@ -25,8 +25,8 @@ android {
 
     defaultConfig {
         applicationId = "com.mshdabiola.skeletonandroid"
-        versionCode = 1
-        versionName = "0.0.1" // X.Y.Z; X = Major, Y = minor, Z = Patch level
+        versionCode = libs.versions.versionCode.get().toIntOrNull()
+        versionName = System.getenv("VERSION_NAME") ?: libs.versions.versionName.get()
 
         // Custom test runner to set up Hilt dependency graph
         testInstrumentationRunner = "com.mshdabiola.testing.TestRunner"
