@@ -33,19 +33,14 @@ jobs:
           distribution: 'zulu'
           java-version: 17
 
-      - name: Install GMD image for baseline profile generation
-        run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager "system-images;android-33;aosp_atd;x86_64"
-
       - name: Accept Android licenses
         run: yes | "$ANDROID_HOME"/cmdline-tools/latest/bin/sdkmanager --licenses || true
 
-      - name: Build release variant including baseline profile generation
-        run: ./gradlew generateFossReliantReleaseBaselineProfile
-          -Pandroid.testInstrumentationRunnerArguments.androidx.benchmark.enabledRules=BaselineProfile
-          -Pandroid.testoptions.manageddevices.emulator.gpu="swiftshader_indirect"
-          -Pandroid.experimental.testOptions.managedDevices.emulator.showKernelLogging=true
-          -Pandroid.experimental.androidTest.numManagedDeviceShards=1
-          -Pandroid.experimental.testOptions.managedDevices.maxConcurrentDevices=1
+      - name: Remove Firebase References
+        run: |
+          sed -i -e '/androidx.dev/d' settings.gradle.kts
+          sed -i -e '/with(target) {/,/^        }/d' -e '/CrashlyticsExtension/d' build-logic/convention/src/main/kotlin/AndroidApplicationFirebaseConventionPlugin.kt
+          sed -i -e '/libs.firebase/d' build-logic/convention/build.gradle.kts
 
       - name: Build release variant apk
         run: ./gradlew :app:assembleFossReliantRelease

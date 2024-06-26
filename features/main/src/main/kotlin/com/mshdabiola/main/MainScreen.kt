@@ -84,10 +84,10 @@ internal fun MainRoute(
 @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
 @Composable
 internal fun MainScreen(
+    modifier: Modifier = Modifier,
     mainState: Result<List<NoteUiState>>,
     onClick: (Long) -> Unit = {},
     onShowSnackbar: suspend (String, String?) -> Boolean = { _, _ -> false },
-    modifier: Modifier = Modifier,
 ) {
     val state = rememberLazyListState()
     TrackScrollJank(scrollableState = state, stateName = "topic:screen")

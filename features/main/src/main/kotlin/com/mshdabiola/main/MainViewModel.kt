@@ -27,8 +27,6 @@ class MainViewModel @Inject constructor(
     private val noteRepository: NoteRepository,
 ) : ViewModel() {
 
-    var shouldDisplayUndoBookmark by mutableStateOf(false)
-    private var lastRemovedBookmarkId: String? = null
 
     val feedUiMainState: StateFlow<Result<List<NoteUiState>>> =
         noteRepository.getAll()
