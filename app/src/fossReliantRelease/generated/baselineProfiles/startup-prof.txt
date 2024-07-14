@@ -858,15 +858,8 @@ HSPLandroidx/compose/animation/core/AnimateAsStateKt$animateValueAsState$3$1$1;-
 HSPLandroidx/compose/animation/core/AnimateAsStateKt$animateValueAsState$3$1$1;->invokeSuspend(Ljava/lang/Object;)Ljava/lang/Object;
 Landroidx/compose/animation/core/Animation;
 HSPLandroidx/compose/animation/core/Animation;->isFinishedFromNanos(J)Z
-Landroidx/compose/animation/core/AnimationEndReason;
-HSPLandroidx/compose/animation/core/AnimationEndReason;->$values()[Landroidx/compose/animation/core/AnimationEndReason;
-HSPLandroidx/compose/animation/core/AnimationEndReason;-><clinit>()V
-HSPLandroidx/compose/animation/core/AnimationEndReason;-><init>(Ljava/lang/String;I)V
 Landroidx/compose/animation/core/AnimationKt;
 HSPLandroidx/compose/animation/core/AnimationKt;->TargetBasedAnimation(Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/animation/core/TwoWayConverter;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroidx/compose/animation/core/TargetBasedAnimation;
-Landroidx/compose/animation/core/AnimationResult;
-HSPLandroidx/compose/animation/core/AnimationResult;-><clinit>()V
-HSPLandroidx/compose/animation/core/AnimationResult;-><init>(Landroidx/compose/animation/core/AnimationState;Landroidx/compose/animation/core/AnimationEndReason;)V
 Landroidx/compose/animation/core/AnimationScope;
 HSPLandroidx/compose/animation/core/AnimationScope;-><clinit>()V
 HSPLandroidx/compose/animation/core/AnimationScope;-><init>(Ljava/lang/Object;Landroidx/compose/animation/core/TwoWayConverter;Landroidx/compose/animation/core/AnimationVector;JLjava/lang/Object;JZLkotlin/jvm/functions/Function0;)V
@@ -943,7 +936,6 @@ HSPLandroidx/compose/animation/core/AnimationVector4D;->getV4()F
 HSPLandroidx/compose/animation/core/AnimationVector4D;->newVector$animation_core_release()Landroidx/compose/animation/core/AnimationVector4D;
 HSPLandroidx/compose/animation/core/AnimationVector4D;->newVector$animation_core_release()Landroidx/compose/animation/core/AnimationVector;
 HSPLandroidx/compose/animation/core/AnimationVector4D;->reset$animation_core_release()V
-HSPLandroidx/compose/animation/core/AnimationVector4D;->set$animation_core_release(IF)V
 Landroidx/compose/animation/core/AnimationVectorsKt;
 HSPLandroidx/compose/animation/core/AnimationVectorsKt;->AnimationVector(F)Landroidx/compose/animation/core/AnimationVector1D;
 HSPLandroidx/compose/animation/core/AnimationVectorsKt;->AnimationVector(FF)Landroidx/compose/animation/core/AnimationVector2D;
@@ -957,7 +949,6 @@ Landroidx/compose/animation/core/ArcMode;
 HSPLandroidx/compose/animation/core/ArcMode;-><clinit>()V
 HSPLandroidx/compose/animation/core/ArcMode;->access$getArcLinear$cp()I
 HSPLandroidx/compose/animation/core/ArcMode;->constructor-impl(I)I
-HSPLandroidx/compose/animation/core/ArcMode;->equals-impl0(II)Z
 Landroidx/compose/animation/core/ArcMode$Companion;
 HSPLandroidx/compose/animation/core/ArcMode$Companion;-><init>()V
 HSPLandroidx/compose/animation/core/ArcMode$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1049,9 +1040,6 @@ HSPLandroidx/compose/animation/core/InfiniteTransitionKt$animateValue$2$1;->invo
 Landroidx/compose/animation/core/InfiniteTransitionKt$animateValue$2$1$invoke$$inlined$onDispose$1;
 HSPLandroidx/compose/animation/core/InfiniteTransitionKt$animateValue$2$1$invoke$$inlined$onDispose$1;-><init>(Landroidx/compose/animation/core/InfiniteTransition;Landroidx/compose/animation/core/InfiniteTransition$TransitionAnimationState;)V
 HSPLandroidx/compose/animation/core/InfiniteTransitionKt$animateValue$2$1$invoke$$inlined$onDispose$1;->dispose()V
-Landroidx/compose/animation/core/IntListExtensionKt;
-HSPLandroidx/compose/animation/core/IntListExtensionKt;->binarySearch$default(Landroidx/collection/IntList;IIIILjava/lang/Object;)I
-HSPLandroidx/compose/animation/core/IntListExtensionKt;->binarySearch(Landroidx/collection/IntList;III)I
 Landroidx/compose/animation/core/KeyframeBaseEntity;
 HSPLandroidx/compose/animation/core/KeyframeBaseEntity;-><clinit>()V
 HSPLandroidx/compose/animation/core/KeyframeBaseEntity;-><init>(Ljava/lang/Object;Landroidx/compose/animation/core/Easing;)V
@@ -1359,18 +1347,13 @@ Landroidx/compose/animation/core/VectorizedKeyframeSpecElementInfo;
 HSPLandroidx/compose/animation/core/VectorizedKeyframeSpecElementInfo;-><clinit>()V
 HSPLandroidx/compose/animation/core/VectorizedKeyframeSpecElementInfo;-><init>(Landroidx/compose/animation/core/AnimationVector;Landroidx/compose/animation/core/Easing;I)V
 HSPLandroidx/compose/animation/core/VectorizedKeyframeSpecElementInfo;-><init>(Landroidx/compose/animation/core/AnimationVector;Landroidx/compose/animation/core/Easing;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-HSPLandroidx/compose/animation/core/VectorizedKeyframeSpecElementInfo;->getArcMode--9T-Mq4()I
-HSPLandroidx/compose/animation/core/VectorizedKeyframeSpecElementInfo;->getVectorValue()Landroidx/compose/animation/core/AnimationVector;
 Landroidx/compose/animation/core/VectorizedKeyframesSpec;
 HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;-><clinit>()V
 HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;-><init>(Landroidx/collection/IntList;Landroidx/collection/IntObjectMap;IILandroidx/compose/animation/core/Easing;I)V
 HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;-><init>(Landroidx/collection/IntList;Landroidx/collection/IntObjectMap;IILandroidx/compose/animation/core/Easing;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
-HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;->findEntryForTimeMillis(I)I
 HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;->getDelayMillis()I
 HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;->getDurationMillis()I
-HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;->getEasedTimeFromIndex(IIZ)F
 HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;->getValueFromNanos(JLandroidx/compose/animation/core/AnimationVector;Landroidx/compose/animation/core/AnimationVector;Landroidx/compose/animation/core/AnimationVector;)Landroidx/compose/animation/core/AnimationVector;
-HSPLandroidx/compose/animation/core/VectorizedKeyframesSpec;->init(Landroidx/compose/animation/core/AnimationVector;Landroidx/compose/animation/core/AnimationVector;Landroidx/compose/animation/core/AnimationVector;)V
 Landroidx/compose/animation/core/VectorizedTweenSpec;
 HSPLandroidx/compose/animation/core/VectorizedTweenSpec;-><clinit>()V
 HSPLandroidx/compose/animation/core/VectorizedTweenSpec;-><init>(IILandroidx/compose/animation/core/Easing;)V
@@ -10840,8 +10823,6 @@ Landroidx/compose/ui/text/font/AsyncTypefaceCache$AsyncTypefaceResult;
 HSPLandroidx/compose/ui/text/font/AsyncTypefaceCache$AsyncTypefaceResult;-><init>(Ljava/lang/Object;)V
 HSPLandroidx/compose/ui/text/font/AsyncTypefaceCache$AsyncTypefaceResult;->box-impl(Ljava/lang/Object;)Landroidx/compose/ui/text/font/AsyncTypefaceCache$AsyncTypefaceResult;
 HSPLandroidx/compose/ui/text/font/AsyncTypefaceCache$AsyncTypefaceResult;->constructor-impl(Ljava/lang/Object;)Ljava/lang/Object;
-HSPLandroidx/compose/ui/text/font/AsyncTypefaceCache$AsyncTypefaceResult;->isPermanentFailure-impl(Ljava/lang/Object;)Z
-HSPLandroidx/compose/ui/text/font/AsyncTypefaceCache$AsyncTypefaceResult;->unbox-impl()Ljava/lang/Object;
 Landroidx/compose/ui/text/font/AsyncTypefaceCache$Key;
 HSPLandroidx/compose/ui/text/font/AsyncTypefaceCache$Key;-><clinit>()V
 HSPLandroidx/compose/ui/text/font/AsyncTypefaceCache$Key;-><init>(Landroidx/compose/ui/text/font/Font;Ljava/lang/Object;)V
@@ -11289,8 +11270,6 @@ HSPLandroidx/compose/ui/text/platform/EmojiCompatStatus_androidKt;-><clinit>()V
 HSPLandroidx/compose/ui/text/platform/EmojiCompatStatus_androidKt;->access$getFalsey$p()Landroidx/compose/ui/text/platform/ImmutableBool;
 Landroidx/compose/ui/text/platform/ImmutableBool;
 HSPLandroidx/compose/ui/text/platform/ImmutableBool;-><init>(Z)V
-HSPLandroidx/compose/ui/text/platform/ImmutableBool;->getValue()Ljava/lang/Boolean;
-HSPLandroidx/compose/ui/text/platform/ImmutableBool;->getValue()Ljava/lang/Object;
 Landroidx/compose/ui/text/platform/Synchronization_jvmKt;
 HSPLandroidx/compose/ui/text/platform/Synchronization_jvmKt;->createSynchronizedObject()Landroidx/compose/ui/text/platform/SynchronizedObject;
 Landroidx/compose/ui/text/platform/SynchronizedObject;
@@ -16253,6 +16232,7 @@ Lkotlin/ranges/RangesKt__RangesKt;
 Lkotlin/ranges/RangesKt___RangesKt;
 HSPLkotlin/ranges/RangesKt___RangesKt;->coerceAtLeast(FF)F
 HSPLkotlin/ranges/RangesKt___RangesKt;->coerceAtLeast(II)I
+HSPLkotlin/ranges/RangesKt___RangesKt;->coerceAtLeast(JJ)J
 HSPLkotlin/ranges/RangesKt___RangesKt;->coerceAtMost(II)I
 HSPLkotlin/ranges/RangesKt___RangesKt;->coerceAtMost(JJ)J
 HSPLkotlin/ranges/RangesKt___RangesKt;->coerceIn(DDD)D
@@ -16702,6 +16682,7 @@ HSPLkotlinx/coroutines/EventLoopImplBase$DelayedTask;->getIndex()I
 HSPLkotlinx/coroutines/EventLoopImplBase$DelayedTask;->scheduleTask(JLkotlinx/coroutines/EventLoopImplBase$DelayedTaskQueue;Lkotlinx/coroutines/EventLoopImplBase;)I
 HSPLkotlinx/coroutines/EventLoopImplBase$DelayedTask;->setHeap(Lkotlinx/coroutines/internal/ThreadSafeHeap;)V
 HSPLkotlinx/coroutines/EventLoopImplBase$DelayedTask;->setIndex(I)V
+HSPLkotlinx/coroutines/EventLoopImplBase$DelayedTask;->timeToExecute(J)Z
 Lkotlinx/coroutines/EventLoopImplBase$DelayedTaskQueue;
 HSPLkotlinx/coroutines/EventLoopImplBase$DelayedTaskQueue;-><init>(J)V
 Lkotlinx/coroutines/EventLoopImplPlatform;
@@ -17447,7 +17428,6 @@ Lkotlinx/coroutines/flow/StartedLazily;
 HSPLkotlinx/coroutines/flow/StartedLazily;-><init>()V
 Lkotlinx/coroutines/flow/StartedWhileSubscribed;
 HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;-><init>(JJ)V
-HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;->access$getReplayExpiration$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
 HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;->access$getStopTimeout$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
 HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;->command(Lkotlinx/coroutines/flow/StateFlow;)Lkotlinx/coroutines/flow/Flow;
 HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;->equals(Ljava/lang/Object;)Z
