@@ -16,7 +16,6 @@ private fun MainScreenShot() {
         MainScreen(
             mainState = Result.Loading,
 
-            )
-
+        )
     }
 }
