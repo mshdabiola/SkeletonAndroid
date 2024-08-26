@@ -412,7 +412,6 @@ Landroidx/collection/MutableScatterSet;
 HSPLandroidx/collection/MutableScatterSet;-><init>(I)V
 HSPLandroidx/collection/MutableScatterSet;-><init>(IILkotlin/jvm/internal/DefaultConstructorMarker;)V
 HSPLandroidx/collection/MutableScatterSet;->add(Ljava/lang/Object;)Z
-HSPLandroidx/collection/MutableScatterSet;->addAll(Landroidx/collection/ScatterSet;)Z
 HSPLandroidx/collection/MutableScatterSet;->adjustStorage()V
 HSPLandroidx/collection/MutableScatterSet;->asMutableSet()Ljava/util/Set;
 HSPLandroidx/collection/MutableScatterSet;->clear()V
@@ -866,7 +865,6 @@ Landroidx/compose/animation/core/AnimationKt;
 HSPLandroidx/compose/animation/core/AnimationKt;->TargetBasedAnimation(Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/animation/core/TwoWayConverter;Ljava/lang/Object;Ljava/lang/Object;Ljava/lang/Object;)Landroidx/compose/animation/core/TargetBasedAnimation;
 Landroidx/compose/animation/core/AnimationResult;
 HSPLandroidx/compose/animation/core/AnimationResult;-><clinit>()V
-HSPLandroidx/compose/animation/core/AnimationResult;-><init>(Landroidx/compose/animation/core/AnimationState;Landroidx/compose/animation/core/AnimationEndReason;)V
 Landroidx/compose/animation/core/AnimationScope;
 HSPLandroidx/compose/animation/core/AnimationScope;-><clinit>()V
 HSPLandroidx/compose/animation/core/AnimationScope;-><init>(Ljava/lang/Object;Landroidx/compose/animation/core/TwoWayConverter;Landroidx/compose/animation/core/AnimationVector;JLjava/lang/Object;JZLkotlin/jvm/functions/Function0;)V
@@ -876,7 +874,6 @@ HSPLandroidx/compose/animation/core/AnimationScope;->getStartTimeNanos()J
 HSPLandroidx/compose/animation/core/AnimationScope;->getValue()Ljava/lang/Object;
 HSPLandroidx/compose/animation/core/AnimationScope;->getVelocityVector()Landroidx/compose/animation/core/AnimationVector;
 HSPLandroidx/compose/animation/core/AnimationScope;->isRunning()Z
-HSPLandroidx/compose/animation/core/AnimationScope;->setFinishedTimeNanos$animation_core_release(J)V
 HSPLandroidx/compose/animation/core/AnimationScope;->setLastFrameTimeNanos$animation_core_release(J)V
 HSPLandroidx/compose/animation/core/AnimationScope;->setRunning$animation_core_release(Z)V
 HSPLandroidx/compose/animation/core/AnimationScope;->setValue$animation_core_release(Ljava/lang/Object;)V
@@ -1187,7 +1184,6 @@ HSPLandroidx/compose/animation/core/TargetBasedAnimation;-><init>(Landroidx/comp
 HSPLandroidx/compose/animation/core/TargetBasedAnimation;-><init>(Landroidx/compose/animation/core/AnimationSpec;Landroidx/compose/animation/core/TwoWayConverter;Ljava/lang/Object;Ljava/lang/Object;Landroidx/compose/animation/core/AnimationVector;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
 HSPLandroidx/compose/animation/core/TargetBasedAnimation;-><init>(Landroidx/compose/animation/core/VectorizedAnimationSpec;Landroidx/compose/animation/core/TwoWayConverter;Ljava/lang/Object;Ljava/lang/Object;Landroidx/compose/animation/core/AnimationVector;)V
 HSPLandroidx/compose/animation/core/TargetBasedAnimation;->getDurationNanos()J
-HSPLandroidx/compose/animation/core/TargetBasedAnimation;->getEndVelocity()Landroidx/compose/animation/core/AnimationVector;
 HSPLandroidx/compose/animation/core/TargetBasedAnimation;->getTargetValue()Ljava/lang/Object;
 HSPLandroidx/compose/animation/core/TargetBasedAnimation;->getTypeConverter()Landroidx/compose/animation/core/TwoWayConverter;
 HSPLandroidx/compose/animation/core/TargetBasedAnimation;->getValueFromNanos(J)Ljava/lang/Object;
@@ -1396,7 +1392,6 @@ HSPLandroidx/compose/foundation/AbstractClickableNode;->initializeIndicationAndI
 HSPLandroidx/compose/foundation/AbstractClickableNode;->onAttach()V
 HSPLandroidx/compose/foundation/AbstractClickableNode;->onFocusEvent(Landroidx/compose/ui/focus/FocusState;)V
 HSPLandroidx/compose/foundation/AbstractClickableNode;->shouldLazilyCreateIndication()Z
-HSPLandroidx/compose/foundation/AbstractClickableNode;->updateCommon-QzZPfjk(Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/IndicationNodeFactory;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;)V
 Landroidx/compose/foundation/AbstractClickableNode$TraverseKey;
 HSPLandroidx/compose/foundation/AbstractClickableNode$TraverseKey;-><init>()V
 HSPLandroidx/compose/foundation/AbstractClickableNode$TraverseKey;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -1406,7 +1401,6 @@ HSPLandroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect;-><init>(Landr
 HSPLandroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect;->animateToRelease()V
 HSPLandroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect;->getEffectModifier()Landroidx/compose/ui/Modifier;
 HSPLandroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect;->getRedrawSignal$foundation_release()Landroidx/compose/runtime/MutableState;
-HSPLandroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect;->invalidateOverscroll$foundation_release()V
 HSPLandroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect;->updateSize-uvyYCjk$foundation_release(J)V
 Landroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect$effectModifier$1;
 HSPLandroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect$effectModifier$1;-><init>(Landroidx/compose/foundation/AndroidEdgeEffectOverscrollEffect;Lkotlin/coroutines/Continuation;)V
@@ -1450,8 +1444,6 @@ HSPLandroidx/compose/foundation/ClickableElement;-><init>(Landroidx/compose/foun
 HSPLandroidx/compose/foundation/ClickableElement;->create()Landroidx/compose/foundation/ClickableNode;
 HSPLandroidx/compose/foundation/ClickableElement;->create()Landroidx/compose/ui/Modifier$Node;
 HSPLandroidx/compose/foundation/ClickableElement;->equals(Ljava/lang/Object;)Z
-HSPLandroidx/compose/foundation/ClickableElement;->update(Landroidx/compose/foundation/ClickableNode;)V
-HSPLandroidx/compose/foundation/ClickableElement;->update(Landroidx/compose/ui/Modifier$Node;)V
 Landroidx/compose/foundation/ClickableKt;
 HSPLandroidx/compose/foundation/ClickableKt;->clickable-O2vRcR0$default(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/Indication;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;ILjava/lang/Object;)Landroidx/compose/ui/Modifier;
 HSPLandroidx/compose/foundation/ClickableKt;->clickable-O2vRcR0(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/Indication;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;)Landroidx/compose/ui/Modifier;
@@ -1465,7 +1457,6 @@ Landroidx/compose/foundation/ClickableNode;
 HSPLandroidx/compose/foundation/ClickableNode;-><clinit>()V
 HSPLandroidx/compose/foundation/ClickableNode;-><init>(Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/IndicationNodeFactory;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;)V
 HSPLandroidx/compose/foundation/ClickableNode;-><init>(Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/IndicationNodeFactory;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
-HSPLandroidx/compose/foundation/ClickableNode;->update-QzZPfjk(Landroidx/compose/foundation/interaction/MutableInteractionSource;Landroidx/compose/foundation/IndicationNodeFactory;ZLjava/lang/String;Landroidx/compose/ui/semantics/Role;Lkotlin/jvm/functions/Function0;)V
 Landroidx/compose/foundation/ClipScrollableContainerKt;
 HSPLandroidx/compose/foundation/ClipScrollableContainerKt;-><clinit>()V
 HSPLandroidx/compose/foundation/ClipScrollableContainerKt;->clipScrollableContainer(Landroidx/compose/ui/Modifier;Landroidx/compose/foundation/gestures/Orientation;)Landroidx/compose/ui/Modifier;
@@ -4248,13 +4239,16 @@ HSPLandroidx/compose/runtime/ComposerImpl;->prepareCompose$runtime_release(Lkotl
 HSPLandroidx/compose/runtime/ComposerImpl;->rGroupIndexOf(I)I
 HSPLandroidx/compose/runtime/ComposerImpl;->recompose$runtime_release(Landroidx/compose/runtime/collection/ScopeMap;)Z
 HSPLandroidx/compose/runtime/ComposerImpl;->recomposeToGroupEnd()V
+HSPLandroidx/compose/runtime/ComposerImpl;->recordDelete()V
 HSPLandroidx/compose/runtime/ComposerImpl;->recordInsert(Landroidx/compose/runtime/Anchor;)V
+HSPLandroidx/compose/runtime/ComposerImpl;->recordProviderUpdate(Landroidx/compose/runtime/PersistentCompositionLocalMap;)V
 HSPLandroidx/compose/runtime/ComposerImpl;->recordSideEffect(Lkotlin/jvm/functions/Function0;)V
 HSPLandroidx/compose/runtime/ComposerImpl;->recordUpsAndDowns(III)V
 HSPLandroidx/compose/runtime/ComposerImpl;->recordUsed(Landroidx/compose/runtime/RecomposeScope;)V
 HSPLandroidx/compose/runtime/ComposerImpl;->rememberObserverAnchor()Landroidx/compose/runtime/Anchor;
 HSPLandroidx/compose/runtime/ComposerImpl;->rememberedValue()Ljava/lang/Object;
 HSPLandroidx/compose/runtime/ComposerImpl;->reportFreeMovableContent$reportGroup(Landroidx/compose/runtime/ComposerImpl;IZI)I
+HSPLandroidx/compose/runtime/ComposerImpl;->reportFreeMovableContent(I)V
 HSPLandroidx/compose/runtime/ComposerImpl;->skipCurrentGroup()V
 HSPLandroidx/compose/runtime/ComposerImpl;->skipGroup()V
 HSPLandroidx/compose/runtime/ComposerImpl;->skipReaderToGroupEnd()V
@@ -4563,6 +4557,7 @@ HSPLandroidx/compose/runtime/Invalidation;-><init>(Landroidx/compose/runtime/Rec
 HSPLandroidx/compose/runtime/Invalidation;->getLocation()I
 HSPLandroidx/compose/runtime/Invalidation;->getScope()Landroidx/compose/runtime/RecomposeScopeImpl;
 HSPLandroidx/compose/runtime/Invalidation;->isInvalid()Z
+HSPLandroidx/compose/runtime/Invalidation;->setInstances(Ljava/lang/Object;)V
 Landroidx/compose/runtime/InvalidationResult;
 HSPLandroidx/compose/runtime/InvalidationResult;->$values()[Landroidx/compose/runtime/InvalidationResult;
 HSPLandroidx/compose/runtime/InvalidationResult;-><clinit>()V
@@ -4718,6 +4713,7 @@ HSPLandroidx/compose/runtime/ProvidedValue;->getState$runtime_release()Landroidx
 HSPLandroidx/compose/runtime/ProvidedValue;->getValue()Ljava/lang/Object;
 HSPLandroidx/compose/runtime/ProvidedValue;->ifNotAlreadyProvided$runtime_release()Landroidx/compose/runtime/ProvidedValue;
 HSPLandroidx/compose/runtime/ProvidedValue;->isDynamic$runtime_release()Z
+HSPLandroidx/compose/runtime/ProvidedValue;->isStatic$runtime_release()Z
 Landroidx/compose/runtime/RecomposeScope;
 Landroidx/compose/runtime/RecomposeScopeImpl;
 HSPLandroidx/compose/runtime/RecomposeScopeImpl;-><clinit>()V
@@ -4918,6 +4914,7 @@ HSPLandroidx/compose/runtime/SlotReader;->getCurrentGroup()I
 HSPLandroidx/compose/runtime/SlotReader;->getGroupAux()Ljava/lang/Object;
 HSPLandroidx/compose/runtime/SlotReader;->getGroupKey()I
 HSPLandroidx/compose/runtime/SlotReader;->getGroupObjectKey()Ljava/lang/Object;
+HSPLandroidx/compose/runtime/SlotReader;->getGroupSize()I
 HSPLandroidx/compose/runtime/SlotReader;->getGroupSlotIndex()I
 HSPLandroidx/compose/runtime/SlotReader;->getHadNext()Z
 HSPLandroidx/compose/runtime/SlotReader;->getHasObjectKey()Z
@@ -5093,6 +5090,7 @@ HSPLandroidx/compose/runtime/SlotWriter;->nodeIndex([II)I
 HSPLandroidx/compose/runtime/SlotWriter;->parent(I)I
 HSPLandroidx/compose/runtime/SlotWriter;->parent([II)I
 HSPLandroidx/compose/runtime/SlotWriter;->parentAnchorToIndex(I)I
+HSPLandroidx/compose/runtime/SlotWriter;->parentIndexToAnchor(II)I
 HSPLandroidx/compose/runtime/SlotWriter;->recalculateMarks()V
 HSPLandroidx/compose/runtime/SlotWriter;->removeAnchors(IILjava/util/HashMap;)Z
 HSPLandroidx/compose/runtime/SlotWriter;->removeGroup()Z
@@ -5126,6 +5124,7 @@ HSPLandroidx/compose/runtime/SlotWriter;->updateNodeOfGroup(ILjava/lang/Object;)
 Landroidx/compose/runtime/SlotWriter$Companion;
 HSPLandroidx/compose/runtime/SlotWriter$Companion;-><init>()V
 HSPLandroidx/compose/runtime/SlotWriter$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+HSPLandroidx/compose/runtime/SlotWriter$Companion;->access$moveGroup(Landroidx/compose/runtime/SlotWriter$Companion;Landroidx/compose/runtime/SlotWriter;ILandroidx/compose/runtime/SlotWriter;ZZZ)Ljava/util/List;
 HSPLandroidx/compose/runtime/SlotWriter$Companion;->moveGroup(Landroidx/compose/runtime/SlotWriter;ILandroidx/compose/runtime/SlotWriter;ZZZ)Ljava/util/List;
 Landroidx/compose/runtime/SnapshotIntStateKt;
 HSPLandroidx/compose/runtime/SnapshotIntStateKt;->mutableIntStateOf(I)Landroidx/compose/runtime/MutableIntState;
@@ -5284,6 +5283,7 @@ Landroidx/compose/runtime/StaticValueHolder;
 HSPLandroidx/compose/runtime/StaticValueHolder;-><clinit>()V
 HSPLandroidx/compose/runtime/StaticValueHolder;-><init>(Ljava/lang/Object;)V
 HSPLandroidx/compose/runtime/StaticValueHolder;->equals(Ljava/lang/Object;)Z
+HSPLandroidx/compose/runtime/StaticValueHolder;->getValue()Ljava/lang/Object;
 HSPLandroidx/compose/runtime/StaticValueHolder;->readValue(Landroidx/compose/runtime/PersistentCompositionLocalMap;)Ljava/lang/Object;
 Landroidx/compose/runtime/StructuralEqualityPolicy;
 HSPLandroidx/compose/runtime/StructuralEqualityPolicy;-><clinit>()V
@@ -5311,10 +5311,13 @@ HSPLandroidx/compose/runtime/changelist/ChangeList;->pushAdvanceSlotsBy(I)V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushDeactivateCurrentGroup()V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushDowns([Ljava/lang/Object;)V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushEndCompositionScope(Lkotlin/jvm/functions/Function1;Landroidx/compose/runtime/Composition;)V
+HSPLandroidx/compose/runtime/changelist/ChangeList;->pushEndCurrentGroup()V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushEnsureGroupStarted(Landroidx/compose/runtime/Anchor;)V
+HSPLandroidx/compose/runtime/changelist/ChangeList;->pushEnsureRootStarted()V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushInsertSlots(Landroidx/compose/runtime/Anchor;Landroidx/compose/runtime/SlotTable;)V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushInsertSlots(Landroidx/compose/runtime/Anchor;Landroidx/compose/runtime/SlotTable;Landroidx/compose/runtime/changelist/FixupList;)V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushRemember(Landroidx/compose/runtime/RememberObserver;)V
+HSPLandroidx/compose/runtime/changelist/ChangeList;->pushRemoveCurrentGroup()V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushSideEffect(Lkotlin/jvm/functions/Function0;)V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushUpdateAnchoredValue(Ljava/lang/Object;Landroidx/compose/runtime/Anchor;I)V
 HSPLandroidx/compose/runtime/changelist/ChangeList;->pushUpdateAuxData(Ljava/lang/Object;)V
@@ -5329,6 +5332,8 @@ HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->endCompositio
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->endCurrentGroup()V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->endNodeMovement()V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->endRoot()V
+HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->ensureGroupStarted(Landroidx/compose/runtime/Anchor;)V
+HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->ensureRootStarted()V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->finalizeComposition()V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->getPastParent()Z
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->getReader()Landroidx/compose/runtime/SlotReader;
@@ -5346,6 +5351,7 @@ HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->realizeOperat
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->realizeOperationLocation(Z)V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->recordSlotEditing()V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->remember(Landroidx/compose/runtime/RememberObserver;)V
+HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->removeCurrentGroup()V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->removeNode(II)V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->resetTransientState()V
 HSPLandroidx/compose/runtime/changelist/ComposerChangeListWriter;->sideEffect(Lkotlin/jvm/functions/Function0;)V
@@ -5499,6 +5505,11 @@ HSPLandroidx/compose/runtime/changelist/OperationsDebugStringFormattable;-><clin
 HSPLandroidx/compose/runtime/changelist/OperationsDebugStringFormattable;-><init>()V
 Landroidx/compose/runtime/collection/IntMap;
 HSPLandroidx/compose/runtime/collection/IntMap;-><clinit>()V
+HSPLandroidx/compose/runtime/collection/IntMap;-><init>(I)V
+HSPLandroidx/compose/runtime/collection/IntMap;-><init>(IILkotlin/jvm/internal/DefaultConstructorMarker;)V
+HSPLandroidx/compose/runtime/collection/IntMap;-><init>(Landroid/util/SparseArray;)V
+HSPLandroidx/compose/runtime/collection/IntMap;->get(I)Ljava/lang/Object;
+HSPLandroidx/compose/runtime/collection/IntMap;->set(ILjava/lang/Object;)V
 Landroidx/compose/runtime/collection/MutableVector;
 HSPLandroidx/compose/runtime/collection/MutableVector;-><clinit>()V
 HSPLandroidx/compose/runtime/collection/MutableVector;-><init>([Ljava/lang/Object;I)V
@@ -5682,10 +5693,12 @@ HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementati
 Landroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;-><clinit>()V
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;-><init>()V
+HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->currentNode()Landroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNode;
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->getBuffer()[Ljava/lang/Object;
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->getIndex()I
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->hasNextKey()Z
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->hasNextNode()Z
+HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->moveToNextNode()V
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->reset([Ljava/lang/Object;I)V
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->reset([Ljava/lang/Object;II)V
 HSPLandroidx/compose/runtime/external/kotlinx/collections/immutable/implementations/immutableMap/TrieNodeBaseIterator;->setIndex(I)V
@@ -6437,7 +6450,6 @@ HSPLandroidx/compose/ui/draw/CacheDrawModifierNodeImpl;->getOrBuildCachedDrawBlo
 HSPLandroidx/compose/ui/draw/CacheDrawModifierNodeImpl;->getSize-NH-jbRc()J
 HSPLandroidx/compose/ui/draw/CacheDrawModifierNodeImpl;->invalidateDrawCache()V
 HSPLandroidx/compose/ui/draw/CacheDrawModifierNodeImpl;->onMeasureResultChanged()V
-HSPLandroidx/compose/ui/draw/CacheDrawModifierNodeImpl;->onObservedReadsChanged()V
 Landroidx/compose/ui/draw/CacheDrawModifierNodeImpl$1;
 HSPLandroidx/compose/ui/draw/CacheDrawModifierNodeImpl$1;-><init>(Landroidx/compose/ui/draw/CacheDrawModifierNodeImpl;)V
 Landroidx/compose/ui/draw/CacheDrawModifierNodeImpl$getOrBuildCachedDrawBlock$1$1;
@@ -7573,8 +7585,6 @@ HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->access$ge
 HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->access$getDependency$p(Landroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;)Landroidx/compose/ui/graphics/layer/GraphicsLayer;
 HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->access$getOldDependenciesSet$p(Landroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;)Landroidx/collection/MutableScatterSet;
 HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->access$getOldDependency$p(Landroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;)Landroidx/compose/ui/graphics/layer/GraphicsLayer;
-HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->access$setDependency$p(Landroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;Landroidx/compose/ui/graphics/layer/GraphicsLayer;)V
-HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->access$setOldDependenciesSet$p(Landroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;Landroidx/collection/MutableScatterSet;)V
 HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->access$setOldDependency$p(Landroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;Landroidx/compose/ui/graphics/layer/GraphicsLayer;)V
 HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->access$setTrackingInProgress$p(Landroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;Z)V
 HSPLandroidx/compose/ui/graphics/layer/ChildLayerDependenciesTracker;->onDependencyAdded(Landroidx/compose/ui/graphics/layer/GraphicsLayer;)Z
@@ -7613,7 +7623,6 @@ HSPLandroidx/compose/ui/graphics/layer/GraphicsLayer;->getTranslationX()F
 HSPLandroidx/compose/ui/graphics/layer/GraphicsLayer;->getTranslationY()F
 HSPLandroidx/compose/ui/graphics/layer/GraphicsLayer;->obtainAndroidOutline()Landroid/graphics/Outline;
 HSPLandroidx/compose/ui/graphics/layer/GraphicsLayer;->onAddedToParentLayer()V
-HSPLandroidx/compose/ui/graphics/layer/GraphicsLayer;->onRemovedFromParentLayer()V
 HSPLandroidx/compose/ui/graphics/layer/GraphicsLayer;->record-mL-hObY(Landroidx/compose/ui/unit/Density;Landroidx/compose/ui/unit/LayoutDirection;JLkotlin/jvm/functions/Function1;)V
 HSPLandroidx/compose/ui/graphics/layer/GraphicsLayer;->recordInternal()V
 HSPLandroidx/compose/ui/graphics/layer/GraphicsLayer;->recreateDisplayListIfNeeded()V
@@ -9248,8 +9257,6 @@ Landroidx/compose/ui/node/ObserverNodeOwnerScope;
 HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope;-><clinit>()V
 HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope;-><init>(Landroidx/compose/ui/node/ObserverModifierNode;)V
 HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope;->access$getOnObserveReadsChanged$cp()Lkotlin/jvm/functions/Function1;
-HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope;->getObserverNode$ui_release()Landroidx/compose/ui/node/ObserverModifierNode;
-HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope;->isValidOwnerScope()Z
 Landroidx/compose/ui/node/ObserverNodeOwnerScope$Companion;
 HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope$Companion;-><init>()V
 HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope$Companion;-><init>(Lkotlin/jvm/internal/DefaultConstructorMarker;)V
@@ -9257,8 +9264,6 @@ HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope$Companion;->getOnObserveRead
 Landroidx/compose/ui/node/ObserverNodeOwnerScope$Companion$OnObserveReadsChanged$1;
 HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope$Companion$OnObserveReadsChanged$1;-><clinit>()V
 HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope$Companion$OnObserveReadsChanged$1;-><init>()V
-HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope$Companion$OnObserveReadsChanged$1;->invoke(Landroidx/compose/ui/node/ObserverNodeOwnerScope;)V
-HSPLandroidx/compose/ui/node/ObserverNodeOwnerScope$Companion$OnObserveReadsChanged$1;->invoke(Ljava/lang/Object;)Ljava/lang/Object;
 Landroidx/compose/ui/node/OnPositionedDispatcher;
 HSPLandroidx/compose/ui/node/OnPositionedDispatcher;-><clinit>()V
 HSPLandroidx/compose/ui/node/OnPositionedDispatcher;-><init>()V
@@ -10113,13 +10118,9 @@ HSPLandroidx/compose/ui/semantics/AppendedSemanticsElement;-><init>(ZLkotlin/jvm
 HSPLandroidx/compose/ui/semantics/AppendedSemanticsElement;->create()Landroidx/compose/ui/Modifier$Node;
 HSPLandroidx/compose/ui/semantics/AppendedSemanticsElement;->create()Landroidx/compose/ui/semantics/CoreSemanticsModifierNode;
 HSPLandroidx/compose/ui/semantics/AppendedSemanticsElement;->equals(Ljava/lang/Object;)Z
-HSPLandroidx/compose/ui/semantics/AppendedSemanticsElement;->update(Landroidx/compose/ui/Modifier$Node;)V
-HSPLandroidx/compose/ui/semantics/AppendedSemanticsElement;->update(Landroidx/compose/ui/semantics/CoreSemanticsModifierNode;)V
 Landroidx/compose/ui/semantics/CoreSemanticsModifierNode;
 HSPLandroidx/compose/ui/semantics/CoreSemanticsModifierNode;-><clinit>()V
 HSPLandroidx/compose/ui/semantics/CoreSemanticsModifierNode;-><init>(ZZLkotlin/jvm/functions/Function1;)V
-HSPLandroidx/compose/ui/semantics/CoreSemanticsModifierNode;->setMergeDescendants(Z)V
-HSPLandroidx/compose/ui/semantics/CoreSemanticsModifierNode;->setProperties(Lkotlin/jvm/functions/Function1;)V
 Landroidx/compose/ui/semantics/EmptySemanticsElement;
 HSPLandroidx/compose/ui/semantics/EmptySemanticsElement;-><clinit>()V
 HSPLandroidx/compose/ui/semantics/EmptySemanticsElement;-><init>(Landroidx/compose/ui/semantics/EmptySemanticsModifier;)V
@@ -14992,15 +14993,15 @@ HSPLcom/mshdabiola/main/MainScreenKt;->LoadingState(Landroidx/compose/ui/Modifie
 HSPLcom/mshdabiola/main/MainScreenKt;->MainRoute$lambda$0(Landroidx/compose/runtime/State;)Lcom/mshdabiola/common/result/Result;
 HSPLcom/mshdabiola/main/MainScreenKt;->MainRoute$lambda$1(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/ui/Modifier;Lcom/mshdabiola/main/MainViewModel;IILandroidx/compose/runtime/Composer;I)Lkotlin/Unit;
 HSPLcom/mshdabiola/main/MainScreenKt;->MainRoute(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/ui/Modifier;Lcom/mshdabiola/main/MainViewModel;Landroidx/compose/runtime/Composer;II)V
-HSPLcom/mshdabiola/main/MainScreenKt;->MainScreen(Landroidx/compose/ui/Modifier;Lcom/mshdabiola/common/result/Result;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/runtime/Composer;II)V
+HSPLcom/mshdabiola/main/MainScreenKt;->MainScreen(Lcom/mshdabiola/common/result/Result;Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 HSPLcom/mshdabiola/main/MainScreenKt;->access$LoadingState(Landroidx/compose/ui/Modifier;Landroidx/compose/runtime/Composer;II)V
 HSPLcom/mshdabiola/main/MainScreenKt;->access$noteUiStateItemsSize(Lcom/mshdabiola/common/result/Result;)I
 HSPLcom/mshdabiola/main/MainScreenKt;->noteUiStateItemsSize(Lcom/mshdabiola/common/result/Result;)I
+Lcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda0;
+HSPLcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda0;-><init>(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/ui/Modifier;Lcom/mshdabiola/main/MainViewModel;II)V
+HSPLcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda0;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
 Lcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda2;
-HSPLcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda2;-><init>(Lkotlin/jvm/functions/Function1;Lkotlin/jvm/functions/Function3;Landroidx/compose/ui/Modifier;Lcom/mshdabiola/main/MainViewModel;II)V
-HSPLcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda2;->invoke(Ljava/lang/Object;Ljava/lang/Object;)Ljava/lang/Object;
-Lcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda4;
-HSPLcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda4;-><init>(Landroidx/compose/ui/Modifier;II)V
+HSPLcom/mshdabiola/main/MainScreenKt$$ExternalSyntheticLambda2;-><init>(Landroidx/compose/ui/Modifier;II)V
 Lcom/mshdabiola/main/MainScreenKt$MainScreen$3;
 HSPLcom/mshdabiola/main/MainScreenKt$MainScreen$3;-><init>(Lkotlin/jvm/functions/Function1;)V
 HSPLcom/mshdabiola/main/MainScreenKt$MainScreen$3;->invoke(Landroidx/compose/runtime/Composer;I)V
@@ -15303,14 +15304,14 @@ HSPLcom/mshdabiola/skeletonandroid/navigation/TopLevelDestination;-><clinit>()V
 HSPLcom/mshdabiola/skeletonandroid/navigation/TopLevelDestination;-><init>(Ljava/lang/String;ILandroidx/compose/ui/graphics/vector/ImageVector;Landroidx/compose/ui/graphics/vector/ImageVector;II)V
 HSPLcom/mshdabiola/skeletonandroid/navigation/TopLevelDestination;->getEntries()Lkotlin/enums/EnumEntries;
 Lcom/mshdabiola/skeletonandroid/ui/SkAppKt;
-HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->$r8$lambda$aSs_eO8W4oUMFsU4zahGRIq2zPw(Lcom/mshdabiola/skeletonandroid/ui/SkAppState;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/adaptive/WindowAdaptiveInfo;IILandroidx/compose/runtime/Composer;I)Lkotlin/Unit;
-HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->$r8$lambda$bOSnyFg-i86S7tnPPNyRIS9LqUo()Landroidx/compose/runtime/MutableState;
+HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->$r8$lambda$1OFZfmcdB64mL9VR2WZ_er6xraQ()Landroidx/compose/runtime/MutableState;
+HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->$r8$lambda$Sz-T-uYJtEPABEv_HfQ4b2GAHs4(Lcom/mshdabiola/skeletonandroid/ui/SkAppState;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/adaptive/WindowAdaptiveInfo;IILandroidx/compose/runtime/Composer;I)Lkotlin/Unit;
 HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->NiaApp(Lcom/mshdabiola/skeletonandroid/ui/SkAppState;Landroidx/compose/material3/SnackbarHostState;ZLkotlin/jvm/functions/Function0;Lkotlin/jvm/functions/Function0;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/adaptive/WindowAdaptiveInfo;Landroidx/compose/runtime/Composer;II)V
-HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->SkApp$lambda$0()Landroidx/compose/runtime/MutableState;
-HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->SkApp$lambda$1(Landroidx/compose/runtime/MutableState;)Z
-HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->SkApp$lambda$3(Lcom/mshdabiola/skeletonandroid/ui/SkAppState;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/adaptive/WindowAdaptiveInfo;IILandroidx/compose/runtime/Composer;I)Lkotlin/Unit;
+HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->SkApp$lambda$1$lambda$0()Landroidx/compose/runtime/MutableState;
+HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->SkApp$lambda$2(Landroidx/compose/runtime/MutableState;)Z
+HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->SkApp$lambda$4(Lcom/mshdabiola/skeletonandroid/ui/SkAppState;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/adaptive/WindowAdaptiveInfo;IILandroidx/compose/runtime/Composer;I)Lkotlin/Unit;
 HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->SkApp(Lcom/mshdabiola/skeletonandroid/ui/SkAppState;Landroidx/compose/ui/Modifier;Landroidx/compose/material3/adaptive/WindowAdaptiveInfo;Landroidx/compose/runtime/Composer;II)V
-HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->access$SkApp$lambda$1(Landroidx/compose/runtime/MutableState;)Z
+HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt;->access$SkApp$lambda$2(Landroidx/compose/runtime/MutableState;)Z
 Lcom/mshdabiola/skeletonandroid/ui/SkAppKt$$ExternalSyntheticLambda0;
 HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt$$ExternalSyntheticLambda0;-><init>()V
 HSPLcom/mshdabiola/skeletonandroid/ui/SkAppKt$$ExternalSyntheticLambda0;->invoke()Ljava/lang/Object;
@@ -17433,7 +17434,6 @@ Lkotlinx/coroutines/flow/StartedLazily;
 HSPLkotlinx/coroutines/flow/StartedLazily;-><init>()V
 Lkotlinx/coroutines/flow/StartedWhileSubscribed;
 HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;-><init>(JJ)V
-HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;->access$getReplayExpiration$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
 HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;->access$getStopTimeout$p(Lkotlinx/coroutines/flow/StartedWhileSubscribed;)J
 HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;->command(Lkotlinx/coroutines/flow/StateFlow;)Lkotlinx/coroutines/flow/Flow;
 HSPLkotlinx/coroutines/flow/StartedWhileSubscribed;->equals(Ljava/lang/Object;)Z
