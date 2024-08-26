@@ -33,7 +33,7 @@ class TopAppBarScreenshotTests() {
     @Composable
     private fun NiaTopAppBarExample() {
         SkTopAppBar(
-            titleRes = "untitled",
+            titleRes = R.string.modules_designsystem_note,
             navigationIcon = SkIcons.Search,
             navigationIconContentDescription = "Navigation icon",
             actionIcon = SkIcons.MoreVert,
