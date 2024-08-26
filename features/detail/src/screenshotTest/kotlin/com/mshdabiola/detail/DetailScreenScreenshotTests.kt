@@ -13,6 +13,5 @@ import com.mshdabiola.testing.util.Capture
 private fun DetailScreenShot() {
     Capture {
         DetailScreen()
-
     }
 }
