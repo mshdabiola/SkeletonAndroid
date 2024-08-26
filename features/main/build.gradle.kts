@@ -6,7 +6,6 @@
 plugins {
     id("mshdabiola.android.feature")
     id("mshdabiola.android.library.compose")
-    id("mshdabiola.android.library.jacoco")
 }
 
 android {
@@ -18,9 +17,7 @@ dependencies {
     implementation(project(":modules:domain"))
 
     testImplementation(libs.hilt.android.testing)
-    testImplementation(libs.robolectric)
     testImplementation(project(":modules:testing"))
-    testImplementation(projects.modules.screenshotTesting)
 
     androidTestImplementation(project(":modules:testing"))
 }
