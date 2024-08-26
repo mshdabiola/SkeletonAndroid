@@ -39,6 +39,19 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 apply("org.jetbrains.kotlin.android")
                 apply("mshdabiola.android.lint")
                 apply( "org.jetbrains.kotlin.plugin.power-assert")
+                apply("org.jetbrains.kotlinx.kover")
+            }
+
+            extensions.configure<PowerAssertGradleExtension> {
+                functions.set(
+                    listOf(
+                        "kotlin.assert",
+                        "kotlin.test.assertTrue",
+                        "kotlin.test.assertEquals",
+                        "kotlin.test.assertNull",
+                    ),
+                )
+
             }
 
 
@@ -59,9 +72,7 @@ class AndroidLibraryConventionPlugin : Plugin<Project> {
                 configurePrintApksTask(this)
                 disableUnnecessaryAndroidTests(target)
             }
-            extensions.configure<PowerAssertGradleExtension> {
-                functions.set(listOf("kotlin.assert", "kotlin.test.assertTrue", "kotlin.test.assertEquals", "kotlin.test.assertNull"))
-            }
+
             dependencies {
                 add("testImplementation", kotlin("test"))
                 add("implementation", libs.findLibrary("androidx.tracing.ktx").get())
