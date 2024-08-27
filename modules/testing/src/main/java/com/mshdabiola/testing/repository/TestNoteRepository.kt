@@ -11,7 +11,7 @@ import kotlinx.coroutines.flow.flowOf
 
 class TestNoteRepository : NoteRepository {
 
-    private val data = MutableList(4) { index ->
+    private val data = MutableList(10) { index ->
         Note(index.toLong(), "title", "Content")
     }
     override suspend fun upsert(note: Note): Long {

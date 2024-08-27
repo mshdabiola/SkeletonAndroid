@@ -10,13 +10,10 @@ plugins {
 
     id("mshdabiola.android.application")
     id("mshdabiola.android.application.compose")
-    id("mshdabiola.android.application.jacoco")
     id("mshdabiola.android.application.flavor")
     id("mshdabiola.android.hilt")
-    id("jacoco")
 //    id("mshdabiola.android.application.firebase")
     alias(libs.plugins.baselineprofile)
-    alias(libs.plugins.roborazzi)
 
 }
 
@@ -126,9 +123,6 @@ dependencies {
     testImplementation(libs.androidx.work.testing)
     testImplementation(libs.hilt.android.testing)
 
-    testFossReliantImplementation(libs.robolectric)
-    testFossReliantImplementation(libs.roborazzi)
-    testFossReliantImplementation(projects.modules.screenshotTesting)
 
 
     androidTestImplementation(projects.modules.testing)
