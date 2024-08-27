@@ -15,6 +15,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -36,9 +37,9 @@ fun CaptureMultiTheme(
     val dynamicThemingValues = if (shouldCompareDynamicColor) listOf(true, false) else listOf(false)
     val androidThemeValues = if (shouldCompareAndroidTheme) listOf(true, false) else listOf(false)
 
-    var darkMode by mutableStateOf(true)
-    var dynamicTheming by mutableStateOf(false)
-    var androidTheme by mutableStateOf(false)
+    var darkMode by remember { mutableStateOf(true) }
+    var dynamicTheming by remember { mutableStateOf(false) }
+    var androidTheme by remember { mutableStateOf(false) }
     Column(
         modifier = Modifier,
         horizontalAlignment = Alignment.CenterHorizontally,

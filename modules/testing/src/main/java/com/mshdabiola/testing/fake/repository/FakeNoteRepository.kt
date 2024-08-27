@@ -11,8 +11,9 @@ import kotlinx.coroutines.flow.flow
 import javax.inject.Inject
 
 class FakeNoteRepository @Inject constructor() : NoteRepository {
-
-    private val data = mutableListOf<Note>()
+    private val data = MutableList(10) { index ->
+        Note(index.toLong(), "title", "Content")
+    }
     override suspend fun upsert(note: Note): Long {
         data.add(note)
         val lastIndex = data.lastIndex
