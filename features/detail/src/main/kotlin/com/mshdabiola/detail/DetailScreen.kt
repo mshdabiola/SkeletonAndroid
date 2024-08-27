@@ -8,6 +8,8 @@ import androidx.annotation.VisibleForTesting
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.input.TextFieldLineLimits
+import androidx.compose.foundation.text.input.TextFieldState
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -39,10 +41,8 @@ internal fun DetailRoute(
     DetailScreen(
         onShowSnackbar = onShowSnackbar,
         modifier = modifier,
-        title = viewModel.noteState.value.title,
-        content = viewModel.noteState.value.content,
-        onTitleChange = viewModel::onTitleChange,
-        onContentChange = viewModel::onContentChange,
+        content = viewModel.content,
+        title = viewModel.title,
         onDelete = {
             viewModel.onDelete()
             onBack()
@@ -56,10 +56,8 @@ internal fun DetailRoute(
 @Composable
 internal fun DetailScreen(
     modifier: Modifier = Modifier,
-    title: String = "",
-    content: String = "",
-    onTitleChange: (String) -> Unit = {},
-    onContentChange: (String) -> Unit = {},
+    title: TextFieldState = TextFieldState(),
+    content: TextFieldState = TextFieldState(),
     onShowSnackbar: suspend (String, String?) -> Boolean = { _, _ -> false },
     onBack: () -> Unit = {},
     onDelete: () -> Unit = {},
@@ -91,10 +89,9 @@ internal fun DetailScreen(
                 modifier = Modifier
                     .fillMaxWidth()
                     .testTag("detail:title"),
-                value = title,
-                onValueChange = onTitleChange,
+                state = title,
                 placeholder = "Title",
-                maxNum = 1,
+                maxNum = TextFieldLineLimits.SingleLine,
                 imeAction = ImeAction.Next,
             )
             SkTextField(
@@ -102,8 +99,7 @@ internal fun DetailScreen(
                     .fillMaxWidth()
                     .testTag("detail:content")
                     .weight(1f),
-                value = content,
-                onValueChange = onContentChange,
+                state = content,
                 placeholder = "content",
                 imeAction = ImeAction.Done,
                 keyboardAction = { coroutineScope.launch { onShowSnackbar("Note Update", null) } },
