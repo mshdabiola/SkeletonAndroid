@@ -1,5 +1,5 @@
 [versions]
-accompanist = "0.34.0"
+accompanist = "0.37.0"
 androidDesugarJdkLibs = "2.1.2"
 androidGradlePlugin = "8.5.2"
 androidTools = "31.7.3"
